@@ -1,4 +1,153 @@
-* {
-  box-sizing: border-box;
+body {
+  background-color: #f5f8fb;
 }
-/*# sourceMappingURL=base.css.map */
+.container-login {
+  text-align: center;
+}
+.container-login .container-login-top {
+  background-color: #ffffff;
+  box-shadow: 2px 2px 5px #f5f8fb;
+  border-radius: 10px;
+  padding-bottom: 15px;
+}
+.container-login .container-login-top h2 {
+  line-height: 60px;
+}
+.container-login .container-login-top h4 {
+  color: #95aacc;
+}
+.container-login .container-login-top .user {
+  margin-top: 20px;
+}
+.container-login .container-login-top .user input {
+  margin-bottom: 15px;
+  display: block;
+  width: 80%;
+  margin-left: 10%;
+  height: 60px;
+  border: solid 1px #95aacc;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #ebf1f7;
+}
+.container-login .container-login-top .user input:focus {
+  border-color: yellowgreen;
+}
+.container-login .container-login-top .user input:nth-child(3) {
+  background-color: yellowgreen;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.container-login .container-login-top .user input:nth-child(3):hover {
+  background-color: green;
+}
+.container-login .container-login-bottom {
+  margin-top: 20px;
+}
+.container-login .container-login-bottom span {
+  display: block;
+  margin-bottom: 10px;
+  color: #95aacc;
+}
+.container-register {
+  text-align: center;
+}
+.container-register .container-register-top {
+  background-color: #ffffff;
+  box-shadow: 2px 2px 5px #f5f8fb;
+  border-radius: 10px;
+  padding-bottom: 10px;
+}
+.container-register .container-register-top h2 {
+  line-height: 50px;
+}
+.container-register .container-register-top h4 {
+  color: #95aacc;
+}
+.container-register .container-register-top .user {
+  margin-top: 20px;
+}
+.container-register .container-register-top .user input {
+  margin-bottom: 15px;
+  display: block;
+  width: 80%;
+  margin-left: 10%;
+  height: 56px;
+  border: solid 1px #95aacc;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #ebf1f7;
+}
+.container-register .container-register-top .user input:focus {
+  border-color: yellowgreen;
+}
+.container-register .container-register-top .user input:nth-child(4) {
+  background-color: yellowgreen;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.container-register .container-register-top .user input:nth-child(4):hover {
+  background-color: green;
+}
+.container-register .container-register-bottom {
+  margin-top: 15px;
+}
+.container-register .container-register-bottom span {
+  display: block;
+  margin-bottom: 10px;
+  color: #95aacc;
+}
+.container-forget {
+  text-align: center;
+}
+.container-forget .container-forget-top {
+  background-color: #ffffff;
+  box-shadow: 2px 2px 5px #f5f8fb;
+  border-radius: 10px;
+  padding-bottom: 15px;
+}
+.container-forget .container-forget-top h2 {
+  line-height: 60px;
+}
+.container-forget .container-forget-top h4 {
+  color: #95aacc;
+}
+.container-forget .container-forget-top .user {
+  margin-top: 20px;
+}
+.container-forget .container-forget-top .user input {
+  margin-bottom: 15px;
+  display: block;
+  width: 80%;
+  margin-left: 10%;
+  height: 60px;
+  border: solid 1px #95aacc;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #ebf1f7;
+}
+.container-forget .container-forget-top .user input:focus {
+  border-color: yellowgreen;
+}
+.container-forget .container-forget-top .user input:nth-child(2) {
+  background-color: yellowgreen;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.container-forget .container-forget-top .user input:nth-child(2):hover {
+  background-color: green;
+}
+.container-forget .container-forget-bottom {
+  margin-top: 20px;
+}
+.container-forget .container-forget-bottom span {
+  display: block;
+  margin-bottom: 10px;
+  color: #95aacc;
+}
