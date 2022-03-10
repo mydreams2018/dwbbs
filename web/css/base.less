@@ -1,7 +1,10 @@
 body {
   background-color: #f5f8fb;
+  max-width: 1660px;
+  margin: 0 auto;
 }
 
+//注册 登录 重置密码
 .container-login {
   text-align: center;
 
@@ -14,9 +17,11 @@ body {
     h2 {
       line-height: 60px;
     }
-    h4{
+
+    h4 {
       color: #95aacc;
     }
+
     .user {
       margin-top: 20px;
 
@@ -32,15 +37,18 @@ body {
         font-weight: 700;
         background-color: #ebf1f7;
       }
-      input:focus{
+
+      input:focus {
         border-color: yellowgreen;
       }
+
       input:nth-child(3) {
         background-color: yellowgreen;
         font-size: 1.3rem;
         cursor: pointer;
         transition: transform 0.3s;
       }
+
       input:nth-child(3):hover {
         background-color: green;
       }
@@ -70,9 +78,11 @@ body {
     h2 {
       line-height: 50px;
     }
-    h4{
+
+    h4 {
       color: #95aacc;
     }
+
     .user {
       margin-top: 20px;
 
@@ -88,15 +98,18 @@ body {
         font-weight: 700;
         background-color: #ebf1f7;
       }
-      input:focus{
+
+      input:focus {
         border-color: yellowgreen;
       }
+
       input:nth-child(4) {
         background-color: yellowgreen;
         font-size: 1.3rem;
         cursor: pointer;
         transition: transform 0.3s;
       }
+
       input:nth-child(4):hover {
         background-color: green;
       }
@@ -126,9 +139,11 @@ body {
     h2 {
       line-height: 60px;
     }
-    h4{
+
+    h4 {
       color: #95aacc;
     }
+
     .user {
       margin-top: 20px;
 
@@ -144,15 +159,18 @@ body {
         font-weight: 700;
         background-color: #ebf1f7;
       }
-      input:focus{
+
+      input:focus {
         border-color: yellowgreen;
       }
+
       input:nth-child(2) {
         background-color: yellowgreen;
         font-size: 1.3rem;
         cursor: pointer;
         transition: transform 0.3s;
       }
+
       input:nth-child(2):hover {
         background-color: green;
       }
@@ -167,5 +185,72 @@ body {
       margin-bottom: 10px;
       color: #95aacc;
     }
+  }
+}
+
+img{
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: middle;
+}
+//用户首页开始
+.main {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+
+  .main-1 {
+    flex-grow: 0.8;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: inherit;
+    background-color: #ffffff;
+    ul{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      li{
+        height: 90px;
+        a{
+          font-size: 23px;
+        }
+        a:hover i{
+          color: #2787f5;
+        }
+      }
+      li:nth-child(7){
+         a{
+           display: inline-block;
+           border-radius: 50%;
+           overflow: hidden;
+           img{
+              max-height: 48px;
+              max-width: 48px;
+           }
+         }
+      }
+      li:nth-child(1){
+         margin-top: 60px;
+         height: 120px;
+      }
+    }
+  }
+
+  .main-3 {
+    height: inherit;
+    flex-grow: 3;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #f6f9fb;
+  }
+
+  .main-6 {
+    height: inherit;
+    flex-grow: 6;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #ffffff;
   }
 }
