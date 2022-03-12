@@ -10,7 +10,6 @@ input{
 }
 a{
   text-decoration: none;
-  color: #95aacc;
 }
 .scollbox::-webkit-scrollbar {
   width: 1px;
