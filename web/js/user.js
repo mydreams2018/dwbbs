@@ -8,3 +8,11 @@ function heightCenterLength() {
     document.getElementById("userMain").style.height=currentHeight-6+"px";
 };
 heightCenterLength();
+
+function searchColor(num) {
+    if(num){
+        document.getElementById("bi-search").style.color="tomato";
+    }else {
+        document.getElementById("bi-search").style.color="black";
+    }
+}

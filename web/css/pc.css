@@ -6,6 +6,7 @@
 }
 .main .main-1 {
   flex-grow: 0.8;
+  max-width: 10%;
   overflow-y: auto;
   overflow-x: hidden;
   height: inherit;
@@ -41,13 +42,166 @@
 .main .main-3 {
   height: inherit;
   flex-grow: 3;
+  max-width: 35%;
   overflow-y: auto;
   overflow-x: hidden;
   background-color: #f6f9fb;
 }
+.main .main-3 .cneter {
+  width: 80%;
+  margin: 0 auto;
+}
+.main .main-3 .subchats .subTitle {
+  position: relative;
+}
+.main .main-3 .subchats .subTitle h2 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.main .main-3 .subchats .subTitle i {
+  position: absolute;
+  left: 5px;
+  bottom: 19px;
+  font-size: 18px;
+}
+.main .main-3 .subchats .subTitle input {
+  width: 100%;
+  height: 56px;
+  border-radius: 20px;
+  background-color: #ebf1f7;
+  text-indent: 2.5em;
+}
+.main .main-3 .subchats .subContent {
+  margin-top: 20px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  position: relative;
+}
+.main .main-3 .subchats .subContent .group {
+  width: 90%;
+  margin: 0px auto;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.main .main-3 .subchats .subContent .group .group-left {
+  text-align: center;
+  flex: 1;
+  overflow: hidden;
+}
+.main .main-3 .subchats .subContent .group .group-left img {
+  border-radius: 50%;
+  max-height: 56px;
+  transition: transform 0.5s;
+}
+.main .main-3 .subchats .subContent .group .group-left:hover > img {
+  transform: scale(1.1);
+}
+.main .main-3 .subchats .subContent .group .group-right {
+  flex: 4;
+}
+.main .main-3 .subchats .subContent .group .group-right .msg-title {
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.main .main-3 .subchats .subContent .group .group-right .msg-title .username {
+  float: left;
+}
+.main .main-3 .subchats .subContent .group .group-right .msg-title .lasttime {
+  float: right;
+  font-size: 13px;
+  color: darkgray;
+}
+.main .main-3 .subchats .subContent .group .group-right .msg-con {
+  font-size: 13px;
+  padding-left: 10px;
+  cursor: pointer;
+}
+.main .main-3 .subchats .subContent .bottom {
+  width: 90%;
+  margin: 0px auto;
+  border-top: solid 3px #f5f8fb;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.main .main-3 .subchats .subContent .bottom ul {
+  overflow: hidden;
+  line-height: 50px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+}
+.main .main-3 .subchats .subContent .bottom li:nth-child(1) {
+  flex: 2;
+  max-width: 20%;
+}
+.main .main-3 .subchats .subContent .bottom li:nth-child(1) img {
+  max-height: 46px;
+  transition: transform 0.5s;
+}
+.main .main-3 .subchats .subContent .bottom li:nth-child(1):hover img {
+  transform: scale(1.1);
+}
+.main .main-3 .subchats .subContent .bottom li:nth-child(2) {
+  font-size: 13px;
+  flex: 3;
+  max-width: 30%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+.main .main-3 .subchats .subContent .bottom li:nth-child(3) {
+  flex: 5;
+  max-width: 50%;
+  position: relative;
+}
+.main .main-3 .subchats .subContent .bottom li:nth-child(3) img {
+  max-height: 36px;
+  position: absolute;
+  border-radius: 50%;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+}
+.main .main-3 .subchats .subContent .bottom li:nth-child(3) img:nth-child(1) {
+  left: 40px;
+  z-index: 1;
+}
+.main .main-3 .subchats .subContent .bottom li:nth-child(3) img:nth-child(2) {
+  left: 60px;
+  z-index: 2;
+}
+.main .main-3 .subchats .subContent .bottom li:nth-child(3) img:nth-child(3) {
+  left: 80px;
+  z-index: 3;
+}
+.main .main-3 .subchats .subContent .bottom li:nth-child(3) img:nth-child(4) {
+  left: 100px;
+  z-index: 4;
+}
+.main .main-3 .subchats .subContent .bottom li:nth-child(3) img:nth-child(5) {
+  left: 120px;
+  z-index: 5;
+}
+.main .main-3 .subchats .subContent .fixed-right {
+  position: absolute;
+  width: 26px;
+  height: 36px;
+  top: 0;
+  right: -25px;
+  font-size: 26px;
+  cursor: pointer;
+}
+.main .main-3 .subchats .subContent .fixed-right:hover {
+  background-color: turquoise;
+}
 .main .main-6 {
   height: inherit;
   flex-grow: 6;
+  max-width: 55%;
   overflow-y: auto;
   overflow-x: hidden;
   background-color: #ffffff;
