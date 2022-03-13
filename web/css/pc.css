@@ -6,7 +6,7 @@
 }
 .main .main-1 {
   flex-grow: 0.8;
-  max-width: 10%;
+  max-width: 8%;
   overflow-y: auto;
   overflow-x: hidden;
   height: inherit;
@@ -41,8 +41,8 @@
 }
 .main .main-3 {
   height: inherit;
-  flex-grow: 3;
-  max-width: 35%;
+  flex-grow: 3.2;
+  max-width: 32%;
   overflow-y: auto;
   overflow-x: hidden;
   background-color: #f6f9fb;
@@ -167,36 +167,33 @@
   bottom: 0;
 }
 .main .main-3 .subchats .subContent .bottom li:nth-child(3) img:nth-child(1) {
-  left: 40px;
+  left: 30px;
   z-index: 1;
 }
 .main .main-3 .subchats .subContent .bottom li:nth-child(3) img:nth-child(2) {
-  left: 60px;
+  left: 50px;
   z-index: 2;
 }
 .main .main-3 .subchats .subContent .bottom li:nth-child(3) img:nth-child(3) {
-  left: 80px;
+  left: 70px;
   z-index: 3;
 }
 .main .main-3 .subchats .subContent .bottom li:nth-child(3) img:nth-child(4) {
-  left: 100px;
+  left: 90px;
   z-index: 4;
 }
 .main .main-3 .subchats .subContent .bottom li:nth-child(3) img:nth-child(5) {
-  left: 120px;
+  left: 110px;
   z-index: 5;
 }
 .main .main-3 .subchats .subContent .fixed-right {
   position: absolute;
-  width: 26px;
-  height: 36px;
   top: 0;
-  right: -25px;
-  font-size: 26px;
+  right: -15px;
   cursor: pointer;
 }
 .main .main-3 .subchats .subContent .fixed-right:hover {
-  background-color: turquoise;
+  color: turquoise;
 }
 .main .main-3 .addchats .subTitle {
   position: relative;
@@ -241,8 +238,15 @@
   border-radius: 50%;
 }
 .main .main-3 .addchats .subPeople .people li:nth-child(2) {
+  text-align: start;
   flex: 5;
   max-width: 50%;
+}
+.main .main-3 .addchats .subPeople .people li:nth-child(2) h3 {
+  font-size: 14px;
+}
+.main .main-3 .addchats .subPeople .people li:nth-child(2) span {
+  font-size: 12px;
 }
 .main .main-3 .addchats .subPeople .people li:nth-child(3) {
   flex: 2;
@@ -254,11 +258,26 @@
   height: 60px;
   background-color: #2787f5;
   border-radius: 10px;
+  cursor: pointer;
+}
+.main .main-3 .addchats .fixedBottom span {
+  float: left;
+  line-height: 60px;
+  margin-left: 10px;
+}
+.main .main-3 .addchats .fixedBottom i {
+  float: right;
+  line-height: 60px;
+  font-size: 20px;
+  margin-right: 10px;
+}
+.main .main-3 .addchats .fixedBottom:hover {
+  filter: hue-rotate(30deg);
 }
 .main .main-6 {
   height: inherit;
   flex-grow: 6;
-  max-width: 55%;
+  max-width: 60%;
   overflow-y: auto;
   overflow-x: hidden;
   background-color: #ffffff;

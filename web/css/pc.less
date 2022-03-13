@@ -7,7 +7,7 @@
 
   .main-1 {
     flex-grow: 0.8;
-    max-width: 10%;
+    max-width: 8%;
     overflow-y: auto;
     overflow-x: hidden;
     height: inherit;
@@ -45,8 +45,8 @@
 
   .main-3 {
     height: inherit;
-    flex-grow: 3;
-    max-width: 35%;
+    flex-grow: 3.2;
+    max-width: 32%;
     overflow-y: auto;
     overflow-x: hidden;
     background-color: #f6f9fb;
@@ -170,23 +170,23 @@
                 bottom: 0;
               }
               img:nth-child(1){
-                 left: 40px;
+                 left: 30px;
                 z-index: 1;
               }
               img:nth-child(2){
-                left: 60px;
+                left: 50px;
                 z-index: 2;
               }
               img:nth-child(3){
-                left: 80px;
+                left: 70px;
                 z-index: 3;
               }
               img:nth-child(4){
-                left: 100px;
+                left: 90px;
                 z-index: 4;
               }
               img:nth-child(5){
-                left: 120px;
+                left: 110px;
                 z-index: 5;
               }
             }
@@ -194,14 +194,11 @@
         }
         .fixed-right{
           position: absolute;
-          width: 26px;
-          height: 36px;
           top: 0;
-          right: -25px;
-          font-size: 26px;
+          right: -15px;
           cursor: pointer;
           &:hover{
-            background-color: turquoise;
+            color: turquoise;
           }
         }
       }
@@ -251,8 +248,15 @@
             }
           }
           li:nth-child(2){
+            text-align: start;
             flex: 5;
             max-width: 50%;
+            h3{
+              font-size: 14px;
+            }
+            span{
+              font-size: 12px;
+            }
           }
           li:nth-child(3){
             flex: 2;
@@ -267,6 +271,21 @@
         height: 60px;
         background-color: #2787f5;
         border-radius: 10px;
+        cursor: pointer;
+        span{
+          float: left;
+          line-height: 60px;
+          margin-left: 10px;
+        }
+        i{
+          float: right;
+          line-height: 60px;
+          font-size: 20px;
+          margin-right: 10px;
+        }
+        &:hover{
+          filter: hue-rotate(30deg);
+        }
       }
 
     }
@@ -275,7 +294,7 @@
   .main-6 {
     height: inherit;
     flex-grow: 6;
-    max-width: 55%;
+    max-width: 60%;
     overflow-y: auto;
     overflow-x: hidden;
     background-color: #ffffff;
