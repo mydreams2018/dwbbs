@@ -29,6 +29,13 @@ function searchColoradd(num) {
         document.getElementById("add-bi-search").style.color="black";
     }
 }
+function searchColorFeiends(num) {
+    if(num){
+        document.getElementById("fre-bi-search").style.color="tomato";
+    }else {
+        document.getElementById("fre-bi-search").style.color="black";
+    }
+}
 
 document.onreadystatechange = function () {
     if (document.readyState == "complete") {
@@ -39,4 +46,14 @@ document.onreadystatechange = function () {
 }
 document.addEventListener('readystatechange', event => {
     console.log(event.target.readyState);
+});
+
+//全局的click事件 再根据当前元素ID处理
+document.addEventListener('click', event => {
+    let id = event.path[0].id;
+    if("editFixedChange" == id){
+        document.getElementById("editFixed").style.display="block";
+    }else{
+        document.getElementById("editFixed").style.display="none";
+    }
 });

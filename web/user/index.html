@@ -37,7 +37,7 @@
                 </ul>
         </div>
         <div class="main-3 scollbox">
-            <div class="cneter subchats">
+            <div style="display: none" class="cneter subchats">
 
                 <div class="subTitle">
                     <h2>Chats</h2>
@@ -304,6 +304,36 @@
                 </div>
             </div>
 
+            <div id="friends" class="cneter friends">
+                <div class="subTitle">
+                    <h2>friends</h2>
+                    <i id="fre-bi-search" class="bi-search"></i>
+                    <input onfocusout="searchColorFeiends(0)" onfocusin="searchColorFeiends(1)" type="text" placeholder="Search messages or users">
+                </div>
+
+                <div class="frePeople">
+                    <h5>a</h5>
+                    <ul class="people">
+                        <li>
+                            <img src="https://offsetcode.com/themes/messenger/2.1.0/assets/img/avatars/6.jpg">
+                        </li>
+                        <li>
+                            <h3>Marshall How</h3>
+                            <span>2010-11-09</span>
+                        </li>
+                        <li>
+                            <i id="editFixedChange" class="bi-three-dots-vertical"></i>
+                            <div id="editFixed" class="editFixed" style="display: none;">
+                                <p>add group</p>
+                                <p>new message</p>
+                                <p>delete user</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
         </div>
         <div class="main-6">
         </div>

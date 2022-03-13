@@ -191,6 +191,7 @@
   top: 0;
   right: -15px;
   cursor: pointer;
+  color: #ebf1f7;
 }
 .main .main-3 .subchats .subContent .fixed-right:hover {
   color: turquoise;
@@ -236,6 +237,10 @@
 .main .main-3 .addchats .subPeople .people li:nth-child(1) img {
   max-height: 56px;
   border-radius: 50%;
+  transition: transform 0.5s;
+}
+.main .main-3 .addchats .subPeople .people li:nth-child(1) img:hover {
+  transform: scale(1.1);
 }
 .main .main-3 .addchats .subPeople .people li:nth-child(2) {
   text-align: start;
@@ -273,6 +278,86 @@
 }
 .main .main-3 .addchats .fixedBottom:hover {
   filter: hue-rotate(30deg);
+}
+.main .main-3 .friends .subTitle {
+  position: relative;
+}
+.main .main-3 .friends .subTitle h2 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.main .main-3 .friends .subTitle i {
+  position: absolute;
+  left: 5px;
+  bottom: 19px;
+  font-size: 18px;
+}
+.main .main-3 .friends .subTitle input {
+  width: 100%;
+  height: 56px;
+  border-radius: 20px;
+  background-color: #ebf1f7;
+  text-indent: 2.5em;
+}
+.main .main-3 .friends .frePeople h5 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.main .main-3 .friends .frePeople .people {
+  margin-bottom: 15px;
+  text-align: center;
+  border-radius: 20px;
+  background-color: #ffffff;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.main .main-3 .friends .frePeople .people li:nth-child(1) {
+  flex: 3;
+  max-width: 30%;
+}
+.main .main-3 .friends .frePeople .people li:nth-child(1) img {
+  max-height: 56px;
+  border-radius: 50%;
+  transition: transform 0.5s;
+}
+.main .main-3 .friends .frePeople .people li:nth-child(1) img:hover {
+  transform: scale(1.1);
+}
+.main .main-3 .friends .frePeople .people li:nth-child(2) {
+  text-align: start;
+  flex: 5;
+  max-width: 50%;
+}
+.main .main-3 .friends .frePeople .people li:nth-child(2) h3 {
+  font-size: 14px;
+}
+.main .main-3 .friends .frePeople .people li:nth-child(2) span {
+  font-size: 12px;
+}
+.main .main-3 .friends .frePeople .people li:nth-child(3) {
+  flex: 2;
+  max-width: 20%;
+  position: relative;
+  cursor: pointer;
+}
+.main .main-3 .friends .frePeople .people li:nth-child(3) .editFixed {
+  position: absolute;
+  right: 27px;
+  bottom: -90px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.main .main-3 .friends .frePeople .people li:nth-child(3) .editFixed p {
+  width: 120px;
+  line-height: 30px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.main .main-3 .friends .frePeople .people li:nth-child(3) .editFixed p:hover {
+  background-color: gray;
 }
 .main .main-6 {
   height: inherit;
