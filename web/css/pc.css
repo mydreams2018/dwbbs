@@ -344,20 +344,25 @@
 }
 .main .main-3 .friends .frePeople .people li:nth-child(3) .editFixed {
   position: absolute;
-  right: 27px;
-  bottom: -90px;
-  background-color: #ffffff;
+  right: 20px;
+  bottom: -110px;
+  border: dashed 1px green;
   border-radius: 10px;
   cursor: pointer;
 }
+.main .main-3 .friends .frePeople .people li:nth-child(3) .editFixed span {
+  display: block;
+  line-height: 20px;
+  border-top: solid 1px green;
+}
 .main .main-3 .friends .frePeople .people li:nth-child(3) .editFixed p {
   width: 120px;
-  line-height: 30px;
+  line-height: 36px;
   border-radius: 10px;
   overflow: hidden;
 }
 .main .main-3 .friends .frePeople .people li:nth-child(3) .editFixed p:hover {
-  background-color: gray;
+  background-color: yellowgreen;
 }
 .main .main-6 {
   height: inherit;
