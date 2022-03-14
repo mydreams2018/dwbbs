@@ -344,6 +344,7 @@
 }
 .main .main-3 .friends .frePeople .people li:nth-child(3) .editFixed {
   position: absolute;
+  z-index: 6;
   right: 20px;
   bottom: -110px;
   border: dashed 1px green;
