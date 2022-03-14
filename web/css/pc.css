@@ -364,6 +364,9 @@
 .main .main-3 .friends .frePeople .people li:nth-child(3) .editFixed p:hover {
   background-color: yellowgreen;
 }
+.main .main-3 .friends .frePeople .people li:nth-child(3) .editFixed .delete-red:hover {
+  background-color: red;
+}
 .main .main-6 {
   height: inherit;
   flex-grow: 6;
