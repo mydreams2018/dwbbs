@@ -51,7 +51,7 @@
     overflow-x: hidden;
     background-color: #f6f9fb;
     .cneter{
-      width: 80%;
+      width: 86%;
       margin: 0 auto;
     }
 
@@ -382,6 +382,97 @@
               }
               .delete-red:hover{
                 background-color: red;
+              }
+            }
+          }
+        }
+      }
+    }
+    .notifications{
+      .subTitle{
+        position: relative;
+        h2{
+          padding-top: 20px;
+          padding-bottom: 20px;
+        }
+        i{
+          position: absolute;
+          left: 5px;
+          bottom: 19px;
+          font-size: 18px;
+        }
+        input{
+          width: 100%;
+          height: 56px;
+          border-radius: 20px;
+          background-color: #ebf1f7;
+          text-indent: 2.5em;
+        }
+      }
+
+      .subcon{
+        .subcon-title{
+          line-height: 58px;
+          overflow: hidden;
+          padding-left: 15px;
+          padding-right: 15px;
+          span:nth-child(1){
+            float: left;
+          }
+          span:nth-child(2){
+            float: right;
+          }
+        }
+
+        .subcon-text{
+          margin-bottom: 15px;
+          display: flex;
+          flex-direction: row;
+          .tleft{
+            flex: 2;
+            max-width: 20%;
+            img{
+              border-radius: 50%;
+            }
+          }
+          .tcenter{
+            margin-left: 1em;
+            flex: 6;
+            max-width: 60%;
+            h3{
+              font-size: 16px;
+              line-height: 25px;
+            }
+            p{
+              font-size: 13px;
+            }
+          }
+          .tright{
+            position: relative;
+            text-align: right;
+            flex: 2;
+            max-width: 20%;
+            p{
+              font-size: 13px;
+              line-height: 25px;
+            }
+            i{
+              font-size: 22px;
+              cursor: pointer;
+            }
+            ul{
+              background-color: #ffffff;
+              border-radius: 10px;
+              position: absolute;
+              right: 0;
+              top: 0;
+              text-align: center;
+              li{
+                line-height: 36px;
+                width: 100px;
+                &:hover{
+                  background-color: grey;
+                }
               }
             }
           }

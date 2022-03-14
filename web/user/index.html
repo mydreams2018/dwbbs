@@ -304,7 +304,7 @@
                 </div>
             </div>
 
-            <div id="friends" class="cneter friends">
+            <div id="friends" style="display: none" class="cneter friends">
                 <div class="subTitle">
                     <h2>friends</h2>
                     <i id="fre-bi-search" class="bi-search"></i>
@@ -322,8 +322,8 @@
                             <span>2010-11-09</span>
                         </li>
                         <li>
-                            <i id="editFixedChange" class="bi-three-dots-vertical"></i>
-                            <div id="editFixed" class="editFixed" style="display: none;">
+                            <i data-id="editFixed1" class="bi-three-dots-vertical"></i>
+                            <div id="editFixed1" class="editFixed noClickdis-none" style="display: none;">
                                 <p>add group</p>
                                 <p>new message</p>
                                 <span></span>
@@ -335,6 +335,44 @@
                 </div>
 
             </div>
+        <!--   好友 通知 start    -->
+            <div class="cneter notifications">
+
+                <div class="subTitle">
+                    <h2>Notifications</h2>
+                    <i id="notifications-search" class="bi-search"></i>
+                    <input type="text" placeholder="Search messages or users">
+                </div>
+
+                <div class="subcon">
+                    <div class="subcon-title">
+                        <span>Today</span>
+                        <span><a href="#">Clear all</a></span>
+                    </div>
+
+                    <div class="subcon-text">
+                        <div class="tleft">
+                            <img src="https://websitefiler.com/wp-content/uploads/baidu.com_.png">
+                        </div>
+                        <div class="tcenter">
+                            <h3>Mila White</h3>
+                            <p>Send you a friend request fsdsdf...</p>
+                        </div>
+                        <div class="tright">
+                            <p>08:45 PM</p>
+                            <i data-id="tright-fixed-1" class="bi-three-dots"></i>
+                            <ul id="tright-fixed-1" class="noClickdis-none" style="display: none">
+                                <li>answer</li>
+                                <li>accept</li>
+                                <li>delete</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <!--   好友 通知 end    -->
         </div>
         <div class="main-6">
         </div>

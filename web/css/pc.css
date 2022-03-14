@@ -48,7 +48,7 @@
   background-color: #f6f9fb;
 }
 .main .main-3 .cneter {
-  width: 80%;
+  width: 86%;
   margin: 0 auto;
 }
 .main .main-3 .subchats .subTitle {
@@ -366,6 +366,91 @@
 }
 .main .main-3 .friends .frePeople .people li:nth-child(3) .editFixed .delete-red:hover {
   background-color: red;
+}
+.main .main-3 .notifications .subTitle {
+  position: relative;
+}
+.main .main-3 .notifications .subTitle h2 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.main .main-3 .notifications .subTitle i {
+  position: absolute;
+  left: 5px;
+  bottom: 19px;
+  font-size: 18px;
+}
+.main .main-3 .notifications .subTitle input {
+  width: 100%;
+  height: 56px;
+  border-radius: 20px;
+  background-color: #ebf1f7;
+  text-indent: 2.5em;
+}
+.main .main-3 .notifications .subcon .subcon-title {
+  line-height: 58px;
+  overflow: hidden;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.main .main-3 .notifications .subcon .subcon-title span:nth-child(1) {
+  float: left;
+}
+.main .main-3 .notifications .subcon .subcon-title span:nth-child(2) {
+  float: right;
+}
+.main .main-3 .notifications .subcon .subcon-text {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+}
+.main .main-3 .notifications .subcon .subcon-text .tleft {
+  flex: 2;
+  max-width: 20%;
+}
+.main .main-3 .notifications .subcon .subcon-text .tleft img {
+  border-radius: 50%;
+}
+.main .main-3 .notifications .subcon .subcon-text .tcenter {
+  margin-left: 1em;
+  flex: 6;
+  max-width: 60%;
+}
+.main .main-3 .notifications .subcon .subcon-text .tcenter h3 {
+  font-size: 16px;
+  line-height: 25px;
+}
+.main .main-3 .notifications .subcon .subcon-text .tcenter p {
+  font-size: 13px;
+}
+.main .main-3 .notifications .subcon .subcon-text .tright {
+  position: relative;
+  text-align: right;
+  flex: 2;
+  max-width: 20%;
+}
+.main .main-3 .notifications .subcon .subcon-text .tright p {
+  font-size: 13px;
+  line-height: 25px;
+}
+.main .main-3 .notifications .subcon .subcon-text .tright i {
+  font-size: 22px;
+  cursor: pointer;
+}
+.main .main-3 .notifications .subcon .subcon-text .tright ul {
+  background-color: #ffffff;
+  border-radius: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  text-align: center;
+}
+.main .main-3 .notifications .subcon .subcon-text .tright ul li {
+  line-height: 36px;
+  width: 100px;
+}
+.main .main-3 .notifications .subcon .subcon-text .tright ul li:hover {
+  background-color: grey;
 }
 .main .main-6 {
   height: inherit;

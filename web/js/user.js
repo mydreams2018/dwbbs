@@ -50,10 +50,17 @@ document.addEventListener('readystatechange', event => {
 
 //全局的click事件 再根据当前元素ID处理
 document.addEventListener('click', event => {
-    let id = event.path[0].id;
-    if("editFixedChange" == id){
-        document.getElementById("editFixed").style.display="block";
-    }else{
-        document.getElementById("editFixed").style.display="none";
+    let elementsByClassName = document.getElementsByClassName("noClickdis-none");
+    for (let paragraph of elementsByClassName) {
+        paragraph.style.display="none";
+    }
+
+    let dataId = event.path[0].getAttribute("data-id");
+    if(dataId && dataId.includes("editFixed")){
+        document.getElementById(dataId).style.display="block";
+    }else if(dataId && dataId.includes("tright-fixed")){
+        document.getElementById(dataId).style.display="block";
+        let number = event.path[0].getBoundingClientRect().top - event.path[1].getBoundingClientRect().top;
+        document.getElementById(dataId).style.top=number+"px";
     }
 });
