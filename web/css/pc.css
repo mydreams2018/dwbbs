@@ -26,12 +26,12 @@
 .main .main-1 ul li a:hover i {
   color: #2787f5;
 }
-.main .main-1 ul li:nth-child(7) a {
+.main .main-1 ul li:nth-child(6) a {
   display: inline-block;
   border-radius: 50%;
   overflow: hidden;
 }
-.main .main-1 ul li:nth-child(7) a img {
+.main .main-1 ul li:nth-child(6) a img {
   max-height: 48px;
   max-width: 48px;
 }
