@@ -47,7 +47,34 @@ document.onreadystatechange = function () {
 document.addEventListener('readystatechange', event => {
     console.log(event.target.readyState);
 });
-
+function handleFiles() {
+    if (!this.files.length){
+       console.log("没有选择文件");
+    } else {
+        for (let i = 0; i < this.files.length; i++){
+            const img = document.createElement("img");
+            img.src = URL.createObjectURL(this.files[i]);
+            img.onload = function() {
+                URL.revokeObjectURL(this.src);
+            }
+            console.log(this.files[i]);
+            document.getElementById("img-select").src=img.src;
+            document.getElementById("img-select").onload = function() {
+                URL.revokeObjectURL(this.src);
+            }
+        }
+    }
+}
+const fileElem = document.getElementById("fileInput");
+fileElem.addEventListener("change", handleFiles, false);
+document.getElementById("fileUserImg").addEventListener("click", function (e) {
+    if(fileElem){
+        fileElem.click();
+    }
+    e.preventDefault();
+}, false);
+var m1IDS = ["m1-create-chart","m1-friends","m1-charts","m1-notifications","m1-settings"];
+var m3IDS = ["addchats","friends","m1Charts","m1Notifications","m1Settings"];
 //全局的click事件 再根据当前元素ID处理
 document.addEventListener('click', event => {
     let elementsByClassName = document.getElementsByClassName("noClickdis-none");
@@ -62,5 +89,16 @@ document.addEventListener('click', event => {
         document.getElementById(dataId).style.display="block";
         let number = event.path[0].getBoundingClientRect().top - event.path[1].getBoundingClientRect().top;
         document.getElementById(dataId).style.top=number+"px";
+    }
+    //main-1 的图标切换功能
+    let mid = event.path[0].id;
+    if(m1IDS.includes(mid)){
+        for (let xi of m3IDS) {
+            document.getElementById(xi).style.display="none";
+        }
+        document.getElementById(m3IDS[m1IDS.indexOf(mid)]).style.display="block";
+        if(mid=="m1-create-chart"){
+            fixedBottom();
+        }
     }
 });

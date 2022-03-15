@@ -480,6 +480,44 @@
         }
       }
     }
+    .settings{
+       h2{
+         margin-top: 15px;
+         margin-bottom: 15px;
+       }
+      .img-change{
+        padding: 10px;
+        background-color: #ffffff;
+        border-radius: 20px;
+        ul{
+          display: flex;
+          flex-direction: row;
+          li:nth-child(1){
+            flex: 4;
+            max-width: 40%;
+            img{
+              border-radius: 50%;
+              max-height: 66px;
+            }
+          }
+          li:nth-child(2){
+            cursor: pointer;
+            flex: 6;
+            max-width: 60%;
+            display: flex;
+            flex-direction: row;
+            align-self: center;
+            justify-content: center;
+            i{
+              font-size: 28px;
+            }
+          }
+          li:nth-child(2):hover{
+            color: turquoise;
+          }
+        }
+      }
+    }
   }
 
   .main-6 {

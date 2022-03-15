@@ -27,16 +27,16 @@
 
         <div class="main-1 scollbox">
                 <ul>
-                    <li class="create-chart"><a href="#"><i class="bi-people" title="添加好友"></i></a></li>
-                    <li class="friends"><a href="#"><i class="bi-people-fill" title="现有好友"></i></a></li>
-                    <li class="charts"><a href="#"><i class="bi-chat-dots" title="信息"></i></a></li>
-                    <li class="notifications"><a href="#"><i class="bi-bell" title="好友申请"></i></a></li>
-                    <li class="settings"><a href="#"><i class="bi-tools" title="设置"></i></a></li>
+                    <li class="create-chart"><a href="#"><i id="m1-create-chart" class="bi-people" title="添加好友"></i></a></li>
+                    <li class="friends"><a href="#"><i id="m1-friends" class="bi-people-fill" title="现有好友"></i></a></li>
+                    <li class="charts"><a href="#"><i id="m1-charts" class="bi-chat-dots" title="信息"></i></a></li>
+                    <li class="notifications"><a href="#"><i id="m1-notifications" class="bi-bell" title="好友申请"></i></a></li>
+                    <li class="settings"><a href="#"><i id="m1-settings" class="bi-tools" title="设置"></i></a></li>
                     <li class="edit-user"><a href="#"><img src="../favicon.ico" title="用户"></a></li>
                 </ul>
         </div>
         <div class="main-3 scollbox">
-            <div style="display: none" class="cneter subchats">
+            <div id="m1Charts" class="cneter subchats">
 
                 <div class="subTitle">
                     <h2>Chats</h2>
@@ -335,7 +335,7 @@
 
             </div>
         <!--   好友 通知 start    -->
-            <div class="cneter notifications">
+            <div id="m1Notifications" style="display: none" class="cneter notifications">
 
                 <div class="subTitle">
                     <h2>Notifications</h2>
@@ -372,6 +372,22 @@
 
             </div>
             <!--   好友 通知 end    -->
+            <div id="m1Settings" style="display: none" class="cneter settings">
+                <h2>Settings</h2>
+                <div class="img-change">
+                    <ul title="更换图片">
+                        <li><img id="img-select" src="https://offsetcode.com/themes/messenger/2.1.0/assets/img/avatars/1.jpg"></li>
+                        <li id="fileUserImg">
+                            <i class="bi-image"></i>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+                <input style="display:none" id="fileInput" accept="image/*" type="file">
+            </div>
+            <!--   settings end  -->
         </div>
         <div class="main-6">
         </div>
