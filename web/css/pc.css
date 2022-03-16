@@ -342,11 +342,12 @@
   cursor: pointer;
 }
 .main .main-3 .friends .frePeople .people li:nth-child(3) .editFixed {
+  font-size: 13px;
   position: absolute;
   z-index: 6;
   right: 20px;
-  bottom: -110px;
-  border: dashed 1px green;
+  bottom: -95px;
+  border: solid 1px green;
   border-radius: 10px;
   cursor: pointer;
 }
@@ -356,8 +357,8 @@
   border-top: solid 1px green;
 }
 .main .main-3 .friends .frePeople .people li:nth-child(3) .editFixed p {
-  width: 120px;
-  line-height: 36px;
+  width: 95px;
+  line-height: 30px;
   border-radius: 10px;
   overflow: hidden;
 }
@@ -438,6 +439,7 @@
   cursor: pointer;
 }
 .main .main-3 .notifications .subcon .subcon-text .tright ul {
+  font-size: 13px;
   background-color: #ffffff;
   border-radius: 10px;
   position: absolute;
@@ -446,11 +448,15 @@
   text-align: center;
 }
 .main .main-3 .notifications .subcon .subcon-text .tright ul li {
-  line-height: 36px;
-  width: 100px;
+  line-height: 30px;
+  width: 80px;
 }
 .main .main-3 .notifications .subcon .subcon-text .tright ul li:hover {
   background-color: grey;
+  border-radius: 10px;
+}
+.main .main-3 .notifications .subcon .subcon-text .tright ul li:nth-child(3):hover {
+  background-color: red;
 }
 .main .main-3 .settings h2 {
   margin-top: 15px;
@@ -538,19 +544,25 @@
 }
 .main .main-3 .settings .account-change .account-setting .account-setting-bottom ul li input {
   line-height: 60px;
-  text-indent: 1em;
-  background-color: #a0b3ce;
+  background-color: #ebf1f7;
   width: 96%;
   border-radius: 20px;
 }
 .main .main-3 .settings .account-change .account-setting .account-setting-bottom ul li input:focus {
-  background-color: turquoise;
+  box-shadow: 0 0 5px turquoise;
 }
 .main .main-3 .settings .account-change .account-setting .account-setting-bottom ul li textarea {
-  width: 94%;
+  width: 95%;
   resize: none;
   border-radius: 10px;
   box-sizing: border-box;
+  background-color: #ebf1f7;
+}
+.main .main-3 .settings .account-change .account-setting .account-setting-bottom ul li button {
+  width: 95%;
+  line-height: 55px;
+  border-radius: 20px;
+  background-color: #2787f5;
 }
 .main .main-6 {
   height: inherit;
