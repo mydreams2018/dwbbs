@@ -144,7 +144,7 @@
   transform: scale(1.1);
 }
 .main .main-3 .subchats .subContent .bottom li:nth-child(2) {
-  font-size: 13px;
+  font-size: 12px;
   flex: 3;
   max-width: 30%;
   white-space: nowrap;
