@@ -101,4 +101,13 @@ document.addEventListener('click', event => {
             fixedBottom();
         }
     }
+    //切换设置 显示隐藏
+    if(mid=="account-bt-toggle"){
+        let display = document.getElementById("accountSettingBottom").style.display;
+        if("none"==display){
+            document.getElementById("accountSettingBottom").style.display="block";
+        }else{
+            document.getElementById("accountSettingBottom").style.display="none";
+        }
+    }
 });

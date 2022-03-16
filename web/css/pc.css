@@ -488,6 +488,70 @@
 .main .main-3 .settings .img-change ul li:nth-child(2):hover {
   color: turquoise;
 }
+.main .main-3 .settings .account-change {
+  margin-top: 15px;
+}
+.main .main-3 .settings .account-change h3 {
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+.main .main-3 .settings .account-change .account-setting {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+.main .main-3 .settings .account-change .account-setting .account-setting-left {
+  width: 68%;
+  float: left;
+}
+.main .main-3 .settings .account-change .account-setting .account-setting-left p:nth-child(1) {
+  font-size: 16px;
+  padding-bottom: 10px;
+}
+.main .main-3 .settings .account-change .account-setting .account-setting-left p:nth-child(2) {
+  font-size: 13px;
+  color: #95aac9;
+}
+.main .main-3 .settings .account-change .account-setting .account-setting-right {
+  width: 28%;
+  float: right;
+  text-align: center;
+  font-size: 18px;
+}
+.main .main-3 .settings .account-change .account-setting .account-setting-right i:hover {
+  cursor: pointer;
+  color: yellowgreen;
+}
+.main .main-3 .settings .account-change .account-setting .account-setting-bottom {
+  clear: left;
+  overflow: hidden;
+}
+.main .main-3 .settings .account-change .account-setting .account-setting-bottom ul {
+  margin-top: 15px;
+  border-top: solid 1px #95aac9;
+}
+.main .main-3 .settings .account-change .account-setting .account-setting-bottom ul li {
+  margin-top: 15px;
+}
+.main .main-3 .settings .account-change .account-setting .account-setting-bottom ul li input {
+  line-height: 60px;
+  text-indent: 1em;
+  background-color: #a0b3ce;
+  width: 96%;
+  border-radius: 20px;
+}
+.main .main-3 .settings .account-change .account-setting .account-setting-bottom ul li input:focus {
+  background-color: turquoise;
+}
+.main .main-3 .settings .account-change .account-setting .account-setting-bottom ul li textarea {
+  width: 94%;
+  resize: none;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
 .main .main-6 {
   height: inherit;
   flex-grow: 6;
