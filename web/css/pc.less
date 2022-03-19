@@ -623,10 +623,10 @@
     overflow: hidden;
     width: 36%;
     margin-left: 32%;
+    //撑大上级盒子高度
     margin-top: 30px;
     margin-bottom: 30px;
     position: relative;
-    height: 600px;
     background-color: aliceblue;
     box-shadow: 0 0 3px grey;
     .title{
@@ -636,6 +636,7 @@
       top: 2px;
       &:hover i{
         color: yellowgreen;
+        cursor: pointer;
       }
     }
     .cons{
@@ -645,6 +646,70 @@
           max-height: 88px;
           border-radius: 50%;
         }
+      }
+      li:nth-child(2){
+        text-align: center;
+        h3{
+          line-height: 30px;
+        }
+        padding-bottom: 15px;
+      }
+      li:nth-child(3){
+        height: 25px;
+        background-color: #95aacc;
+      }
+      li:nth-child(4){
+        margin-left: 2em;
+        margin-right: 2em;
+        position: relative;
+        h4{
+          line-height: 30px;
+        }
+        p{
+          padding-bottom: 10px;
+          font-size: 13px;
+        }
+        i{
+          z-index: 12;
+          position: absolute;
+          left: 85px;
+          top: 0px;
+          font-size: 20px;
+        }
+        border-bottom: solid 2px grey;
+      }
+      li:nth-child(5){
+        margin-left: 2em;
+        margin-right: 2em;
+        position: relative;
+        h4{
+          line-height: 30px;
+        }
+        p{
+          padding-bottom: 10px;
+          font-size: 13px;
+        }
+        i{
+          z-index: 12;
+          position: absolute;
+          left: 85px;
+          top: 0px;
+          font-size: 20px;
+        }
+        border-bottom: solid 2px grey;
+      }
+    }
+    .botm{
+      margin-top: 10px;
+      .bk-line{
+        height: 25px;
+        background-color: #95aacc;
+      }
+      a{
+        line-height: 45px;
+        color: red;
+        margin-left: 2em;
+        margin-right: 2em;
       }
     }
   }
