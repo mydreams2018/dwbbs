@@ -110,4 +110,22 @@ document.addEventListener('click', event => {
             document.getElementById("accountSettingBottom").style.display="none";
         }
     }
+    //用户详情 中心定位显示 隐藏
+    if(mid=="m1-userDetails"){
+        document.getElementById("m1UserFixed").style.display="block";
+    }else{
+        let userDetailsPlay = document.getElementById("m1UserFixed").style.display;
+        //用户详情 是否需要隐藏
+        if(userDetailsPlay != "none"){
+            let pathlength = event.path.length;
+            for(let xdt=0;xdt<pathlength;xdt++){
+                if(event.path[xdt].id=="isShowDetails"){
+                    break;
+                }
+                if(xdt==pathlength-1){
+                    document.getElementById("m1UserFixed").style.display="none";
+                }
+            }
+        }
+    }
 });

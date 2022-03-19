@@ -32,7 +32,7 @@
                     <li class="charts"><a href="#"><i id="m1-charts" class="bi-chat-dots" title="信息"></i></a></li>
                     <li class="notifications"><a href="#"><i id="m1-notifications" class="bi-bell" title="好友申请"></i></a></li>
                     <li class="settings"><a href="#"><i id="m1-settings" class="bi-tools" title="设置"></i></a></li>
-                    <li class="edit-user"><a href="#"><img src="../favicon.ico" title="用户"></a></li>
+                    <li class="edit-user"><a href="#"><img id="m1-userDetails" src="../favicon.ico" title="用户"></a></li>
                 </ul>
         </div>
         <div class="main-3 scollbox">
@@ -416,5 +416,23 @@
         <div class="main-6">
         </div>
     </section>
+
+    <div class="fullWindow" id="m1UserFixed" style="display: none">
+<!-- isShowDetails 用来判断点击是否在 这个元素内      -->
+        <div id="isShowDetails" class="user-content">
+            <div class="title">
+                <i class="bi-arrow-left-short"></i>
+            </div>
+            <ul class="cons">
+                    <li>
+                        <img src="https://offsetcode.com/themes/messenger/2.1.0/assets/img/avatars/1.jpg">
+                    </li>
+            </ul>
+            <div class="botm">
+
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
