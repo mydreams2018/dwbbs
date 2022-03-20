@@ -18,13 +18,13 @@
   align-items: center;
 }
 .main .main-1 ul li {
-  height: 90px;
+  height: 80px;
 }
 .main .main-1 ul li a {
   font-size: 23px;
 }
 .main .main-1 ul li a:hover i {
-  color: #2787f5;
+  color: #2787f5 !important;
 }
 .main .main-1 ul li:nth-child(6) a {
   display: inline-block;
@@ -36,7 +36,7 @@
   max-width: 48px;
 }
 .main .main-1 ul li:nth-child(1) {
-  margin-top: 60px;
+  margin-top: 50px;
 }
 .main .main-3 {
   height: inherit;

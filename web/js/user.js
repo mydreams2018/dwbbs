@@ -96,7 +96,11 @@ document.addEventListener('click', event => {
         for (let xi of m3IDS) {
             document.getElementById(xi).style.display="none";
         }
+        for (let xi of m1IDS) {
+            document.getElementById(xi).style.color="#95aacc";
+        }
         document.getElementById(m3IDS[m1IDS.indexOf(mid)]).style.display="block";
+        document.getElementById(mid).style.color="#2787f5";
         if(mid=="m1-create-chart"){
             fixedBottom();
         }
