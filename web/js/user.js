@@ -4,7 +4,7 @@ window.onresize= function(event) {
     fixedBottom();
 };
 function heightCenterLength() {
-    var currentHeight = document.documentElement.clientHeight;
+    let currentHeight = document.documentElement.clientHeight;
     document.getElementById("userMain").style.height=currentHeight-6+"px";
 };
 function fixedBottom() {
@@ -71,7 +71,7 @@ document.getElementById("fileUserImg").addEventListener("click", function (e) {
     if(fileElem){
         fileElem.click();
     }
-    e.preventDefault();
+    e.stopPropagation();
 }, false);
 var m1IDS = ["m1-create-chart","m1-friends","m1-charts","m1-notifications","m1-settings"];
 var m3IDS = ["addchats","friends","m1Charts","m1Notifications","m1Settings"];
@@ -133,3 +133,24 @@ document.addEventListener('click', event => {
         }
     }
 });
+//全局的拖拽事件
+document.addEventListener("dragover", function(event) {
+    event.preventDefault();
+}, false);
+document.addEventListener("drop", function(event) {
+    event.preventDefault();
+    if(event.path[0].id=="fileUserImg" || event.path[1].id=="fileUserImg"){
+        let files = event.dataTransfer.files;
+        if(files[0] && files[0].type.includes("image/")){
+            const img = document.createElement("img");
+            img.src = URL.createObjectURL(files[0]);
+            img.onload = function() {
+                URL.revokeObjectURL(this.src);
+            }
+            document.getElementById("img-select").src=img.src;
+            document.getElementById("img-select").onload = function() {
+                URL.revokeObjectURL(this.src);
+            }
+        }
+    }
+}, false);

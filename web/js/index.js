@@ -3,7 +3,7 @@ window.onresize=function(event) {
     heightCenter();
 };
 function heightCenter() {
-    var currentHeight = document.documentElement.clientHeight;
+    let currentHeight = document.documentElement.clientHeight;
     // var currentWidth = document.documentElement.clientWidth;
     if(currentHeight < 460){
         document.getElementById("container-login").style.top='0px';
