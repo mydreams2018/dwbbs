@@ -2,6 +2,7 @@
 window.onresize= function(event) {
     heightCenterLength();
     fixedBottom();
+    m6DefaultAutoTop();
 };
 function heightCenterLength() {
     let currentHeight = document.documentElement.clientHeight;
@@ -14,7 +15,15 @@ function fixedBottom() {
     document.getElementById("fixedBottom").style.left=left+"px";
     document.getElementById("fixedBottom").style.width=width+"px";
 }
-
+function m6DefaultAutoTop() {
+    let clientHeight = document.body.clientHeight;
+    if(clientHeight>70){
+        clientHeight = Math.floor((clientHeight -70) / 2);
+        document.getElementById("m6DefaultShow").style.marginTop=clientHeight+"px";
+    }else{
+        document.getElementById("m6DefaultShow").style.marginTop=0;
+    }
+}
 function searchColor(num) {
     if(num){
         document.getElementById("bi-search").style.color="tomato";
@@ -41,6 +50,7 @@ document.onreadystatechange = function () {
     if (document.readyState == "complete") {
         fixedBottom();
         heightCenterLength();
+        m6DefaultAutoTop();
     }
     console.log(document.readyState);
 }
@@ -153,4 +163,11 @@ document.addEventListener("drop", function(event) {
             }
         }
     }
+}, false);
+//textarea 自增加高度
+document.getElementById("message-send").addEventListener("scroll", function(event) {
+    event.path[0].style.height = event.path[0].scrollHeight+"px";
+    console.log("scroll");
+    event.preventDefault();
+    event.stopPropagation();
 }, false);

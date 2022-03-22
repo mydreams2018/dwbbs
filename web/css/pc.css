@@ -568,9 +568,116 @@
   height: inherit;
   flex-grow: 6;
   max-width: 60%;
+  overflow: hidden;
+  background-color: #ffffff;
+  position: relative;
+}
+.main .main-6 .default-show {
+  max-height: 70px;
+  text-align: center;
+  color: #bfccdf;
+}
+.main .main-6 .default-show i {
+  font-size: 20px;
+}
+.main .main-6 .chats-content-top {
+  z-index: 6;
+  position: absolute;
+  overflow: hidden;
+  left: 0;
+  top: 0;
+  height: 80px;
+  width: 96%;
+  margin-left: 2%;
+  box-sizing: border-box;
+  border-bottom: solid 2px #f5f8fb;
+}
+.main .main-6 .chats-content-top img {
+  float: left;
+  border-radius: 50%;
+  height: 60px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.main .main-6 .chats-content-top i {
+  float: right;
+  line-height: 80px;
+  max-height: 80px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.main .main-6 .chats-content-center {
+  box-sizing: border-box;
+  padding-top: 90px;
+  height: inherit;
   overflow-y: auto;
   overflow-x: hidden;
-  background-color: #ffffff;
+}
+.main .main-6 .chats-content-center p {
+  height: 100px;
+}
+.main .main-6 .chats-content-bottom {
+  position: absolute;
+  box-sizing: border-box;
+  border-radius: 20px;
+  width: 96%;
+  background-color: #a0b3ce;
+  bottom: 10px;
+  left: 0;
+  z-index: 6;
+  margin-left: 2%;
+}
+.main .main-6 .chats-content-bottom ul {
+  height: inherit;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.main .main-6 .chats-content-bottom ul li:nth-child(1) {
+  flex: 1;
+  max-width: 10%;
+  cursor: pointer;
+}
+.main .main-6 .chats-content-bottom ul li:nth-child(1) i {
+  font-size: 20px;
+  margin-left: calc(50% - 10px);
+}
+.main .main-6 .chats-content-bottom ul li:nth-child(2) {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  flex: 7;
+  max-width: 70%;
+}
+.main .main-6 .chats-content-bottom ul li:nth-child(2) textarea {
+  vertical-align: middle;
+  width: 100%;
+  height: auto;
+  resize: none;
+  outline: none;
+  letter-spacing: 1px;
+  border: none;
+  background-color: #a0b3ce;
+}
+.main .main-6 .chats-content-bottom ul li:nth-child(3) {
+  flex: 1;
+  max-width: 10%;
+  cursor: pointer;
+}
+.main .main-6 .chats-content-bottom ul li:nth-child(3) i {
+  font-size: 20px;
+  margin-left: calc(50% - 10px);
+}
+.main .main-6 .chats-content-bottom ul li:nth-child(4) {
+  flex: 1;
+  max-width: 10%;
+  cursor: pointer;
+}
+.main .main-6 .chats-content-bottom ul li:nth-child(4) i {
+  color: turquoise;
+  font-size: 26px;
+  margin-left: calc(50% - 20px);
+  transition: 0.5s;
+  overflow: hidden;
 }
 /* 上边下边 | 左边右边 margin: 0 auto;  用户弹窗 固定定位视口  */
 .fullWindow {
