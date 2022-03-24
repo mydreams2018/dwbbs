@@ -160,3 +160,20 @@ img {
   max-height: 100%;
   vertical-align: middle;
 }
+@keyframes sendAnimation {
+  0% {
+    transform: translate(-10px, 10px);
+  }
+  20% {
+    transform: translate(-5px, 5px);
+  }
+  50% {
+    transform: translate(0px, 0px);
+  }
+  70% {
+    transform: translate(5px, -5px);
+  }
+  100% {
+    transform: translate(10px, -10px);
+  }
+}
