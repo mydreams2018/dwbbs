@@ -195,6 +195,9 @@
 .main .main-3 .subchats .subContent .fixed-right:hover {
   color: turquoise;
 }
+.main .main-3 .addchats {
+  padding-bottom: 58px;
+}
 .main .main-3 .addchats .subTitle {
   position: relative;
 }
@@ -613,14 +616,55 @@
   cursor: pointer;
 }
 .main .main-6 .chats-content-center {
+  width: 96%;
+  margin-left: 2%;
   box-sizing: border-box;
   padding-top: 90px;
+  padding-bottom: 58px;
   height: inherit;
   overflow-y: auto;
   overflow-x: hidden;
 }
-.main .main-6 .chats-content-center p {
-  height: 100px;
+.main .main-6 .chats-content-center li {
+  display: flex;
+  flex-direction: row;
+}
+.main .main-6 .chats-content-center li div:nth-child(1) {
+  flex: 1;
+  max-width: 10%;
+}
+.main .main-6 .chats-content-center li div:nth-child(1) img {
+  border-radius: 50%;
+  max-width: 56px;
+}
+.main .main-6 .chats-content-center li div:nth-child(2) {
+  flex: 9;
+  max-width: 90%;
+}
+.main .main-6 .chats-content-center li div:nth-child(2) h5 {
+  line-height: 38px;
+  padding-left: 15px;
+}
+.main .main-6 .chats-content-center li div:nth-child(2) h5 i {
+  padding-left: 15px;
+  cursor: pointer;
+}
+.main .main-6 .chats-content-center li div:nth-child(2) h5 i:hover {
+  color: turquoise;
+}
+.main .main-6 .chats-content-center li div:nth-child(2) pre {
+  /* white-space : pre-wrap  属性是用来设置如何处理元素中的 空白 (en-US)。
+            连续的空白符会被保留。在遇到换行符或者<br>元素，
+            或者需要为了填充「行框盒子(line boxes)」时才会换行。
+            下面的代码允许在 <pre> 中自动换行
+            */
+  box-sizing: border-box;
+  border-radius: 20px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background-color: #f6f9fb;
+  margin: 0;
+  padding: 15px;
 }
 .main .main-6 .chats-content-bottom {
   position: absolute;
