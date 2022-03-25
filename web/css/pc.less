@@ -656,6 +656,7 @@
       li{
         display: flex;
         flex-direction: row;
+        padding-bottom: 10px;
         div:nth-child(1){
           flex: 1;
           max-width: 10%;
@@ -693,6 +694,39 @@
             margin: 0;
             padding: 15px;
           }
+        }
+      }
+    }
+    .chats-single-center{
+      width: 96%;
+      margin-left: 2%;
+      box-sizing: border-box;
+      padding-top: 90px;
+      padding-bottom: 66px;
+      height: inherit;
+      overflow-y: auto;
+      overflow-x: hidden;
+      li{
+        padding-bottom: 10px;
+        h5{
+          line-height: 38px;
+          padding-left: 15px;
+          i{
+            padding-left: 15px;
+            cursor: pointer;
+          }
+          i:hover{
+            color: turquoise;
+          }
+        }
+        pre{
+          box-sizing: border-box;
+          border-radius: 20px;
+          white-space: pre-wrap;
+          word-wrap: break-word;
+          background-color: #f6f9fb;
+          margin: 0;
+          padding: 15px;
         }
       }
     }

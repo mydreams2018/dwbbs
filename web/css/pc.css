@@ -629,6 +629,7 @@
 .main .main-6 .chats-content-center li {
   display: flex;
   flex-direction: row;
+  padding-bottom: 10px;
 }
 .main .main-6 .chats-content-center li div:nth-child(1) {
   flex: 1;
@@ -660,6 +661,39 @@
             或者需要为了填充「行框盒子(line boxes)」时才会换行。
             下面的代码允许在 <pre> 中自动换行
             */
+  box-sizing: border-box;
+  border-radius: 20px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background-color: #f6f9fb;
+  margin: 0;
+  padding: 15px;
+}
+.main .main-6 .chats-single-center {
+  width: 96%;
+  margin-left: 2%;
+  box-sizing: border-box;
+  padding-top: 90px;
+  padding-bottom: 66px;
+  height: inherit;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.main .main-6 .chats-single-center li {
+  padding-bottom: 10px;
+}
+.main .main-6 .chats-single-center li h5 {
+  line-height: 38px;
+  padding-left: 15px;
+}
+.main .main-6 .chats-single-center li h5 i {
+  padding-left: 15px;
+  cursor: pointer;
+}
+.main .main-6 .chats-single-center li h5 i:hover {
+  color: turquoise;
+}
+.main .main-6 .chats-single-center li pre {
   box-sizing: border-box;
   border-radius: 20px;
   white-space: pre-wrap;
