@@ -9,14 +9,17 @@ function heightCenterLength() {
     document.getElementById("userMain").style.height=currentHeight-6+"px";
 };
 function fixedBottom() {
-    //可以获得当前元素的上下左右距离视口的距离...有大用了
+/*    可以获得当前元素的上下左右距离视口的距离...有大用了  方法返回元素的大小及其相对于视口的位置。
+    如果是标准盒子模型，元素的尺寸等于width/height + padding + border-width的总和
+。如果box-sizing: border-box，元素的的尺寸等于 width/height。
+*/
     let width = document.querySelector("#addchats").getBoundingClientRect().width;
     let left = document.querySelector("#addchats").getBoundingClientRect().left;
     document.getElementById("fixedBottom").style.left=left+"px";
     document.getElementById("fixedBottom").style.width=width+"px";
 }
 function m6DefaultAutoTop() {
-    let clientHeight = document.body.clientHeight;
+    let clientHeight = document.documentElement.clientHeight;
     if(clientHeight>70){
         clientHeight = Math.floor((clientHeight -70) / 2);
         document.getElementById("m6DefaultShow").style.marginTop=clientHeight+"px";

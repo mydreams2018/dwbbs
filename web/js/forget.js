@@ -3,6 +3,7 @@ window.onresize=function(event) {
     heightCenter();
 };
 function heightCenter() {
+    //html高度  视口高度 clientHeight
     let currentHeight = document.documentElement.clientHeight;
     // var currentWidth = document.documentElement.clientWidth;
     if(currentHeight < 360){
