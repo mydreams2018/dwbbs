@@ -73,8 +73,33 @@ ArrayBufferView
             console.log('open');
             console.log("未发送至服务器的字节数."+socket.bufferedAmount);
             console.log("连接所传输二进制数据的类型"+socket.binaryType);
-            socket.send("Hello server!");
+            delayTime(200);
         });
+
+        function randomChineseCharts(num) {
+            let arr = [];
+            for (let i = 0; i < num; i++) {
+                let str;
+                //汉字对应的unicode编码为u4e00-u9fa5转为10进制为19968-40869，先取随机数，再转为16进制
+                str = '%u' + (Math.floor(Math.random() * (40869 - 19968)) + 19968).toString(16);
+                str = unescape(str);
+                arr.push(str);
+            }
+            let chinese = arr.join("");
+            return chinese;
+        }
+
+        var nums =0;
+        function delayTime(tms){
+            setTimeout(function () {
+                console.log(nums);
+                socket.send("Hello.server!"+randomChineseCharts(2000)+nums++);
+                if(nums==88){
+                    return;
+                }
+                delayTime(tms+nums);
+            },tms);
+        }
 
         // 当通过 WebSocket 收到数据时触发。
         socket.addEventListener('message', function (event) {

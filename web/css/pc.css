@@ -780,6 +780,27 @@
 .main .main-6 .chats-content-bottom ul li:nth-child(4):hover i {
   color: chartreuse;
 }
+.main .main-6 .chats-content-bottom .gif-img {
+  padding-left: 15px;
+  width: 50%;
+  height: 200px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: absolute;
+  right: 0;
+  bottom: 56px;
+  background-color: #f5fffb;
+}
+.main .main-6 .chats-content-bottom .gif-img .gif-img-cons > div {
+  overflow: hidden;
+}
+.main .main-6 .chats-content-bottom .gif-img .gif-img-cons > div img {
+  padding: 6px;
+  float: left;
+}
+.main .main-6 .chats-content-bottom .gif-img .gif-img-cons > div img:hover {
+  box-shadow: 0 0 5px violet;
+}
 /* 上边下边 | 左边右边 margin: 0 auto;  用户弹窗 固定定位视口  */
 .fullWindow {
   position: fixed;

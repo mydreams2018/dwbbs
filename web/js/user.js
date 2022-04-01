@@ -145,6 +145,30 @@ document.addEventListener('click', event => {
             }
         }
     }
+    //GIF 图片显示隐藏
+    if(mid=="showGifFace" || mid=="showGifFace-inner"){
+        document.getElementById("faceImgToggle").style.display="block";
+    }else{
+        let userDetailsPlay = document.getElementById("faceImgToggle").style.display;
+        //用户详情 是否需要隐藏
+        if(userDetailsPlay != "none"){
+            let pathlength = event.path.length;
+            for(let xdt=0;xdt<pathlength;xdt++){
+                if(event.path[xdt].id=="faceImgToggle"){
+                    break;
+                }
+                if(xdt==pathlength-1){
+                    document.getElementById("faceImgToggle").style.display="none";
+                }
+            }
+        }
+    }
+    //发送数据
+    if(mid=="userSendMsg" || mid=="userSendMsg-inner"){
+        document.getElementById("message-send").value="";
+        document.getElementById("message-send").style.height="auto";
+        document.getElementById("faceImgToggle").style.bottom ="56px";
+    }
 });
 //全局的拖拽事件
 document.addEventListener("dragover", function(event) {
@@ -171,6 +195,14 @@ document.addEventListener("drop", function(event) {
 document.getElementById("message-send").addEventListener("scroll", function(event) {
     event.path[0].style.height = event.path[0].scrollHeight+"px";
     console.log("scroll");
+    document.getElementById("faceImgToggle").style.bottom = (event.path[0].scrollHeight+38)+"px";
     event.preventDefault();
     event.stopPropagation();
 }, false);
+
+var addFaceImg = document.getElementById("addFaceImg");
+for(let x=0;x<72;x++){
+    let faceImg = document.createElement("img");
+    faceImg.src=`../images/face/${x}.gif`;
+    addFaceImg.appendChild(faceImg);
+}
