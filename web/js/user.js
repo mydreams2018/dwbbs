@@ -193,6 +193,7 @@ document.addEventListener('click', event => {
         document.getElementById("message-send").value="";
         document.getElementById("message-send").style.height="auto";
         document.getElementById("faceImgToggle").style.bottom ="56px";
+        textAreaSelectionStart=0;
     }
     if(mid=="message-send"){
         textAreaSelectionStart=event.path[0].selectionStart;
