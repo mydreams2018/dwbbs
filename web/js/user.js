@@ -88,6 +88,8 @@ document.getElementById("fileUserImg").addEventListener("click", function (e) {
 }, false);
 var m1IDS = ["m1-create-chart","m1-friends","m1-charts","m1-notifications","m1-settings"];
 var m3IDS = ["addchats","friends","m1Charts","m1Notifications","m1Settings"];
+//内容框的焦点定位
+var textAreaSelectionStart = 0;
 //全局的click事件 再根据当前元素ID处理
 document.addEventListener('click', event => {
     let elementsByClassName = document.getElementsByClassName("noClickdis-none");
@@ -154,6 +156,29 @@ document.addEventListener('click', event => {
         if(userDetailsPlay != "none"){
             let pathlength = event.path.length;
             for(let xdt=0;xdt<pathlength;xdt++){
+                if(event.path[xdt].id=="addFaceImg"){
+                    if(event.path[0].tagName=="IMG" && event.path[0].title.includes("img")){
+                        let areaValue = document.getElementById("message-send").value;
+                        let rtValue = "";
+                        let imgTitle = `[${event.path[0].title}]`;
+                        if(areaValue.length==0){
+                            document.getElementById("message-send").value=imgTitle;
+                        }else if(areaValue.length==textAreaSelectionStart){
+                            document.getElementById("message-send").value=areaValue+imgTitle;
+                        }else{
+                            for(let xm=0;xm<areaValue.length;xm++){
+                                if(xm==textAreaSelectionStart){
+                                    rtValue+=imgTitle;
+                                }
+                                rtValue+=areaValue[xm];
+                            }
+                            document.getElementById("message-send").value=rtValue;
+                        }
+                        document.getElementById("message-send").scrollTo( 0, 1);
+                        // textAreaSelectionStart+=imgTitle.length;
+                        break;
+                    }
+                }
                 if(event.path[xdt].id=="faceImgToggle"){
                     break;
                 }
@@ -168,6 +193,9 @@ document.addEventListener('click', event => {
         document.getElementById("message-send").value="";
         document.getElementById("message-send").style.height="auto";
         document.getElementById("faceImgToggle").style.bottom ="56px";
+    }
+    if(mid=="message-send"){
+        textAreaSelectionStart=event.path[0].selectionStart;
     }
 });
 //全局的拖拽事件
@@ -204,5 +232,11 @@ var addFaceImg = document.getElementById("addFaceImg");
 for(let x=0;x<72;x++){
     let faceImg = document.createElement("img");
     faceImg.src=`../images/face/${x}.gif`;
+    faceImg.title=`img${x}`;
     addFaceImg.appendChild(faceImg);
+}
+document.getElementById("message-send").oninput=function(eee){
+    textAreaSelectionStart=this.selectionStart;
+    //触发scroll事件
+    document.getElementById("message-send").scrollTo( 0, 1);
 }
