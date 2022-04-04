@@ -44,10 +44,9 @@
     <pre id="receiveMessage"></pre>
 </div>
 
+    <input type="file" id="input">
 
     <script>
-
-
 /*
          webSocket.send("Hello server!");
 
@@ -67,7 +66,7 @@ ArrayBufferView
         您可以以二进制帧的形式发送任何 JavaScript 类数组对象 ；其二进制数据内容将被队列于缓冲区中。值 bufferedAmount 将加上必要字节数的值。
 */
 
-        const socket = new WebSocket('ws://192.168.9.52:9999');
+        const socket = new WebSocket('ws://192.168.3.2:9999');
         // 当一个 WebSocket 连接成功时触发。也可以通过 onopen 属性来设置。
         socket.addEventListener('open', function (event) {
             console.log('open');
@@ -88,19 +87,45 @@ ArrayBufferView
             let chinese = arr.join("");
             return chinese;
         }
-
+/*
+* src=?;tar=?;charts=?;
+*/
         var nums =0;
         function delayTime(tms){
             setTimeout(function () {
                 console.log(nums);
-                socket.send("Hello.server!"+randomChineseCharts(2000)+nums++);
+                socket.send("src=kungree;charts="+randomChineseCharts(50)+";tar="+nums++);
                 if(nums==88){
                     return;
                 }
                 delayTime(tms+nums);
             },tms);
         }
-
+/*  EMPTY	0	还没有加载任何数据.
+    LOADING	1	数据正在被加载.
+    DONE	2	已完成全部的读取请求.
+    */
+var reader = new FileReader();
+reader.onload = function(evt) {
+    // console.dir(evt.target.result);
+    console.log(reader.readyState);
+    var view = new Int8Array(evt.target.result);
+    //文件字节内容
+    console.dir(view);
+};
+reader.onloadend = function(evt) {
+    // console.log(evt.target.result);
+    console.log(reader.readyState);
+};
+        const inputElement = document.getElementById("input");
+        inputElement.addEventListener("change", handleFiles, false);
+        function handleFiles() {
+            let fileList = this.files;
+            console.log(fileList[0].name);
+            console.log(fileList[0].size);
+            console.log(fileList[0].type);
+            reader.readAsArrayBuffer(fileList[0]);
+        }
         // 当通过 WebSocket 收到数据时触发。
         socket.addEventListener('message', function (event) {
             console.log('Message from server ', event.data);
