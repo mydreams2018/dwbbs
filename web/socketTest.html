@@ -47,24 +47,26 @@
     <input type="file" id="input">
 
     <script>
-/*
-         webSocket.send("Hello server!");
+        const encoder = new TextEncoder();
+        var fileName ="";
+        /*
+                 webSocket.send("Hello server!");
 
-         WebSocket.send() 方法将需要通过 WebSocket
-         链接传输至服务器的数据排入队列，并根据所需要传输的data bytes的大小来增加 bufferedAmount的值 。
-         若数据无法传输（例如数据需要缓存而缓冲区已满）时，套接字会自行关闭。
+                 WebSocket.send() 方法将需要通过 WebSocket
+                 链接传输至服务器的数据排入队列，并根据所需要传输的data bytes的大小来增加 bufferedAmount的值 。
+                 若数据无法传输（例如数据需要缓存而缓冲区已满）时，套接字会自行关闭。
 
 
-        用于传输至服务器的数据。它必须是以下类型之一：
-USVString
-        文本字符串。字符串将以 UTF-8 格式添加到缓冲区，并且 bufferedAmount 将加上该字符串以 UTF-8 格式编码时的字节数的值。
-ArrayBuffer
-        您可以使用一有类型的数组对象发送底层二进制数据；其二进制数据内存将被缓存于缓冲区，bufferedAmount 将加上所需字节数的值。
-Blob
-        Blob 类型将队列 blob 中的原始数据以二进制中传输。 bufferedAmount 将加上原始数据的字节数的值。
-ArrayBufferView
-        您可以以二进制帧的形式发送任何 JavaScript 类数组对象 ；其二进制数据内容将被队列于缓冲区中。值 bufferedAmount 将加上必要字节数的值。
-*/
+                用于传输至服务器的数据。它必须是以下类型之一：
+        USVString
+                文本字符串。字符串将以 UTF-8 格式添加到缓冲区，并且 bufferedAmount 将加上该字符串以 UTF-8 格式编码时的字节数的值。
+        ArrayBuffer
+                您可以使用一有类型的数组对象发送底层二进制数据；其二进制数据内存将被缓存于缓冲区，bufferedAmount 将加上所需字节数的值。
+        Blob
+                Blob 类型将队列 blob 中的原始数据以二进制中传输。 bufferedAmount 将加上原始数据的字节数的值。
+        ArrayBufferView
+                您可以以二进制帧的形式发送任何 JavaScript 类数组对象 ；其二进制数据内容将被队列于缓冲区中。值 bufferedAmount 将加上必要字节数的值。
+        */
 
         const socket = new WebSocket('ws://192.168.3.2:9999');
         // 当一个 WebSocket 连接成功时触发。也可以通过 onopen 属性来设置。
@@ -94,8 +96,8 @@ ArrayBufferView
         function delayTime(tms){
             setTimeout(function () {
                 console.log(nums);
-                socket.send("src=kungree;charts="+randomChineseCharts(50)+";tar="+nums++);
-                if(nums==88){
+                socket.send("src=kungree;charts="+randomChineseCharts(2000)+";tar="+nums++);
+                if(nums==53){
                     return;
                 }
                 delayTime(tms+nums);
@@ -107,9 +109,12 @@ ArrayBufferView
     */
 var reader = new FileReader();
 reader.onload = function(evt) {
-    // console.dir(evt.target.result);
+    console.dir(evt.target);
     console.log(reader.readyState);
-    var view = new Int8Array(evt.target.result);
+    let view = new Int8Array(evt.target.result);
+    let one = encoder.encode('src=kungreat;tar=test;fileName='+fileName);
+    socket.send(one);
+    socket.send(view);
     //文件字节内容
     console.dir(view);
 };
@@ -124,6 +129,7 @@ reader.onloadend = function(evt) {
             console.log(fileList[0].name);
             console.log(fileList[0].size);
             console.log(fileList[0].type);
+            fileName=fileList[0].name;
             reader.readAsArrayBuffer(fileList[0]);
         }
         // 当通过 WebSocket 收到数据时触发。
