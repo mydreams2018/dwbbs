@@ -68,7 +68,7 @@
                 您可以以二进制帧的形式发送任何 JavaScript 类数组对象 ；其二进制数据内容将被队列于缓冲区中。值 bufferedAmount 将加上必要字节数的值。
         */
 
-        const socket = new WebSocket('ws://192.168.3.2:9999');
+        const socket = new WebSocket('ws://192.168.9.52:9999');
         // 当一个 WebSocket 连接成功时触发。也可以通过 onopen 属性来设置。
         socket.addEventListener('open', function (event) {
             console.log('open');
@@ -76,6 +76,12 @@
             console.log("连接所传输二进制数据的类型"+socket.binaryType);
             delayTime(200);
         });
+
+        function getRandomIntInclusive(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值
+        }
 
         function randomChineseCharts(num) {
             let arr = [];
@@ -96,7 +102,7 @@
         function delayTime(tms){
             setTimeout(function () {
                 console.log(nums);
-                socket.send("src=kungree;charts="+randomChineseCharts(2000)+";tar="+nums++);
+                socket.send("src=kungree;charts="+randomChineseCharts(getRandomIntInclusive(5,80))+";tar="+nums++);
                 if(nums==53){
                     return;
                 }
