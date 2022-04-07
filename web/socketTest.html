@@ -96,13 +96,13 @@
             return chinese;
         }
 /*
-* src=?;tar=?;charts=?;
+* src=?;tar=?;charts=?;url=?;  必传的值
 */
         var nums =0;
         function delayTime(tms){
             setTimeout(function () {
                 console.log(nums);
-                socket.send("src=kungree;charts="+randomChineseCharts(getRandomIntInclusive(5,80))+";tar="+nums++);
+                socket.send("url=test;src=kungree;charts="+randomChineseCharts(getRandomIntInclusive(5,80))+";tar="+nums++);
                 if(nums==53){
                     return;
                 }
@@ -118,7 +118,7 @@ reader.onload = function(evt) {
     console.dir(evt.target);
     console.log(reader.readyState);
     let view = new Int8Array(evt.target.result);
-    let one = encoder.encode('src=kungreat;tar=test;fileName='+fileName);
+    let one = encoder.encode('src=kungreat;url=test;tar=test;fileName='+fileName);
     socket.send(one);
     socket.send(view);
     //文件字节内容
