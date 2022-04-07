@@ -74,7 +74,7 @@
             console.log('open');
             console.log("未发送至服务器的字节数."+socket.bufferedAmount);
             console.log("连接所传输二进制数据的类型"+socket.binaryType);
-            delayTime(200);
+            delayTime(2000);
         });
 
         function getRandomIntInclusive(min, max) {
@@ -96,13 +96,13 @@
             return chinese;
         }
 /*
-* src=?;tar=?;charts=?;url=?;  必传的值
+* src=?;tar=?;charts=?;url=?;uuid=?;  文本型必传的值
 */
         var nums =0;
         function delayTime(tms){
             setTimeout(function () {
                 console.log(nums);
-                socket.send("url=test;src=kungree;charts="+randomChineseCharts(getRandomIntInclusive(5,80))+";tar="+nums++);
+                socket.send("uuid=xxxxx;url=test;src=kungree;charts="+randomChineseCharts(getRandomIntInclusive(5,80))+";tar="+nums++);
                 if(nums==53){
                     return;
                 }
@@ -114,11 +114,14 @@
     DONE	2	已完成全部的读取请求.
     */
 var reader = new FileReader();
+        /*
+        * src=?;tar=?;fileName=?;url=?;uuid=?;  二进制头必传的值
+        */
 reader.onload = function(evt) {
     console.dir(evt.target);
     console.log(reader.readyState);
     let view = new Int8Array(evt.target.result);
-    let one = encoder.encode('src=kungreat;url=test;tar=test;fileName='+fileName);
+    let one = encoder.encode('uuid=xxxxx;src=kungreat;url=test;tar=test;fileName='+fileName);
     socket.send(one);
     socket.send(view);
     //文件字节内容
