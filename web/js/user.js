@@ -88,6 +88,7 @@ document.getElementById("fileUserImg").addEventListener("click", function (e) {
 }, false);
 var m1IDS = ["m1-create-chart","m1-friends","m1-charts","m1-notifications","m1-settings"];
 var m3IDS = ["addchats","friends","m1Charts","m1Notifications","m1Settings"];
+var currentActiveId="m1-charts";
 //内容框的焦点定位
 var textAreaSelectionStart = 0;
 //全局的click事件 再根据当前元素ID处理
@@ -119,6 +120,8 @@ document.addEventListener('click', event => {
         if(mid=="m1-create-chart"){
             fixedBottom();
         }
+        currentActiveId=mid;
+        console.log("当前激活ID",currentActiveId);
     }
     //切换设置 显示隐藏
     if(mid=="account-bt-toggle"){
