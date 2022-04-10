@@ -11,7 +11,7 @@ function heightCenter() {
         document.getElementById("container-login").style.top=currentHeight / 2 - 230+'px';
     }
 };
-const socket = new WebSocket('ws://192.168.9.52:9999');
+const socket = new WebSocket('ws://192.168.3.2:9999');
 var ramuuid="";
 var runNums = 10;
 // 当一个 WebSocket 连接成功时触发。也可以通过 onopen 属性来设置。
@@ -29,6 +29,7 @@ socket.addEventListener('message', function (event) {
         let magTemp = "";
         let uuidTemp = "";
         let sktoken = "";
+        let skuser="";
         for(let x=0;x<splits.length;x++){
             let temps = splits[x].split("=");
             if(temps[0]=="code"){
@@ -39,6 +40,8 @@ socket.addEventListener('message', function (event) {
                 uuidTemp=temps[1];
             }else if(temps[0]=="sktoken"){
                 sktoken=temps[1];
+            }else if(temps[0]=="user"){
+                skuser=temps[1];
             }
         }
         if(codeTemp=="%s"){
@@ -46,10 +49,11 @@ socket.addEventListener('message', function (event) {
         }else{
             if(ramuuid == uuidTemp){
                 document.querySelector(".container-login-top>h4").innerText=magTemp;
-            }
-            if(codeTemp=="200"){
-                console.log("登录success");
-                sessionStorage.setItem('web_sktoken',sktoken);
+                if(codeTemp=="200"){
+                    console.log("登录success");
+                    docCookies.setItem('web_sktoken',sktoken);
+                    docCookies.setItem('web_user',skuser);
+                }
             }
         }
     }
@@ -68,6 +72,9 @@ socket.addEventListener('close', function (event) {
 
 document.addEventListener('readystatechange', event => {
     heightCenter();
+    if(docCookies.hasItem("web_user")){
+        document.querySelector(".container-login-top>h4").innerText="用户:"+docCookies.getItem("web_user");
+    }
 });
 
 document.getElementById("subUser").addEventListener("mousedown", function( event ) {
