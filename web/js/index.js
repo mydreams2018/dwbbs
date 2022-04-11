@@ -12,7 +12,18 @@ function heightCenter() {
     }
 };
 const socket = new WebSocket('ws://192.168.3.2:9999');
-var ramuuid="";
+const sendObj={
+    uuid:"",
+    src:"login",
+    tar:"login",
+    url:"login",
+    charts:{
+        nikeName:"",
+        phone:"",
+        password:"",
+        firstLetter:""
+    }
+}
 var runNums = 10;
 // 当一个 WebSocket 连接成功时触发。也可以通过 onopen 属性来设置。
 socket.addEventListener('open', function (event) {
@@ -23,39 +34,17 @@ socket.addEventListener('open', function (event) {
 // 当通过 WebSocket 收到数据时触发。
 socket.addEventListener('message', function (event) {
     if(event.data){
-        let dts = event.data;
-        let splits = dts.split(";");
-        let codeTemp = "";
-        let magTemp = "";
-        let uuidTemp = "";
-        let sktoken = "";
-        let skuser="";
-        for(let x=0;x<splits.length;x++){
-            let temps = splits[x].split("=");
-            if(temps[0]=="code"){
-                codeTemp=temps[1];
-            }else if(temps[0]=="msg"){
-                magTemp=temps[1];
-            }else if(temps[0]=="uuid"){
-                uuidTemp=temps[1];
-            }else if(temps[0]=="sktoken"){
-                sktoken=temps[1];
-            }else if(temps[0]=="user"){
-                skuser=temps[1];
+        let dts = JSON.parse(event.data);
+        if(sendObj.uuid == dts.uuid){
+            document.querySelector(".container-login-top>h4").innerText=dts.msg;
+            if(dts.code=="200"){
+                console.log("登录success");
+                docCookies.setItem('web_sktoken',dts.sktoken);
+                docCookies.setItem('web_user',dts.user);
             }
         }
-        if(codeTemp=="%s"){
-            document.querySelector(".container-login-top>h4").innerText="未知错误";
-        }else{
-            if(ramuuid == uuidTemp){
-                document.querySelector(".container-login-top>h4").innerText=magTemp;
-                if(codeTemp=="200"){
-                    console.log("登录success");
-                    docCookies.setItem('web_sktoken',sktoken);
-                    docCookies.setItem('web_user',skuser);
-                }
-            }
-        }
+    }else{
+        document.querySelector(".container-login-top>h4").innerText="未知错误";
     }
     console.log('message from server ', event.data);
 });
@@ -108,10 +97,11 @@ function sendMsg(){
     let phone =  document.querySelector("input[name='phone']").value;
     let password = document.querySelector("input[name='password']").value;
     if(phone && password){
-        let chas = `phone:${phone}&password:${password}`;
-        ramuuid = uuid();
-        let str = `src=login;tar=login;url=login;uuid=${ramuuid};charts=${chas};`;
-        socket.send(str);
+        sendObj.charts.phone=phone;
+        sendObj.charts.password=password;
+        sendObj.uuid = uuid();
+        console.log(sendObj);
+        socket.send(JSON.stringify(sendObj));
     }else{
         document.querySelector(".container-login-top>h4").innerText="必要的数据不能为空";
         document.querySelector(".container-login-top>h4").style.color="red";
