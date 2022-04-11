@@ -126,7 +126,7 @@ function sendMsg() {
     let phone =  document.querySelector("input[name='phone']").value;
     let password = document.querySelector("input[name='password']").value;
     if(nikeName && phone && password){
-        let chas = `nikeName:${nikeName}&phone:${phone}&password:${password}`;
+        let chas = `nikeName:${nikeName}&phone:${phone}&password:${password}&firstLetter:${pinyinUtil.getFirstLetter(nikeName[0])}`;
         ramuuid = uuid();
         let str = `src=register;tar=register;url=register;uuid=${ramuuid};charts=${chas};`;
         socket.send(str);
