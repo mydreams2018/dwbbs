@@ -12,7 +12,12 @@ function heightCenter() {
         document.getElementById("container-forget").style.top=currentHeight / 2 - 180+'px';
     }
 };
-heightCenter();
+document.onreadystatechange = function () {
+    if (document.readyState == "complete") {
+        heightCenter();
+        console.log("dom-complete");
+    }
+}
 document.getElementById("subUser").addEventListener("mousedown", function( event ) {
     // 在被点击的div内显示当前被点击次数
     //  event.target.textContent = "click count: " + event.detail;
