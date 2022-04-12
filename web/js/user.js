@@ -203,6 +203,24 @@ document.addEventListener('click', event => {
     if(mid=="message-send"){
         textAreaSelectionStart=event.path[0].selectionStart;
     }
+
+    //添加好友的弹出框
+    if(mid=="fixedBottom"){
+        document.getElementById("addchatsFixed").style.display="block";
+        let htmlclientHeight = document.documentElement.clientHeight;
+        let addchatsFixedclientHeight = document.getElementById("addchatsFixed").clientHeight;
+        if(htmlclientHeight < addchatsFixedclientHeight){
+            document.getElementById("addchatsFixed").style.top=0;
+        }else{
+            document.getElementById("addchatsFixed").style.top=(htmlclientHeight*0.5)-(addchatsFixedclientHeight*0.5)+"px";
+        }
+    }else if(mid=="addchatsFixedExit"){
+        document.getElementById("addchatsFixed").style.display="none";
+    }else if(mid=="addchatsFixedSuccess"){
+        document.getElementById("addchatsFixed").style.display="none";
+        //todo 提交好友申请
+    }
+
 });
 //全局的拖拽事件
 document.addEventListener("dragover", function(event) {
