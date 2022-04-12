@@ -4,16 +4,17 @@ if(!websktoken){
     window.location.href="/index.html";
 }
 const socket = new WebSocket('ws://192.168.3.2:9999');
-const sendObj ={
+const sendObjCreateChart ={
     uuid:"",
-    url:"",
-    src:"",
-    tar:"",
+    url:"queryUsers",
+    src:"queryUsers",
+    tar:"queryUsers",
     charts:{
         phone:"",
         nikeName:"",
         currentPage:1,
-        currentActiveId:""
+        totalPage:1,
+        currentActiveId:"m1-create-chart"
     }
 }
 var addchatsById = document.getElementById("addchats");
@@ -27,7 +28,11 @@ socket.addEventListener('open', function (event) {
 socket.addEventListener('message', function (event) {
     if(event.data){
         let recObj = JSON.parse(event.data);
+
         if(recObj.currentActiveId == "m1-create-chart"){
+            scrollFlagCreateChart = true;
+            sendObjCreateChart.charts.totalPage = recObj.page.totalPage;
+            sendObjCreateChart.charts.currentPage = recObj.page.currentPage;
             let groupByToMap = recObj.datas.reduce((group, product) => {
                 let { sortFirst } = product;
                 group[sortFirst] = group[sortFirst] ?? [];
@@ -72,17 +77,41 @@ socket.addEventListener('close', function (event) {
     console.log('WebSocket close: ', event.code);
 });
 function getCurrentData() {
-    if(currentActiveId=="m1-create-chart"){
-        //当前是用户添加
-        sendObj.uuid=uuid();
-        sendObj.src="queryUsers";
-        sendObj.tar="queryUsers";
-        sendObj.url="queryUsers";
-        sendObj.charts.nikeName="";
-        sendObj.charts.currentActiveId="m1-create-chart";
-        socket.send(JSON.stringify(sendObj));
-    }
+    objCreateChart();
 }
+//当前是用户添加
+function objCreateChart() {
+    sendObjCreateChart.uuid=uuid();
+    socket.send(JSON.stringify(sendObjCreateChart));
+}
+document.querySelector("#addchats>.subTitle>input").oninput=function(e){
+    console.log(this.value);
+    //查询内容变更清理数据 重新查询
+    scrollFlagCreateChart = true;
+    sendObjCreateChart.charts.currentPage=1;
+    sendObjCreateChart.charts.nikeName=this.value;
+    let elementNodeListOf = document.querySelectorAll("#addchats>div.subPeople");
+    for (let elementNodeListOfElement of elementNodeListOf) {
+        elementNodeListOfElement.remove();
+    }
+    objCreateChart();
+}
+//添加好友的 滚动条标记. 因为滚动一次触发太多次了. 所以要后台响应一次后再触发.
+var scrollFlagCreateChart = true;
+document.querySelector(".main-3.scollbox").addEventListener("scroll", function(event) {
+    if(currentActiveId=="m1-create-chart"){
+        //滚动条位置  查询分页数据追加
+        if(this.scrollTop + this.clientHeight > addchatsById.clientHeight-88 && scrollFlagCreateChart){
+            if(sendObjCreateChart.charts.currentPage<sendObjCreateChart.charts.totalPage){
+                sendObjCreateChart.charts.currentPage++;
+                scrollFlagCreateChart = false;
+                objCreateChart();
+                console.log("分页执行");
+            }
+        }
+    }
+    event.stopPropagation();
+}, false);
 function uuid() {
     var s = [];
     var hexDigits = "0123456789abcdef";
