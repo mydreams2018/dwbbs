@@ -54,6 +54,7 @@ document.onreadystatechange = function () {
         fixedBottom();
         heightCenterLength();
         m6DefaultAutoTop();
+        getCurrentData();
     }
     console.log(document.readyState);
 }
@@ -122,6 +123,7 @@ document.addEventListener('click', event => {
         }
         currentActiveId=mid;
         console.log("当前激活ID",currentActiveId);
+        getCurrentData();
     }
     //切换设置 显示隐藏
     if(mid=="account-bt-toggle"){
