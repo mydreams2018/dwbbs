@@ -56,7 +56,7 @@ socket.addEventListener('message', function (event) {
                             <span>${groupByToMapvalue.registerTime}</span>
                         </li>
                         <li>
-                            <input type="checkbox" name="addUser">
+                            <input type="checkbox" name="addUser" data-id="${groupByToMapvalue.nikeName}">
                         </li>`;
                     htmlDivElement.appendChild(temp_ul);
                 }
@@ -122,4 +122,29 @@ function uuid() {
     s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1);
     var uuid = s.join("");
     return uuid;
+}
+
+//发送好友申请的方法
+function sendFriendsApply(tx) {
+    let elementCheckeOf = document.querySelectorAll("#addchats .subPeople input[name='addUser']:checked");
+    if(elementCheckeOf.length>0){
+        let sendObjApplyChart ={
+            uuid:"",
+            url:"applyFriends",
+            src:"applyFriends",
+            tar:"applyFriends",
+            charts:{
+                currentActiveId:"m1-apply-chart",
+                tokenSession:websktoken,
+                nikeNamels:[],
+                message:tx||""
+            }
+        }
+        for (let elementCheckeOfElement of elementCheckeOf) {
+            sendObjApplyChart.charts.nikeNamels.push(elementCheckeOfElement.getAttribute("data-id"));
+        }
+        sendObjApplyChart.uuid=uuid();
+        socket.send(JSON.stringify(sendObjApplyChart));
+    }
+
 }

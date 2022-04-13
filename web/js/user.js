@@ -218,7 +218,9 @@ document.addEventListener('click', event => {
         document.getElementById("addchatsFixed").style.display="none";
     }else if(mid=="addchatsFixedSuccess"){
         document.getElementById("addchatsFixed").style.display="none";
-        //todo 提交好友申请
+        let valus = document.querySelector("#addchatsFixed textarea").value;
+        sendFriendsApply(valus);
+        document.querySelector("#addchatsFixed textarea").value="";
     }
 
 });
