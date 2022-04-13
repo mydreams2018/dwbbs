@@ -29,7 +29,7 @@ socket.addEventListener('message', function (event) {
     if(event.data){
         let recObj = JSON.parse(event.data);
 
-        if(recObj.currentActiveId == "m1-create-chart"){
+        if(recObj.currentActiveId && recObj.currentActiveId == "m1-create-chart"){
             scrollFlagCreateChart = true;
             sendObjCreateChart.charts.totalPage = recObj.page.totalPage;
             sendObjCreateChart.charts.currentPage = recObj.page.currentPage;
@@ -62,6 +62,8 @@ socket.addEventListener('message', function (event) {
                 }
                 addchatsById.insertBefore(htmlDivElement,document.getElementById("fixedBottom"));
             }
+        }else if(recObj.url && recObj.url=="applyFriends"){
+            //申请添加好友的回复信息.todo
         }
     }
     console.log('Message from server ', event.data);
