@@ -17,7 +17,21 @@ const sendObjCreateChart ={
         currentActiveId:"m1-create-chart"
     }
 }
+const queryCurrentFriends ={
+    uuid:"",
+    url:"queryUsersFriends",
+    src:"queryUsersFriends",
+    tar:"queryUsersFriends",
+    charts:{
+        nikeName:"",
+        currentPage:1,
+        totalPage:1,
+        currentActiveId:"m1-friends",
+        tokenSession:websktoken
+    }
+}
 var addchatsById = document.getElementById("addchats");
+var queryFriendsByid = document.getElementById("friends");
 // 当一个 WebSocket 连接成功时触发。也可以通过 onopen 属性来设置。
 socket.addEventListener('open', function (event) {
     console.log('open');
@@ -62,7 +76,49 @@ socket.addEventListener('message', function (event) {
                 }
                 addchatsById.insertBefore(htmlDivElement,document.getElementById("fixedBottom"));
             }
-        }else if(recObj.url && recObj.url=="applyFriends"){
+        }else if(recObj.currentActiveId && recObj.currentActiveId=="m1-friends"){
+            scrollFlagQueryFriends = true;
+            queryCurrentFriends.charts.totalPage = recObj.page.totalPage;
+            queryCurrentFriends.charts.currentPage = recObj.page.currentPage;
+            let groupByToMap = recObj.datas.reduce((group, product) => {
+                let { sortFirst } = product;
+                group[sortFirst] = group[sortFirst] ?? [];
+                group[sortFirst].push(product);
+                return group;
+            }, {});
+            for (let groupByToMapKey in groupByToMap) {
+                let htmlDivElement = document.createElement("div");
+                htmlDivElement.className="frePeople";
+                let html5Element = document.createElement("h5");
+                html5Element.innerText=groupByToMapKey;
+                htmlDivElement.appendChild(html5Element);
+                for (let groupByToMapvalue of groupByToMap[groupByToMapKey]) {
+                    let temp_ul = document.createElement("ul");
+                    temp_ul.className="people";
+                    let tempuuid = uuidLow();
+                    temp_ul.innerHTML=`
+                        <li>
+                            <img src="${groupByToMapvalue.imgPath}">
+                        </li>
+                        <li>
+                            <h3>${groupByToMapvalue.nikeName}</h3>
+                            <span>${groupByToMapvalue.registerTime}</span>
+                        </li>
+                        <li>
+                            <i data-id="editFixed1${tempuuid}" data-nk="${groupByToMapvalue.nikeName}" class="bi-three-dots-vertical"></i>
+                            <div id="editFixed1${tempuuid}" data-nk="${groupByToMapvalue.nikeName}" class="editFixed noClickdis-none" style="display: none;">
+                                <p>add group</p>
+                                <p>new message</p>
+                                <span></span>
+                                <p class="delete-red">delete user</p>
+                            </div>
+                        </li>`;
+                    htmlDivElement.appendChild(temp_ul);
+                }
+                queryFriendsByid.appendChild(htmlDivElement);
+            }
+        }
+        else if(recObj.url && recObj.url=="applyFriends"){
             //申请添加好友的回复信息.todo
         }
     }
@@ -78,13 +134,34 @@ socket.addEventListener('error', function (event) {
 socket.addEventListener('close', function (event) {
     console.log('WebSocket close: ', event.code);
 });
+//初始化调用一次
 function getCurrentData() {
     objCreateChart();
+    objCurrentFriends();
 }
 //当前是用户添加
 function objCreateChart() {
     sendObjCreateChart.uuid=uuid();
     socket.send(JSON.stringify(sendObjCreateChart));
+}
+//查询当前用户的好友列表
+function objCurrentFriends(){
+    queryCurrentFriends.uuid=uuid();
+    socket.send(JSON.stringify(queryCurrentFriends));
+}
+//查询好友 滚动条标记. 因为滚动一次触发太多次了. 所以要后台响应一次后再触发.
+var scrollFlagQueryFriends = true;
+document.querySelector("#friends>.subTitle>input").oninput=function(e){
+    console.log(this.value);
+    //查询内容变更清理数据 重新查询
+    scrollFlagQueryFriends = true;
+    queryCurrentFriends.charts.currentPage=1;
+    queryCurrentFriends.charts.nikeName=this.value;
+    let elementNodeListOf = document.querySelectorAll("#friends>div.frePeople");
+    for (let elementNodeListOfElement of elementNodeListOf) {
+        elementNodeListOfElement.remove();
+    }
+    objCurrentFriends();
 }
 document.querySelector("#addchats>.subTitle>input").oninput=function(e){
     console.log(this.value);
@@ -111,19 +188,35 @@ document.querySelector(".main-3.scollbox").addEventListener("scroll", function(e
                 console.log("分页执行");
             }
         }
+    }else if(currentActiveId=="m1-friends"){
+        if(this.scrollTop + this.clientHeight > queryFriendsByid.clientHeight-88 && scrollFlagQueryFriends){
+            if(queryCurrentFriends.charts.currentPage<queryCurrentFriends.charts.totalPage){
+                queryCurrentFriends.charts.currentPage++;
+                scrollFlagQueryFriends = false;
+                objCurrentFriends();
+                console.log("分页执行");
+            }
+        }
     }
     event.stopPropagation();
 }, false);
 function uuid() {
-    var s = [];
-    var hexDigits = "0123456789abcdef";
-    for (var i = 0; i < 28; i++) {
+    let s = [];
+    let hexDigits = "0123456789abcdef";
+    for (let i = 0; i < 28; i++) {
         s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
     }
     s[14] = "4";
     s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1);
-    var uuid = s.join("");
-    return uuid;
+    return s.join("");
+}
+function uuidLow(){
+    let s = [];
+    let hexDigits = "0123456789abcdef";
+    for (let i =0;i<12; i++) {
+        s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+    }
+    return s.join("");
 }
 
 //发送好友申请的方法
