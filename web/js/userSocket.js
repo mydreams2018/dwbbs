@@ -30,8 +30,22 @@ const queryCurrentFriends ={
         tokenSession:websktoken
     }
 }
+const queryAnswerFriends ={
+    uuid:"",
+    url:"queryAnswerFriends",
+    src:"queryAnswerFriends",
+    tar:"queryAnswerFriends",
+    charts:{
+        nikeName:"",
+        currentPage:1,
+        totalPage:1,
+        currentActiveId:"m1-notifications",
+        tokenSession:websktoken
+    }
+}
 var addchatsById = document.getElementById("addchats");
 var queryFriendsByid = document.getElementById("friends");
+var queryAnswerFrsByid = document.getElementById("m1Notifications");
 // 当一个 WebSocket 连接成功时触发。也可以通过 onopen 属性来设置。
 socket.addEventListener('open', function (event) {
     console.log('open');
@@ -117,6 +131,12 @@ socket.addEventListener('message', function (event) {
                 }
                 queryFriendsByid.appendChild(htmlDivElement);
             }
+        }else if(recObj.currentActiveId && recObj.currentActiveId=="m1-notifications"){
+            scrollFlagAnswerFriends = true;
+            queryAnswerFriends.charts.totalPage = recObj.page.totalPage;
+            queryAnswerFriends.charts.currentPage = recObj.page.currentPage;
+            //todo 接收服务器响应数据
+
         }
         else if(recObj.url && recObj.url=="applyFriends"){
             //申请添加好友的回复信息.todo
@@ -138,6 +158,7 @@ socket.addEventListener('close', function (event) {
 function getCurrentData() {
     objCreateChart();
     objCurrentFriends();
+    objAnswerFriends();
 }
 //当前是用户添加
 function objCreateChart() {
@@ -149,6 +170,24 @@ function objCurrentFriends(){
     queryCurrentFriends.uuid=uuid();
     socket.send(JSON.stringify(queryCurrentFriends));
 }
+//处理好友申请查询
+function objAnswerFriends(){
+    queryAnswerFriends.uuid=uuid();
+    socket.send(JSON.stringify(queryAnswerFriends));
+}
+var scrollFlagAnswerFriends = true;
+document.querySelector("#m1Notifications>.subTitle>input").oninput=function(e){
+    //查询内容变更清理数据 重新查询
+    scrollFlagAnswerFriends = true;
+    queryAnswerFriends.charts.currentPage=1;
+    queryAnswerFriends.charts.nikeName=this.value;
+    let elementNodeListOf = document.querySelectorAll("#m1Notifications>div.subcon");
+    for (let elementNodeListOfElement of elementNodeListOf) {
+        elementNodeListOfElement.remove();
+    }
+    objAnswerFriends();
+}
+
 //查询好友 滚动条标记. 因为滚动一次触发太多次了. 所以要后台响应一次后再触发.
 var scrollFlagQueryFriends = true;
 document.querySelector("#friends>.subTitle>input").oninput=function(e){
@@ -194,6 +233,15 @@ document.querySelector(".main-3.scollbox").addEventListener("scroll", function(e
                 queryCurrentFriends.charts.currentPage++;
                 scrollFlagQueryFriends = false;
                 objCurrentFriends();
+                console.log("分页执行");
+            }
+        }
+    }else if(currentActiveId=="m1-notifications"){
+        if(this.scrollTop + this.clientHeight > queryAnswerFrsByid.clientHeight-88 && scrollFlagAnswerFriends){
+            if(queryAnswerFriends.charts.currentPage<queryAnswerFriends.charts.totalPage){
+                queryAnswerFriends.charts.currentPage++;
+                scrollFlagAnswerFriends = false;
+                objAnswerFriends();
                 console.log("分页执行");
             }
         }
