@@ -135,7 +135,43 @@ socket.addEventListener('message', function (event) {
             scrollFlagAnswerFriends = true;
             queryAnswerFriends.charts.totalPage = recObj.page.totalPage;
             queryAnswerFriends.charts.currentPage = recObj.page.currentPage;
-            //todo 接收服务器响应数据
+            let groupByToMap = recObj.datas.reduce((group, product) => {
+                let { registerTime } = product;
+                group[registerTime] = group[registerTime] ?? [];
+                group[registerTime].push(product);
+                return group;
+            }, {});
+            for (let groupByToMapKey in groupByToMap) {
+                let htmlDivElement = document.createElement("div");
+                htmlDivElement.className="subcon";
+                let innerDiv = document.createElement("div");
+                innerDiv.className="subcon-title";
+                innerDiv.innerHTML=`<span>${groupByToMapKey}</span>
+                        <span><a href="#">Clear all</a></span>`;
+                htmlDivElement.appendChild(innerDiv);
+                for (let groupByToMapvalue of groupByToMap[groupByToMapKey]) {
+                    let temp_ul = document.createElement("div");
+                    temp_ul.className="subcon-text";
+                    let tempuuid = uuidLow();
+                    temp_ul.innerHTML=`<div class="tleft">
+                            <img src="${groupByToMapvalue.imgPath}">
+                        </div>
+                        <div class="tcenter">
+                            <h3>${groupByToMapvalue.nikeName}</h3>
+                            <p>${groupByToMapvalue.describes}</p>
+                        </div>
+                        <div class="tright">
+                            <i data-id="tright-fixed-${tempuuid}" class="bi-three-dots"></i>
+                            <ul id="tright-fixed-${tempuuid}" class="noClickdis-none" style="display: none">
+                                <li>answer</li>
+                                <li>accept</li>
+                                <li>delete</li>
+                            </ul>
+                        </div>`;
+                    htmlDivElement.appendChild(temp_ul);
+                }
+                queryAnswerFrsByid.appendChild(htmlDivElement);
+            }
 
         }
         else if(recObj.url && recObj.url=="applyFriends"){
