@@ -417,8 +417,8 @@
 }
 .main .main-3 .notifications .subcon .subcon-text .tcenter {
   margin-left: 1em;
-  flex: 6;
-  max-width: 60%;
+  flex: 7;
+  max-width: 70%;
 }
 .main .main-3 .notifications .subcon .subcon-text .tcenter h3 {
   font-size: 16px;
@@ -430,15 +430,11 @@
 .main .main-3 .notifications .subcon .subcon-text .tright {
   position: relative;
   text-align: right;
-  flex: 2;
-  max-width: 20%;
-}
-.main .main-3 .notifications .subcon .subcon-text .tright p {
-  font-size: 13px;
-  line-height: 25px;
+  flex: 1;
+  max-width: 10%;
 }
 .main .main-3 .notifications .subcon .subcon-text .tright i {
-  font-size: 22px;
+  font-size: 21px;
   cursor: pointer;
 }
 .main .main-3 .notifications .subcon .subcon-text .tright ul {

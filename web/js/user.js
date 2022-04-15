@@ -104,8 +104,9 @@ document.addEventListener('click', event => {
         document.getElementById(dataId).style.display="block";
     }else if(dataId && dataId.includes("tright-fixed")){
         document.getElementById(dataId).style.display="block";
-        let number = event.path[0].getBoundingClientRect().top - event.path[1].getBoundingClientRect().top;
-        document.getElementById(dataId).style.top=number+"px";
+        //getBoundingClientRect 方法返回元素的大小及其相对于视口的位置。
+        // let number = event.path[0].getBoundingClientRect().top - event.path[1].getBoundingClientRect().top;
+        document.getElementById(dataId).style.top="6px";
     }
     //main-1 的图标切换功能
     let mid = event.path[0].id;
