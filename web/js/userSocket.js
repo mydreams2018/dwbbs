@@ -162,7 +162,7 @@ socket.addEventListener('message', function (event) {
                         </div>
                         <div class="tright">
                             <i data-id="tright-fixed-${tempuuid}" class="bi-three-dots"></i>
-                            <ul id="tright-fixed-${tempuuid}" class="noClickdis-none" style="display: none">
+                            <ul id="tright-fixed-${tempuuid}" data-nk="${groupByToMapvalue.nikeName}" class="noClickdis-none" style="display: none">
                                 <li>answer</li>
                                 <li>accept</li>
                                 <li>delete</li>
@@ -176,6 +176,20 @@ socket.addEventListener('message', function (event) {
         }
         else if(recObj.url && recObj.url=="applyFriends"){
             //申请添加好友的回复信息.todo
+        }else if(recObj.url &&recObj.url=="handlerApplyFriend"){
+            //删除好友记录成功后  删除Element
+            if(recObj.code=="200" && recObj.msg.includes("删除申请成功")){
+                let template = queryAnswerFrsByid.querySelectorAll(".subcon .subcon-text .tcenter h3");
+                for (let templateElement of template) {
+                    if(templateElement.innerText == recObj.user){
+                        if(templateElement.parentElement.parentElement.parentElement.childElementCount>2){
+                            templateElement.parentElement.parentElement.remove();
+                        }else{
+                            templateElement.parentElement.parentElement.parentElement.remove();
+                        }
+                    }
+                }
+            }
         }
     }
     console.log('Message from server ', event.data);
@@ -326,4 +340,24 @@ function sendFriendsApply(tx) {
         socket.send(JSON.stringify(sendObjApplyChart));
     }
 
+}
+//处理好友申请
+function handlerApplyFriends(type,nikName){
+    if(type && nikName){
+        let handlerApplyFriends ={
+            uuid:"",
+            url:"handlerApplyFriend",
+            src:"handlerApplyFriend",
+            tar:"handlerApplyFriend",
+            charts:{
+                currentActiveId:"m1-handler-apply",
+                tokenSession:websktoken,
+                nikeName:nikName,
+                message:type
+            }
+        }
+        handlerApplyFriends.uuid=uuid();
+        console.log(type,nikName);
+        socket.send(JSON.stringify(handlerApplyFriends));
+    }
 }
