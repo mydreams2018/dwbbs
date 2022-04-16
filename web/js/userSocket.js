@@ -163,7 +163,7 @@ socket.addEventListener('message', function (event) {
                         <div class="tright">
                             <i data-id="tright-fixed-${tempuuid}" class="bi-three-dots"></i>
                             <ul id="tright-fixed-${tempuuid}" data-nk="${groupByToMapvalue.nikeName}" class="noClickdis-none" style="display: none">
-                                <li>answer</li>
+                                <li>reject</li>
                                 <li>accept</li>
                                 <li>delete</li>
                             </ul>
@@ -178,7 +178,7 @@ socket.addEventListener('message', function (event) {
             //申请添加好友的回复信息.todo
         }else if(recObj.url &&recObj.url=="handlerApplyFriend"){
             //删除好友记录成功后  删除Element
-            if(recObj.code=="200" && recObj.msg.includes("删除申请成功")){
+            if(recObj.code=="200" && (recObj.msg.includes("删除申请成功") || recObj.msg.includes("拒绝申请成功"))){
                 let template = queryAnswerFrsByid.querySelectorAll(".subcon .subcon-text .tcenter h3");
                 for (let templateElement of template) {
                     if(templateElement.innerText == recObj.user){
