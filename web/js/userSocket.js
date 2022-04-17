@@ -220,6 +220,7 @@ socket.addEventListener('close', function (event) {
 });
 //初始化调用一次
 function getCurrentData() {
+    document.getElementById("m1-userDetails").src= docCookies.getItem('web_user_img');
     objCreateChart();
     objCurrentFriends();
     objAnswerFriends();
@@ -395,3 +396,16 @@ function handlerCurrentFriends(type,nikName){
         socket.send(JSON.stringify(handlerCurrentFriends));
     }
 }
+//上传用户图片 文件
+const readerFile = new FileReader();
+const fileEncoder = new TextEncoder();
+var fileType = "";
+readerFile.onload = function(evt){
+    if(fileType.includes("image/")){
+        fileType = "."+fileType.split("/")[1];
+        let oneByte = fileEncoder.encode(`uuid=xxxxx;src=${websktoken};url=uploadUserImg;tar=uploadUserImg;fileName=`+uuidLow()+fileType);
+        let viewByte = new Int8Array(evt.target.result);
+        socket.send(oneByte);
+        socket.send(viewByte);
+    }
+};

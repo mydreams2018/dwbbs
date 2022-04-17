@@ -65,18 +65,19 @@ function handleFiles() {
     if (!this.files.length){
        console.log("没有选择文件");
     } else {
-        for (let i = 0; i < this.files.length; i++){
+
             const img = document.createElement("img");
-            img.src = URL.createObjectURL(this.files[i]);
+            img.src = URL.createObjectURL(this.files[0]);
             img.onload = function() {
                 URL.revokeObjectURL(this.src);
             }
-            console.log(this.files[i]);
+            console.log(this.files[0]);
             document.getElementById("img-select").src=img.src;
             document.getElementById("img-select").onload = function() {
                 URL.revokeObjectURL(this.src);
             }
-        }
+            fileType=this.files[0].type;
+            readerFile.readAsArrayBuffer(this.files[0]);
     }
 }
 const fileElem = document.getElementById("fileInput");
@@ -251,6 +252,8 @@ document.addEventListener("drop", function(event) {
             document.getElementById("img-select").onload = function() {
                 URL.revokeObjectURL(this.src);
             }
+            fileType=files[0].type;
+            readerFile.readAsArrayBuffer(files[0]);
         }
     }
 }, false);

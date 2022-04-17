@@ -41,6 +41,7 @@ socket.addEventListener('message', function (event) {
                 console.log("登录success");
                 docCookies.setItem('web_sktoken',dts.sktoken);
                 docCookies.setItem('web_user',dts.user);
+                docCookies.setItem('web_user_img',dts.imgPath);
             }
         }
     }else{
