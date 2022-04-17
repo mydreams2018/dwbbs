@@ -177,10 +177,24 @@ socket.addEventListener('message', function (event) {
         else if(recObj.url && recObj.url=="applyFriends"){
             //申请添加好友的回复信息.todo
         }else if(recObj.url &&recObj.url=="handlerApplyFriend"){
-            //删除好友记录成功后  删除Element
+            //删除申请 好友记录成功后  删除Element
             if(recObj.code=="200" && (recObj.msg.includes("删除申请成功") || recObj.msg.includes("拒绝申请成功") || recObj.msg.includes("接受申请成功"))){
                 let template = queryAnswerFrsByid.querySelectorAll(".subcon .subcon-text .tcenter h3");
                 for (let templateElement of template) {
+                    if(templateElement.innerText == recObj.user){
+                        if(templateElement.parentElement.parentElement.parentElement.childElementCount>2){
+                            templateElement.parentElement.parentElement.remove();
+                        }else{
+                            templateElement.parentElement.parentElement.parentElement.remove();
+                        }
+                    }
+                }
+            }
+        }else if(recObj.url && recObj.url=="handlerCurrentFriend"){
+            //删除已有 好友记录成功后  删除Element
+            if(recObj.code=="200" && recObj.msg.includes("删除好友成功")){
+                let template = queryFriendsByid.querySelectorAll(".frePeople .people li h3");
+                for (let templateElement of template){
                     if(templateElement.innerText == recObj.user){
                         if(templateElement.parentElement.parentElement.parentElement.childElementCount>2){
                             templateElement.parentElement.parentElement.remove();
