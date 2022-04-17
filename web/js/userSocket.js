@@ -204,6 +204,8 @@ socket.addEventListener('message', function (event) {
                     }
                 }
             }
+        }else if(recObj.url && recObj.url=="uploadUserImg"){
+            console.log("img-load");
         }
     }
     console.log('Message from server ', event.data);
@@ -221,6 +223,7 @@ socket.addEventListener('close', function (event) {
 //初始化调用一次
 function getCurrentData() {
     document.getElementById("m1-userDetails").src= docCookies.getItem('web_user_img');
+    document.getElementById("img-select").src= docCookies.getItem('web_user_img');
     objCreateChart();
     objCurrentFriends();
     objAnswerFriends();
