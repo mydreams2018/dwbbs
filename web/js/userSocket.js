@@ -361,3 +361,23 @@ function handlerApplyFriends(type,nikName){
         socket.send(JSON.stringify(handlerApplyFriends));
     }
 }
+//现有好友处理
+function handlerCurrentFriends(type,nikName){
+    if(type && nikName){
+        let handlerCurrentFriends ={
+            uuid:"",
+            url:"handlerCurrentFriend",
+            src:"handlerCurrentFriend",
+            tar:"handlerCurrentFriend",
+            charts:{
+                currentActiveId:"m1-handler-currnet-friend",
+                tokenSession:websktoken,
+                nikeName:nikName,
+                message:type
+            }
+        }
+        handlerCurrentFriends.uuid=uuid();
+        console.log(type,nikName);
+        socket.send(JSON.stringify(handlerCurrentFriends));
+    }
+}

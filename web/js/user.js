@@ -228,7 +228,10 @@ document.addEventListener('click', event => {
     if(event.path[1].id.includes("tright-fixed-")){
         handlerApplyFriends(event.path[0].innerText ,event.path[1].getAttribute("data-nk"));
     }
-
+    //现有好友处理
+    if(event.path[1].id.includes("editFixed")){
+        handlerCurrentFriends(event.path[0].innerText ,event.path[1].getAttribute("data-nk"));
+    }
 });
 //全局的拖拽事件
 document.addEventListener("dragover", function(event) {
