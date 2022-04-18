@@ -43,9 +43,23 @@ const queryAnswerFriends ={
         tokenSession:websktoken
     }
 }
+const queryChartsViews ={
+    uuid:"",
+    url:"queryChartsViews",
+    src:"queryChartsViews",
+    tar:"queryChartsViews",
+    charts:{
+        nikeName:"",
+        currentPage:1,
+        totalPage:1,
+        currentActiveId:"m1-charts",
+        tokenSession:websktoken
+    }
+}
 var addchatsById = document.getElementById("addchats");
 var queryFriendsByid = document.getElementById("friends");
 var queryAnswerFrsByid = document.getElementById("m1Notifications");
+var queryChartsViewsByid = document.getElementById("m1Charts");
 // 当一个 WebSocket 连接成功时触发。也可以通过 onopen 属性来设置。
 socket.addEventListener('open', function (event) {
     console.log('open');
@@ -173,6 +187,32 @@ socket.addEventListener('message', function (event) {
                 queryAnswerFrsByid.appendChild(htmlDivElement);
             }
 
+        }else if(recObj.currentActiveId && recObj.currentActiveId=="m1-charts"){
+            scrollFlagChartsViews = true;
+            queryChartsViews.charts.totalPage = recObj.page.totalPage;
+            queryChartsViews.charts.currentPage = recObj.page.currentPage;
+            for(let dtstr of recObj.datas){
+                let htmlDivElement = document.createElement("div");
+                htmlDivElement.className="subContent";
+                htmlDivElement.innerHTML=`<div class="group">
+                        <div class="group-left">
+                            <img src="${dtstr.imgPath}" alt="${dtstr.nikeName}">
+                        </div>
+                        <div class="group-right">
+                            <div class="msg-title">
+                                <h5 class="username">${dtstr.nikeName}</h5>
+                                <span class="lasttime">12:45 PM</span>
+                            </div>
+                            <div class="msg-con" title="msg">
+                                ${dtstr.lastMsg}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fixed-right" data-id="${dtstr.id}">
+                        <i class="bi-bookmark-x-fill"></i>
+                    </div>`;
+                queryChartsViewsByid.appendChild(htmlDivElement);
+            }
         }
         else if(recObj.url && recObj.url=="applyFriends"){
             //申请添加好友的回复信息.todo
@@ -203,6 +243,9 @@ socket.addEventListener('message', function (event) {
                         }
                     }
                 }
+            }else if(recObj.code=="200" && recObj.msg.includes("添加聊天视图成功")){
+                //添加聊天视图成功.
+                console.log("添加聊天视图成功");
             }
         }else if(recObj.url && recObj.url=="uploadUserImg"){
             console.log("img-load");
@@ -227,6 +270,7 @@ function getCurrentData() {
     objCreateChart();
     objCurrentFriends();
     objAnswerFriends();
+    objChartsViews();
 }
 //当前是用户添加
 function objCreateChart() {
@@ -243,6 +287,24 @@ function objAnswerFriends(){
     queryAnswerFriends.uuid=uuid();
     socket.send(JSON.stringify(queryAnswerFriends));
 }
+//查询 msg-view
+function objChartsViews(){
+    queryChartsViews.uuid=uuid();
+    socket.send(JSON.stringify(queryChartsViews));
+}
+var scrollFlagChartsViews = true;
+document.querySelector("#m1Charts>.subTitle>input").oninput=function(e){
+    //查询内容变更清理数据 重新查询
+    scrollFlagChartsViews = true;
+    queryChartsViews.charts.currentPage=1;
+    queryChartsViews.charts.nikeName=this.value;
+    let elementNodeListOf = document.querySelectorAll("#m1Charts>div.subContent");
+    for (let elementNodeListOfElement of elementNodeListOf) {
+        elementNodeListOfElement.remove();
+    }
+    objChartsViews();
+}
+
 var scrollFlagAnswerFriends = true;
 document.querySelector("#m1Notifications>.subTitle>input").oninput=function(e){
     //查询内容变更清理数据 重新查询
@@ -310,6 +372,15 @@ document.querySelector(".main-3.scollbox").addEventListener("scroll", function(e
                 queryAnswerFriends.charts.currentPage++;
                 scrollFlagAnswerFriends = false;
                 objAnswerFriends();
+                console.log("分页执行");
+            }
+        }
+    }else if(currentActiveId=="m1-charts"){
+        if(this.scrollTop + this.clientHeight > queryChartsViewsByid.clientHeight-88 && scrollFlagChartsViews){
+            if(queryChartsViews.charts.currentPage<queryChartsViews.charts.totalPage){
+                queryChartsViews.charts.currentPage++;
+                scrollFlagChartsViews = false;
+                objChartsViews();
                 console.log("分页执行");
             }
         }
