@@ -75,6 +75,7 @@ socket.addEventListener('message', function (event) {
             scrollFlagCreateChart = true;
             sendObjCreateChart.charts.totalPage = recObj.page.totalPage;
             sendObjCreateChart.charts.currentPage = recObj.page.currentPage;
+            recObj.datas=recObj.datas.filter(word => word.nikeName!=webuser);
             let groupByToMap = recObj.datas.reduce((group, product) => {
                 let { sortFirst } = product;
                 group[sortFirst] = group[sortFirst] ?? [];
@@ -204,7 +205,7 @@ socket.addEventListener('message', function (event) {
                                 <span class="lasttime">${dtstr.registerTime}</span>
                             </div>
                             <div class="msg-con" title="msg">
-                                ${dtstr.describes}
+                                ${dtstr.describes?dtstr.describes:''}
                             </div>
                         </div>
                     </div>

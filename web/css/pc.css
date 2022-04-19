@@ -83,23 +83,20 @@
   padding-bottom: 15px;
   display: flex;
   flex-direction: row;
-  align-items: center;
 }
 .main .main-3 .subchats .subContent .group .group-left {
-  text-align: center;
-  flex: 1;
   overflow: hidden;
 }
 .main .main-3 .subchats .subContent .group .group-left img {
   border-radius: 50%;
-  max-height: 56px;
+  max-width: 48px;
   transition: transform 0.5s;
 }
 .main .main-3 .subchats .subContent .group .group-left:hover > img {
   transform: scale(1.1);
 }
 .main .main-3 .subchats .subContent .group .group-right {
-  flex: 4;
+  flex: 1;
 }
 .main .main-3 .subchats .subContent .group .group-right .msg-title {
   margin-bottom: 10px;
@@ -107,6 +104,7 @@
 }
 .main .main-3 .subchats .subContent .group .group-right .msg-title .username {
   float: left;
+  text-indent: 1em;
 }
 .main .main-3 .subchats .subContent .group .group-right .msg-title .lasttime {
   float: right;
@@ -411,21 +409,34 @@
 .main .main-3 .notifications .subcon .subcon-text .tleft {
   flex: 2;
   max-width: 20%;
+  text-align: center;
 }
 .main .main-3 .notifications .subcon .subcon-text .tleft img {
   border-radius: 50%;
+  max-width: 48px;
+  transition: transform 0.5s;
+  cursor: pointer;
+}
+.main .main-3 .notifications .subcon .subcon-text .tleft img:hover {
+  transform: scale(1.1);
 }
 .main .main-3 .notifications .subcon .subcon-text .tcenter {
-  margin-left: 1em;
+  margin-left: 0.5em;
   flex: 7;
   max-width: 70%;
+  border-bottom: solid 1px darkgray;
+  padding-bottom: 6px;
+  min-height: 69px;
 }
 .main .main-3 .notifications .subcon .subcon-text .tcenter h3 {
   font-size: 16px;
   line-height: 25px;
+  color: darkgreen;
 }
 .main .main-3 .notifications .subcon .subcon-text .tcenter p {
   font-size: 13px;
+  padding-top: 3px;
+  cursor: pointer;
 }
 .main .main-3 .notifications .subcon .subcon-text .tright {
   position: relative;

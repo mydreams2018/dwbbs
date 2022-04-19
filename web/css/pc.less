@@ -88,14 +88,11 @@
           padding-bottom: 15px;
           display: flex;
           flex-direction: row;
-          align-items: center;
           .group-left{
-            text-align: center;
-             flex: 1;
             overflow: hidden;
             img{
               border-radius: 50%;
-              max-height: 56px;
+              max-width: 48px;
               transition: transform 0.5s;
             }
             &:hover>img{
@@ -103,12 +100,13 @@
             }
           }
           .group-right{
-            flex: 4;
+            flex: 1;
             .msg-title{
               margin-bottom: 10px;
               overflow: hidden;
               .username{
                  float: left;
+                text-indent: 1em;
               }
               .lasttime{
                 float: right;
@@ -433,20 +431,33 @@
           .tleft{
             flex: 2;
             max-width: 20%;
+            text-align: center;
             img{
               border-radius: 50%;
+              max-width: 48px;
+              transition: transform 0.5s;
+              cursor: pointer;
+            }
+            img:hover{
+              transform: scale(1.1);
             }
           }
           .tcenter{
-            margin-left: 1em;
+            margin-left: 0.5em;
             flex: 7;
             max-width: 70%;
+            border-bottom: solid 1px darkgray;
+            padding-bottom: 6px;
+            min-height: 69px;
             h3{
               font-size: 16px;
               line-height: 25px;
+              color: darkgreen;
             }
             p{
               font-size: 13px;
+              padding-top: 3px;
+              cursor: pointer;
             }
           }
           .tright{
