@@ -198,13 +198,13 @@ socket.addEventListener('message', function (event) {
                         <div class="group-left">
                             <img src="${dtstr.imgPath}" alt="${dtstr.nikeName}">
                         </div>
-                        <div class="group-right">
+                        <div class="group-right" data-id="${dtstr.srcTarUUID}">
                             <div class="msg-title">
                                 <h5 class="username">${dtstr.nikeName}</h5>
-                                <span class="lasttime">12:45 PM</span>
+                                <span class="lasttime">${dtstr.registerTime}</span>
                             </div>
                             <div class="msg-con" title="msg">
-                                ${dtstr.lastMsg}
+                                ${dtstr.describes}
                             </div>
                         </div>
                     </div>
