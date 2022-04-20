@@ -472,20 +472,24 @@ function handlerCurrentFriends(type,nikName){
     }
 }
 //聊天视图处理
-function handlerChartsViews(type,primaryId){
+var handlerChartsViews ={
+    uuid:"",
+    url:"handlerChartsViews",
+    src:"handlerChartsViews",
+    tar:"handlerChartsViews",
+    charts:{
+        currentActiveId:"m1-handler-charts-view",
+        tokenSession:websktoken,
+        nikeName:"",
+        message:"",
+        currentPage:1,
+        totalPage:1
+    }
+}
+function handlerChartsViewsFun(type,primaryId){
     if(type && primaryId){
-        let handlerChartsViews ={
-            uuid:"",
-            url:"handlerChartsViews",
-            src:"handlerChartsViews",
-            tar:"handlerChartsViews",
-            charts:{
-                currentActiveId:"m1-handler-charts-view",
-                tokenSession:websktoken,
-                nikeName:primaryId,
-                message:type
-            }
-        }
+        handlerChartsViews.charts.nikeName=primaryId;
+        handlerChartsViews.charts.message=type;
         handlerChartsViews.uuid=uuid();
         console.log(type,primaryId);
         socket.send(JSON.stringify(handlerChartsViews));

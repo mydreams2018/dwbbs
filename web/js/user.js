@@ -235,11 +235,11 @@ document.addEventListener('click', event => {
     }
     //隐藏聊天视图
     if(event.path[0].className=="bi-bookmark-x-fill" && event.path[3].id=="m1Charts"){
-        handlerChartsViews("hide",event.path[1].getAttribute("data-id"));
+        handlerChartsViewsFun("hide",event.path[1].getAttribute("data-id"));
     }
     //查询聊天视图 关联的聊天内容
     if(event.path[0].className=="msg-con" && event.path[4].id=="m1Charts"){
-        handlerChartsViews("show",event.path[1].getAttribute("data-id"));
+        handlerChartsViewsFun("show",event.path[1].getAttribute("data-id"));
     }
 });
 //全局的拖拽事件
