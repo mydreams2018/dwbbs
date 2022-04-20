@@ -471,6 +471,26 @@ function handlerCurrentFriends(type,nikName){
         socket.send(JSON.stringify(handlerCurrentFriends));
     }
 }
+//聊天视图处理
+function handlerChartsViews(type,primaryId){
+    if(type && primaryId){
+        let handlerChartsViews ={
+            uuid:"",
+            url:"handlerChartsViews",
+            src:"handlerChartsViews",
+            tar:"handlerChartsViews",
+            charts:{
+                currentActiveId:"m1-handler-charts-view",
+                tokenSession:websktoken,
+                nikeName:primaryId,
+                message:type
+            }
+        }
+        handlerChartsViews.uuid=uuid();
+        console.log(type,primaryId);
+        socket.send(JSON.stringify(handlerChartsViews));
+    }
+}
 //上传用户图片 文件
 const readerFile = new FileReader();
 const fileEncoder = new TextEncoder();
