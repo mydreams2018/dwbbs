@@ -209,7 +209,7 @@ socket.addEventListener('message', function (event) {
                                 <span class="lasttime">${dtstr.registerTime}</span>
                             </div>
                             <div class="msg-con" title="msg">
-                                ${dtstr.describes?dtstr.describes:''}
+                                ${dtstr.describes?replaceImgsrc(dtstr.describes):''}...
                             </div>
                         </div>
                     </div>
@@ -227,7 +227,7 @@ socket.addEventListener('message', function (event) {
                     let htmlLiElement = document.createElement("li");
                     htmlLiElement.innerHTML=`
                         <h5 style=${dtstr.srcUser==webuser?'text-align:right;':'text-align:left;' }>${dtstr.sendTime} <i class="bi-three-dots-vertical"></i></h5>
-                        <pre style=${dtstr.srcUser==webuser?'text-align:right;':'text-align:left;' }>${dtstr.content}</pre>
+                        <pre style=${dtstr.srcUser==webuser?'text-align:right;':'text-align:left;' }>${replaceImgsrc(dtstr.content)}</pre>
                             `;
                     //从第一个元素追加
                     m6DefaultHideCon.insertBefore(htmlLiElement,m6DefaultHideCon.firstElementChild);
@@ -249,7 +249,7 @@ socket.addEventListener('message', function (event) {
                     let htmlLiElement = document.createElement("li");
                     htmlLiElement.innerHTML=`
                         <h5 style=${dtstr.srcUser==webuser?'text-align:right;':'text-align:left;'} > ${dtstr.sendTime} <i class="bi-three-dots-vertical"></i></h5>
-                        <pre style=${dtstr.srcUser==webuser?'text-align:right;':'text-align:left;'} >${dtstr.content}</pre>
+                        <pre style=${dtstr.srcUser==webuser?'text-align:right;':'text-align:left;'} >${replaceImgsrc(dtstr.content)}</pre>
                             `;
                     m6DefaultHideCon.appendChild(htmlLiElement);
                 }
@@ -299,7 +299,7 @@ socket.addEventListener('message', function (event) {
                 let htmlLiElement = document.createElement("li");
                 htmlLiElement.innerHTML=`
                         <h5 style="text-align: right;" >${curDate.getHours()}:${curDate.getMinutes()} <i class="bi-three-dots-vertical"></i></h5>
-                        <pre style="text-align: right;" >${recObj.msg}</pre>`;
+                        <pre style="text-align: right;" >${replaceImgsrc(recObj.msg)}</pre>`;
                 m6DefaultHideCon.appendChild(htmlLiElement);
                 m6DefaultHideCon.scrollTo(0,m6DefaultHideCon.scrollHeight);
             }
@@ -581,6 +581,14 @@ function handlerChartsSendFun(msg,primaryId,Nikenm) {
         console.log(msg,primaryId,Nikenm);
         socket.send(JSON.stringify(handlerChartsSend));
     }
+}
+function replaceImgsrc(con){
+    for(let x=0;x<72;x++){
+        if(con.includes(`[img${x}]`)){
+            con = con.replaceAll(`[img${x}]`,`<img src="/images/face/${x}.gif" title="img${x}">`);
+        }
+    }
+    return con;
 }
 //上传用户图片 文件
 const readerFile = new FileReader();
