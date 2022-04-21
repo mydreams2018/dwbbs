@@ -226,13 +226,17 @@ socket.addEventListener('message', function (event) {
                 for(let dtstr of recObj.datas){
                     let htmlLiElement = document.createElement("li");
                     htmlLiElement.innerHTML=`
-                        <h5>${dtstr.sendTime} <i class="bi-three-dots-vertical"></i></h5>
-                        <pre>${dtstr.content}</pre>
+                        <h5 style=${dtstr.srcUser==webuser?'text-align:right;':'text-align:left;' }>${dtstr.sendTime} <i class="bi-three-dots-vertical"></i></h5>
+                        <pre style=${dtstr.srcUser==webuser?'text-align:right;':'text-align:left;' }>${dtstr.content}</pre>
                             `;
-                    m6DefaultHideCon.appendChild(htmlLiElement);
+                    //从第一个元素追加
+                    m6DefaultHideCon.insertBefore(htmlLiElement,m6DefaultHideCon.firstElementChild);
                 }
                 scrollFlaghandlerChartsViews=true;
             }else{
+                if(recObj.datas && recObj.datas.length>1){
+                    recObj.datas.reverse();//反转数组
+                }
                 //清空数据 再添加
                 m6DefaultHideTop.style.display="block";
                 m6DefaultHideCon.style.display="block";
@@ -244,11 +248,13 @@ socket.addEventListener('message', function (event) {
                 for(let dtstr of recObj.datas){
                     let htmlLiElement = document.createElement("li");
                     htmlLiElement.innerHTML=`
-                        <h5>${dtstr.sendTime} <i class="bi-three-dots-vertical"></i></h5>
-                        <pre>${dtstr.content}</pre>
+                        <h5 style=${dtstr.srcUser==webuser?'text-align:right;':'text-align:left;'} > ${dtstr.sendTime} <i class="bi-three-dots-vertical"></i></h5>
+                        <pre style=${dtstr.srcUser==webuser?'text-align:right;':'text-align:left;'} >${dtstr.content}</pre>
                             `;
                     m6DefaultHideCon.appendChild(htmlLiElement);
                 }
+                //滚动条到底 最新的一条信息
+                m6DefaultHideCon.scrollTo(0,m6DefaultHideCon.scrollHeight);
             }
         }
         else if(recObj.url && recObj.url=="applyFriends"){
@@ -286,6 +292,17 @@ socket.addEventListener('message', function (event) {
             }
         }else if(recObj.url && recObj.url=="uploadUserImg"){
             console.log("img-load");
+        }else if(recObj.url && recObj.url=="handlerChartsSend"){
+            //发送信息成功. 把信息追加到列表中
+            if(recObj.code=="200" && recObj.srcTarUUID==m6DefaultHideTop.getAttribute("data-id")){
+                let curDate = new Date();
+                let htmlLiElement = document.createElement("li");
+                htmlLiElement.innerHTML=`
+                        <h5 style="text-align: right;" >${curDate.getHours()}:${curDate.getMinutes()} <i class="bi-three-dots-vertical"></i></h5>
+                        <pre style="text-align: right;" >${recObj.msg}</pre>`;
+                m6DefaultHideCon.appendChild(htmlLiElement);
+                m6DefaultHideCon.scrollTo(0,m6DefaultHideCon.scrollHeight);
+            }
         }
     }
     console.log('Message from server ', event.data);
@@ -524,7 +541,7 @@ var handlerChartsViews ={
     }
 }
 m6DefaultHideCon.addEventListener("scroll",function (event) {
-    if(this.scrollTop + this.clientHeight > this.scrollHeight-88 && scrollFlaghandlerChartsViews){
+    if(this.scrollTop < 88 && scrollFlaghandlerChartsViews){
         if(handlerChartsViews.charts.currentPage<handlerChartsViews.charts.totalPage){
             handlerChartsViews.charts.currentPage++;
             scrollFlaghandlerChartsViews = false;
@@ -541,6 +558,28 @@ function handlerChartsViewsFun(type,primaryId){
         handlerChartsViews.uuid=uuid();
         console.log(type,primaryId);
         socket.send(JSON.stringify(handlerChartsViews));
+    }
+}
+function handlerChartsSendFun(msg,primaryId,Nikenm) {
+    //替换特殊字符
+    msg = msg.replaceAll('<', '&lt;').replaceAll(">","&gt;");
+    if(msg && primaryId && Nikenm){
+        let handlerChartsSend ={
+            uuid:"",
+            url:"handlerChartsSend",
+            src:"handlerChartsSend",
+            tar:"handlerChartsSend",
+            charts:{
+                currentActiveId:"m1-handler-charts-send",
+                tokenSession:websktoken,
+                srcTarUUID:primaryId,
+                nikeName:Nikenm,
+                message:msg
+            }
+        }
+        handlerChartsSend.uuid=uuid();
+        console.log(msg,primaryId,Nikenm);
+        socket.send(JSON.stringify(handlerChartsSend));
     }
 }
 //上传用户图片 文件

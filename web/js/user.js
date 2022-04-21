@@ -197,6 +197,8 @@ document.addEventListener('click', event => {
     }
     //发送数据
     if(mid=="userSendMsg" || mid=="userSendMsg-inner"){
+        handlerChartsSendFun(document.getElementById("message-send").value,m6DefaultHideTop.getAttribute("data-id")
+            ,m6DefaultHideTop.querySelector("h3").innerText);
         document.getElementById("message-send").value="";
         document.getElementById("message-send").style.height="auto";
         document.getElementById("faceImgToggle").style.bottom ="56px";
@@ -241,6 +243,7 @@ document.addEventListener('click', event => {
     if(event.path[0].className=="msg-con" && event.path[4].id=="m1Charts"){
         document.getElementById("m6DefaultShow").style.display="none";
         scrollFlaghandlerChartsViews=true;
+        handlerChartsViews.charts.currentPage=1;
         handlerChartsViewsFun("show",event.path[1].getAttribute("data-id"));
     }
 });
