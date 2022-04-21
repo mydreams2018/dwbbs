@@ -239,6 +239,8 @@ document.addEventListener('click', event => {
     }
     //查询聊天视图 关联的聊天内容
     if(event.path[0].className=="msg-con" && event.path[4].id=="m1Charts"){
+        document.getElementById("m6DefaultShow").style.display="none";
+        scrollFlaghandlerChartsViews=true;
         handlerChartsViewsFun("show",event.path[1].getAttribute("data-id"));
     }
 });

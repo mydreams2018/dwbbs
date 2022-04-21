@@ -60,6 +60,10 @@ var addchatsById = document.getElementById("addchats");
 var queryFriendsByid = document.getElementById("friends");
 var queryAnswerFrsByid = document.getElementById("m1Notifications");
 var queryChartsViewsByid = document.getElementById("m1Charts");
+//聊天内容相关的element
+var m6DefaultHideTop = document.getElementById("m6DefaultHide-top");
+var m6DefaultHideCon = document.getElementById("m6DefaultHide-con");
+var m6DefaultHideBtm = document.getElementById("m6DefaultHide-btm");
 // 当一个 WebSocket 连接成功时触发。也可以通过 onopen 属性来设置。
 socket.addEventListener('open', function (event) {
     console.log('open');
@@ -197,7 +201,7 @@ socket.addEventListener('message', function (event) {
                 htmlDivElement.className="subContent";
                 htmlDivElement.innerHTML=`<div class="group">
                         <div class="group-left">
-                            <img src="${dtstr.imgPath}" alt="${dtstr.nikeName}">
+                            <img src="${dtstr.imgPath}" data-id="${dtstr.srcTarUUID}" alt="${dtstr.nikeName}">
                         </div>
                         <div class="group-right" data-id="${dtstr.srcTarUUID}">
                             <div class="msg-title">
@@ -213,6 +217,38 @@ socket.addEventListener('message', function (event) {
                         <i class="bi-bookmark-x-fill"></i>
                     </div>`;
                 queryChartsViewsByid.appendChild(htmlDivElement);
+            }
+        }else if(recObj.currentActiveId && recObj.currentActiveId=="m1-handler-charts-view"){
+            handlerChartsViews.charts.totalPage = recObj.page.totalPage;
+            handlerChartsViews.charts.currentPage = recObj.page.currentPage;
+            let data_id = m6DefaultHideTop.getAttribute("data-id");
+            if(data_id==recObj.dataId && !scrollFlaghandlerChartsViews){
+                for(let dtstr of recObj.datas){
+                    let htmlLiElement = document.createElement("li");
+                    htmlLiElement.innerHTML=`
+                        <h5>${dtstr.sendTime} <i class="bi-three-dots-vertical"></i></h5>
+                        <pre>${dtstr.content}</pre>
+                            `;
+                    m6DefaultHideCon.appendChild(htmlLiElement);
+                }
+                scrollFlaghandlerChartsViews=true;
+            }else{
+                //清空数据 再添加
+                m6DefaultHideTop.style.display="block";
+                m6DefaultHideCon.style.display="block";
+                m6DefaultHideBtm.style.display="block";
+                m6DefaultHideTop.setAttribute("data-id",recObj.dataId);
+                m6DefaultHideTop.querySelector("h3").innerText=document.querySelector(`.group-right[data-id='${recObj.dataId}'] .username`).innerText;
+                m6DefaultHideTop.querySelector("img").src=document.querySelector(`.group-left img[data-id='${recObj.dataId}']`).src;
+                m6DefaultHideCon.innerHTML="";
+                for(let dtstr of recObj.datas){
+                    let htmlLiElement = document.createElement("li");
+                    htmlLiElement.innerHTML=`
+                        <h5>${dtstr.sendTime} <i class="bi-three-dots-vertical"></i></h5>
+                        <pre>${dtstr.content}</pre>
+                            `;
+                    m6DefaultHideCon.appendChild(htmlLiElement);
+                }
             }
         }
         else if(recObj.url && recObj.url=="applyFriends"){
@@ -472,6 +508,7 @@ function handlerCurrentFriends(type,nikName){
     }
 }
 //聊天视图处理
+var scrollFlaghandlerChartsViews = true;
 var handlerChartsViews ={
     uuid:"",
     url:"handlerChartsViews",
@@ -486,6 +523,17 @@ var handlerChartsViews ={
         totalPage:1
     }
 }
+m6DefaultHideCon.addEventListener("scroll",function (event) {
+    if(this.scrollTop + this.clientHeight > this.scrollHeight-88 && scrollFlaghandlerChartsViews){
+        if(handlerChartsViews.charts.currentPage<handlerChartsViews.charts.totalPage){
+            handlerChartsViews.charts.currentPage++;
+            scrollFlaghandlerChartsViews = false;
+            socket.send(JSON.stringify(handlerChartsViews));
+            console.log("分页执行");
+        }
+    }
+    event.stopPropagation();
+},false);
 function handlerChartsViewsFun(type,primaryId){
     if(type && primaryId){
         handlerChartsViews.charts.nikeName=primaryId;
