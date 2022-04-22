@@ -315,17 +315,16 @@
   text-align: center;
   border-radius: 20px;
   background-color: #ffffff;
-  height: 80px;
+  min-height: 76px;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 .main .main-3 .friends .frePeople .people li:nth-child(1) {
-  flex: 3;
-  max-width: 30%;
+  flex: 1;
 }
 .main .main-3 .friends .frePeople .people li:nth-child(1) img {
-  max-height: 56px;
+  max-width: 48px;
   border-radius: 50%;
   transition: transform 0.5s;
 }
@@ -333,19 +332,26 @@
   transform: scale(1.1);
 }
 .main .main-3 .friends .frePeople .people li:nth-child(2) {
+  align-self: flex-start;
   text-align: start;
-  flex: 5;
-  max-width: 50%;
+  flex: 3;
 }
 .main .main-3 .friends .frePeople .people li:nth-child(2) h3 {
   font-size: 14px;
+  float: left;
+  line-height: 30px;
 }
 .main .main-3 .friends .frePeople .people li:nth-child(2) span {
   font-size: 12px;
+  float: right;
+  line-height: 30px;
+}
+.main .main-3 .friends .frePeople .people li:nth-child(2) p {
+  clear: left;
+  font-size: 12px;
 }
 .main .main-3 .friends .frePeople .people li:nth-child(3) {
-  flex: 2;
-  max-width: 20%;
+  flex: 0.5;
   position: relative;
   cursor: pointer;
 }
@@ -354,7 +360,8 @@
   position: absolute;
   z-index: 6;
   right: 20px;
-  bottom: -95px;
+  background-color: beige;
+  bottom: -75px;
   border: solid 1px green;
   border-radius: 10px;
   cursor: pointer;
