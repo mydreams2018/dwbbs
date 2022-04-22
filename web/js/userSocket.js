@@ -229,7 +229,7 @@ socket.addEventListener('message', function (event) {
                     let htmlLiElement = document.createElement("li");
                     htmlLiElement.innerHTML=`
                         <h5 style=${dtstr.srcUser==webuser?'text-align:right;':'text-align:left;' }>${dtstr.sendTime} <i class="bi-three-dots-vertical"></i></h5>
-                        <pre style=${dtstr.srcUser==webuser?'text-align:right;':'text-align:left;' }>${replaceImgsrc(dtstr.content)}</pre>
+                        <pre style=${dtstr.srcUser==webuser?'float:right;':'float:left;' }>${replaceImgsrc(dtstr.content)}</pre>
                             `;
                     //从第一个元素追加
                     m6DefaultHideCon.insertBefore(htmlLiElement,m6DefaultHideCon.firstElementChild);
@@ -251,7 +251,7 @@ socket.addEventListener('message', function (event) {
                     let htmlLiElement = document.createElement("li");
                     htmlLiElement.innerHTML=`
                         <h5 style=${dtstr.srcUser==webuser?'text-align:right;':'text-align:left;'} > ${dtstr.sendTime} <i class="bi-three-dots-vertical"></i></h5>
-                        <pre style=${dtstr.srcUser==webuser?'text-align:right;':'text-align:left;'} >${replaceImgsrc(dtstr.content)}</pre>
+                        <pre style=${dtstr.srcUser==webuser?'float:right;':'float:left;'} >${replaceImgsrc(dtstr.content)}</pre>
                             `;
                     m6DefaultHideCon.appendChild(htmlLiElement);
                 }
@@ -301,7 +301,7 @@ socket.addEventListener('message', function (event) {
                 let htmlLiElement = document.createElement("li");
                 htmlLiElement.innerHTML=`
                         <h5 style="text-align: right;" >${curDate.getHours()}:${curDate.getMinutes()} <i class="bi-three-dots-vertical"></i></h5>
-                        <pre style="text-align: right;" >${replaceImgsrc(recObj.msg)}</pre>`;
+                        <pre style="float: right;" >${replaceImgsrc(recObj.msg)}</pre>`;
                 m6DefaultHideCon.appendChild(htmlLiElement);
                 m6DefaultHideCon.scrollTo(0,m6DefaultHideCon.scrollHeight);
             }
