@@ -101,6 +101,7 @@ socket.addEventListener('message', function (event) {
                         <li>
                             <h3>${groupByToMapvalue.nikeName}</h3>
                             <span>${groupByToMapvalue.registerTime}</span>
+                            <p>这里是这个人的描述信息...</p>
                         </li>
                         <li>
                             <input type="checkbox" name="addUser" data-id="${groupByToMapvalue.nikeName}">
