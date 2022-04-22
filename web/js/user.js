@@ -54,6 +54,7 @@ document.onreadystatechange = function () {
         fixedBottom();
         heightCenterLength();
         m6DefaultAutoTop();
+        initQueryFlags++;
         getCurrentData();
     }
     console.log(document.readyState);

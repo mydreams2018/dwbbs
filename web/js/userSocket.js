@@ -3,6 +3,7 @@ var webuser = docCookies.getItem("web_user");
 if(!websktoken){
     window.location.href="/index.html";
 }
+var initQueryFlags = 0;
 const socket = new WebSocket('ws://192.168.3.2:9999');
 const sendObjCreateChart ={
     uuid:"",
@@ -69,6 +70,8 @@ socket.addEventListener('open', function (event) {
     console.log('open');
     console.log("未发送至服务器的字节数."+socket.bufferedAmount);
     console.log("连接所传输二进制数据的类型"+socket.binaryType);
+    initQueryFlags++;
+    getCurrentData();
 });
 // 当通过 WebSocket 收到数据时触发。
 socket.addEventListener('message', function (event) {
@@ -323,10 +326,12 @@ socket.addEventListener('close', function (event) {
 function getCurrentData() {
     document.getElementById("m1-userDetails").src= docCookies.getItem('web_user_img');
     document.getElementById("img-select").src= docCookies.getItem('web_user_img');
-    objCreateChart();
-    objCurrentFriends();
-    objAnswerFriends();
-    objChartsViews();
+    if(initQueryFlags==2){
+        objCreateChart();
+        objCurrentFriends();
+        objAnswerFriends();
+        objChartsViews();
+    }
 }
 //当前是用户添加
 function objCreateChart() {
