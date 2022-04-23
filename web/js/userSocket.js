@@ -231,7 +231,7 @@ socket.addEventListener('message', function (event) {
                 for(let dtstr of recObj.datas){
                     let htmlLiElement = document.createElement("li");
                     htmlLiElement.innerHTML=`
-                        <h5 style=${dtstr.srcUser==webuser?'text-align:right;':'text-align:left;' }>${dtstr.sendTime} <i class="bi-three-dots-vertical"></i></h5>
+                        <h5 style=${dtstr.srcUser==webuser?'text-align:right;':'text-align:left;' }>${timeFormart(dtstr.sendTime)} <i class="bi-three-dots-vertical"></i></h5>
                         <pre style=${dtstr.srcUser==webuser?'float:right;':'float:left;' }>${replaceImgsrc(dtstr.content)}</pre>
                             `;
                     //从第一个元素追加
@@ -253,7 +253,7 @@ socket.addEventListener('message', function (event) {
                 for(let dtstr of recObj.datas){
                     let htmlLiElement = document.createElement("li");
                     htmlLiElement.innerHTML=`
-                        <h5 style=${dtstr.srcUser==webuser?'text-align:right;':'text-align:left;'} > ${dtstr.sendTime} <i class="bi-three-dots-vertical"></i></h5>
+                        <h5 style=${dtstr.srcUser==webuser?'text-align:right;':'text-align:left;'} > ${timeFormart(dtstr.sendTime)} <i class="bi-three-dots-vertical"></i></h5>
                         <pre style=${dtstr.srcUser==webuser?'float:right;':'float:left;'} >${replaceImgsrc(dtstr.content)}</pre>
                             `;
                     m6DefaultHideCon.appendChild(htmlLiElement);
@@ -469,7 +469,14 @@ function uuidLow(){
     }
     return s.join("");
 }
-
+function timeFormart(seconds){
+    let str = "";
+    if(seconds){
+        let dts = new Date(seconds*1000);
+        str=`${dts.getFullYear()}-${dts.getMonth()+1}-${dts.getDate()} ${dts.getHours()}:${dts.getMinutes()}`;
+    }
+    return str;
+}
 //发送好友申请的方法
 function sendFriendsApply(tx) {
     let elementCheckeOf = document.querySelectorAll("#addchats .subPeople input[name='addUser']:checked");
