@@ -310,6 +310,8 @@ socket.addEventListener('message', function (event) {
                         <pre style="float: right;" >${replaceImgsrc(recObj.msg)}</pre>`;
                 m6DefaultHideCon.appendChild(htmlLiElement);
                 m6DefaultHideCon.scrollTo(0,m6DefaultHideCon.scrollHeight);
+            }else{
+                addAnswerAnimation(recObj.msg);
             }
         }else if(recObj.url && recObj.url=="handlerDesUpdate"){
             addAnswerAnimation(recObj.msg);
