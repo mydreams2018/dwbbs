@@ -263,7 +263,7 @@ socket.addEventListener('message', function (event) {
             }
         }
         else if(recObj.url && recObj.url=="applyFriends"){
-            //申请添加好友的回复信息.todo
+            addAnswerAnimation(recObj.msg);
         }else if(recObj.url &&recObj.url=="handlerApplyFriend"){
             //删除申请 好友记录成功后  删除Element
             if(recObj.code=="200" && (recObj.msg.includes("删除申请成功") || recObj.msg.includes("拒绝申请成功") || recObj.msg.includes("接受申请成功"))){
@@ -278,6 +278,7 @@ socket.addEventListener('message', function (event) {
                     }
                 }
             }
+            addAnswerAnimation(recObj.msg);
         }else if(recObj.url && recObj.url=="handlerCurrentFriend"){
             //删除已有 好友记录成功后  删除Element
             if(recObj.code=="200" && recObj.msg.includes("删除好友成功")){
@@ -295,8 +296,10 @@ socket.addEventListener('message', function (event) {
                 //添加聊天视图成功.
                 console.log("添加聊天视图成功");
             }
+            addAnswerAnimation(recObj.msg);
         }else if(recObj.url && recObj.url=="uploadUserImg"){
             console.log("img-load");
+            addAnswerAnimation(recObj.msg);
         }else if(recObj.url && recObj.url=="handlerChartsSend"){
             //发送信息成功. 把信息追加到列表中
             if(recObj.code=="200" && recObj.srcTarUUID==m6DefaultHideTop.getAttribute("data-id")){
@@ -309,7 +312,7 @@ socket.addEventListener('message', function (event) {
                 m6DefaultHideCon.scrollTo(0,m6DefaultHideCon.scrollHeight);
             }
         }else if(recObj.url && recObj.url=="handlerDesUpdate"){
-            //修改用户的备注信息
+            addAnswerAnimation(recObj.msg);
         }
     }
     console.log('Message from server ', event.data);
@@ -638,4 +641,21 @@ function userDesUpdate() {
        handlerDesUpdate.uuid=uuid();
        socket.send(JSON.stringify(handlerDesUpdate));
    }
+}
+//跑马灯 信息回复提示
+let animationMsgRun = document.getElementById("animation_Msg_run");
+animationMsgRun.addEventListener('animationend',(ev)=> {
+    ev.path[0].remove();
+    if(animationMsgRun.querySelectorAll(".animation_cylon_eye").length==0){
+        animationMsgRun.style.display="none";
+    };
+});
+function addAnswerAnimation(msg){
+    if(msg){
+        animationMsgRun.style.display="block";
+        let dicHtml = document.createElement("div");
+        dicHtml.className="animation_cylon_eye";
+        dicHtml.innerText=msg;
+        animationMsgRun.appendChild(dicHtml);
+    }
 }

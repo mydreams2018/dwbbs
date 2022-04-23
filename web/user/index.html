@@ -22,6 +22,24 @@
         a{
             color: #95aacc;
         }
+        .animation_view_port{
+            background-color: transparent;
+            width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 99;
+        }
+        .animation_cylon_eye{
+            overflow: hidden;
+            color: springgreen;
+            height: 26px;
+            line-height: 26px;
+            animation: 8s linear 0s 1 alternate move_eye;
+        }
+        @keyframes move_eye  { from { margin-left: 0; } to { margin-left: 100%; } }
     </style>
 </head>
 <body>
@@ -305,6 +323,9 @@
         <textarea maxlength="80" rows="5" placeholder="最大长度80字" spellcheck="false"></textarea>
         <button id="addchatsFixedExit" title="esq">取消</button>
         <button id="addchatsFixedSuccess" title="suc">确定</button>
+    </div>
+<!-- 跑马灯 信息回复提示 -->
+    <div id="animation_Msg_run" class="animation_view_port" style="display: none">
     </div>
 </body>
 </html>
