@@ -104,7 +104,7 @@ socket.addEventListener('message', function (event) {
                         <li>
                             <h3>${groupByToMapvalue.nikeName}</h3>
                             <span>${groupByToMapvalue.registerTime}</span>
-                            <p>这里是这个人的描述信息...</p>
+                            <p>${groupByToMapvalue.describes}</p>
                         </li>
                         <li>
                             <input type="checkbox" name="addUser" data-id="${groupByToMapvalue.nikeName}">
@@ -140,7 +140,7 @@ socket.addEventListener('message', function (event) {
                         <li>
                             <h3>${groupByToMapvalue.nikeName}</h3>
                             <span>${groupByToMapvalue.registerTime}</span>
-                             <p>这里是这个人的描述信息...</p>
+                             <p>${groupByToMapvalue.describes}</p>
                         </li>
                         <li>
                             <i data-id="editFixed1${tempuuid}" data-nk="${groupByToMapvalue.nikeName}" class="bi-three-dots-vertical"></i>
@@ -308,6 +308,8 @@ socket.addEventListener('message', function (event) {
                 m6DefaultHideCon.appendChild(htmlLiElement);
                 m6DefaultHideCon.scrollTo(0,m6DefaultHideCon.scrollHeight);
             }
+        }else if(recObj.url && recObj.url=="handlerDesUpdate"){
+            //修改用户的备注信息
         }
     }
     console.log('Message from server ', event.data);
@@ -326,6 +328,7 @@ socket.addEventListener('close', function (event) {
 function getCurrentData() {
     document.getElementById("m1-userDetails").src= docCookies.getItem('web_user_img');
     document.getElementById("img-select").src= docCookies.getItem('web_user_img');
+    document.querySelector("textarea[name='description']").value=docCookies.getItem('web_user_des');
     if(initQueryFlags==2){
         objCreateChart();
         objCurrentFriends();
@@ -610,3 +613,22 @@ readerFile.onload = function(evt){
         socket.send(viewByte);
     }
 };
+//修改用户的描述信息
+function userDesUpdate() {
+   let desc = document.querySelector("textarea[name='description']").value;
+   if(desc){
+       let handlerDesUpdate ={
+           uuid:"",
+           url:"handlerDesUpdate",
+           src:"handlerDesUpdate",
+           tar:"handlerDesUpdate",
+           charts:{
+               currentActiveId:"m1-handler-desc-up",
+               tokenSession:websktoken,
+               message:desc
+           }
+       }
+       handlerDesUpdate.uuid=uuid();
+       socket.send(JSON.stringify(handlerDesUpdate));
+   }
+}

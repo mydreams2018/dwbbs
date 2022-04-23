@@ -42,6 +42,7 @@ socket.addEventListener('message', function (event) {
                 docCookies.setItem('web_sktoken',dts.sktoken);
                 docCookies.setItem('web_user',dts.user);
                 docCookies.setItem('web_user_img',dts.imgPath);
+                docCookies.setItem('web_user_des',dts.describes);
             }
         }
     }else{

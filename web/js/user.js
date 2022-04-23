@@ -247,6 +247,10 @@ document.addEventListener('click', event => {
         handlerChartsViews.charts.currentPage=1;
         handlerChartsViewsFun("show",event.path[1].getAttribute("data-id"));
     }
+    //修改用户的描述信息
+    if(mid=="user-des-update"){
+        userDesUpdate();
+    }
 });
 //全局的拖拽事件
 document.addEventListener("dragover", function(event) {
