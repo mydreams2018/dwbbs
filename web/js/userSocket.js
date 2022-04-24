@@ -278,6 +278,18 @@ socket.addEventListener('message', function (event) {
                     }
                 }
             }
+            if(recObj.code=="200" && recObj.msg.includes("接受申请成功")){
+                //刷新好友列表页面
+                scrollFlagQueryFriends = true;
+                queryCurrentFriends.charts.currentPage=1;
+                queryCurrentFriends.charts.nikeName="";
+                document.querySelector("#friends>.subTitle>input").value="";
+                let elementNodeListOf = document.querySelectorAll("#friends>div.frePeople");
+                for (let elementNodeListOfElement of elementNodeListOf) {
+                    elementNodeListOfElement.remove();
+                }
+                objCurrentFriends();
+            }
             addAnswerAnimation(recObj.msg);
         }else if(recObj.url && recObj.url=="handlerCurrentFriend"){
             //删除已有 好友记录成功后  删除Element
