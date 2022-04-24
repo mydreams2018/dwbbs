@@ -293,8 +293,16 @@ socket.addEventListener('message', function (event) {
                     }
                 }
             }else if(recObj.code=="200" && recObj.msg.includes("添加聊天视图成功")){
-                //添加聊天视图成功.
-                console.log("添加聊天视图成功");
+                //清空视图内容 重新加载一次
+                scrollFlagChartsViews = true;
+                queryChartsViews.charts.currentPage=1;
+                queryChartsViews.charts.nikeName="";
+                document.querySelector("#m1Charts>.subTitle>input").value="";
+                let elementNodeListOf = document.querySelectorAll("#m1Charts>div.subContent");
+                for (let elementNodeListOfElement of elementNodeListOf) {
+                    elementNodeListOfElement.remove();
+                }
+                objChartsViews();
             }
             addAnswerAnimation(recObj.msg);
         }else if(recObj.url && recObj.url=="uploadUserImg"){
