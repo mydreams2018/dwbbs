@@ -315,6 +315,12 @@ socket.addEventListener('message', function (event) {
             }
         }else if(recObj.url && recObj.url=="handlerDesUpdate"){
             addAnswerAnimation(recObj.msg);
+        }else if(recObj.url && recObj.url=="handlerChartsViews"){
+            if(recObj.code=="200" && recObj.msg=="hide"){
+                let uuidTemp = recObj.uuid;
+                let deleteEle = document.querySelector(`.subContent .fixed-right[data-id='${uuidTemp}']`);
+                deleteEle.parentElement.remove();
+            }
         }
     }
     console.log('Message from server ', event.data);
