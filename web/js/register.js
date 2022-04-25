@@ -8,7 +8,7 @@ document.onreadystatechange = function () {
         console.log("dom-complete");
     }
 }
-const socket = new WebSocket('ws://192.168.3.2:9999');
+const socket = new WebSocket('ws://192.168.9.52:9999');
 
 const sendObj={
     uuid:"",

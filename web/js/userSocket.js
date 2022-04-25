@@ -4,7 +4,7 @@ if(!websktoken){
     window.location.href="/index.html";
 }
 var initQueryFlags = 0;
-const socket = new WebSocket('ws://192.168.3.2:9999');
+const socket = new WebSocket('ws://192.168.9.52:9999');
 const sendObjCreateChart ={
     uuid:"",
     url:"queryUsers",
