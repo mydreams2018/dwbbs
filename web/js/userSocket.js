@@ -359,6 +359,7 @@ socket.addEventListener('close', function (event) {
 function getCurrentData() {
     document.getElementById("m1-userDetails").src= docCookies.getItem('web_user_img');
     document.getElementById("img-select").src= docCookies.getItem('web_user_img');
+    document.querySelector("#isShowDetails .cons img").src= docCookies.getItem('web_user_img');
     document.querySelector("textarea[name='description']").value=docCookies.getItem('web_user_des');
     if(initQueryFlags==2){
         objCreateChart();
