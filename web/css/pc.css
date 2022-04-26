@@ -627,6 +627,7 @@
   float: left;
   border-radius: 50%;
   height: 60px;
+  max-width: 10%;
   margin-top: 10px;
   cursor: pointer;
 }

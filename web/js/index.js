@@ -43,6 +43,7 @@ socket.addEventListener('message', function (event) {
                 docCookies.setItem('web_user',dts.user);
                 docCookies.setItem('web_user_img',dts.imgPath);
                 docCookies.setItem('web_user_des',dts.describes);
+                window.location.assign("/user/index.html");
             }
         }
     }else{
