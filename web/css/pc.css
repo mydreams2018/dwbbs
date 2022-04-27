@@ -86,6 +86,7 @@
 .main .main-3 .subchats .subContent .group .group-left {
   flex: 1;
   max-width: 20%;
+  text-align: center;
 }
 .main .main-3 .subchats .subContent .group .group-left img {
   border-radius: 50%;
