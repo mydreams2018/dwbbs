@@ -229,11 +229,11 @@ document.addEventListener('click', event => {
     }
 
     //好友申请的处理方法
-    if(event.path[1].id.includes("tright-fixed-")){
+    if(event.path[1].id && event.path[1].id.includes("tright-fixed-")){
         handlerApplyFriends(event.path[0].innerText ,event.path[1].getAttribute("data-nk"));
     }
     //现有好友处理
-    if(event.path[1].id.includes("editFixed")){
+    if(event.path[1].id && event.path[1].id.includes("editFixed")){
         handlerCurrentFriends(event.path[0].innerText ,event.path[1].getAttribute("data-nk"));
     }
     //隐藏聊天视图
