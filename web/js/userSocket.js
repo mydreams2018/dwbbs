@@ -318,6 +318,9 @@ socket.addEventListener('message', function (event) {
             }
             addAnswerAnimation(recObj.msg);
         }else if(recObj.url && recObj.url=="uploadUserImg"){
+            if(recObj.code=="200"){
+                docCookies.setItem('web_user_img',recObj.imgPath,null,"/");
+            }
             console.log("img-load");
             addAnswerAnimation(recObj.msg);
         }else if(recObj.url && recObj.url=="handlerChartsSend"){
@@ -335,6 +338,7 @@ socket.addEventListener('message', function (event) {
             }
         }else if(recObj.url && recObj.url=="handlerDesUpdate"){
             addAnswerAnimation(recObj.msg);
+            docCookies.setItem('web_user_des',recObj.describes,null,"/");
         }else if(recObj.url && recObj.url=="handlerChartsViews"){
             if(recObj.code=="200" && recObj.msg=="hide"){
                 let uuidTemp = recObj.uuid;
