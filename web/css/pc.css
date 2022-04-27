@@ -684,12 +684,15 @@
   /* white-space : pre-wrap  属性是用来设置如何处理元素中的 空白 (en-US)。
             连续的空白符会被保留。在遇到换行符或者<br>元素，
             或者需要为了填充「行框盒子(line boxes)」时才会换行。
-            下面的代码允许在 <pre> 中自动换行
+
+            overflow-wrap 是用来说明当一个不能被分开的字符串太长而不能填充其包裹盒时，
+            为防止其溢出，浏览器是否允许这样的单词中断换行。
             */
   box-sizing: border-box;
   border-radius: 20px;
   white-space: pre-wrap;
   word-wrap: break-word;
+  overflow-wrap: break-word;
   background-color: #f6f9fb;
   margin: 0;
   padding: 15px;
