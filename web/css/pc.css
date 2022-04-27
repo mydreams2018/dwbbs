@@ -84,7 +84,8 @@
   flex-direction: row;
 }
 .main .main-3 .subchats .subContent .group .group-left {
-  overflow: hidden;
+  flex: 1;
+  max-width: 20%;
 }
 .main .main-3 .subchats .subContent .group .group-left img {
   border-radius: 50%;
@@ -95,7 +96,8 @@
   transform: scale(1.1);
 }
 .main .main-3 .subchats .subContent .group .group-right {
-  flex: 1;
+  flex: 4;
+  max-width: 80%;
 }
 .main .main-3 .subchats .subContent .group .group-right .msg-title {
   margin-bottom: 10px;
@@ -111,6 +113,8 @@
   color: darkgray;
 }
 .main .main-3 .subchats .subContent .group .group-right .msg-con {
+  /*  表示如果行内没有多余的地方容纳该单词到结尾，则那些正常的不能被分割的单词会被强制分割换行。  */
+  overflow-wrap: break-word;
   font-size: 13px;
   padding-left: 10px;
   cursor: pointer;

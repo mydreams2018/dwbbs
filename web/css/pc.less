@@ -88,7 +88,8 @@
           display: flex;
           flex-direction: row;
           .group-left{
-            overflow: hidden;
+            flex: 1;
+            max-width: 20%;
             img{
               border-radius: 50%;
               max-width: 48px;
@@ -99,7 +100,8 @@
             }
           }
           .group-right{
-            flex: 1;
+            flex: 4;
+            max-width: 80%;
             .msg-title{
               margin-bottom: 10px;
               overflow: hidden;
@@ -114,6 +116,8 @@
               }
             }
             .msg-con{
+              /*  表示如果行内没有多余的地方容纳该单词到结尾，则那些正常的不能被分割的单词会被强制分割换行。  */
+              overflow-wrap: break-word;
               font-size: 13px;
               padding-left: 10px;
               cursor: pointer;
