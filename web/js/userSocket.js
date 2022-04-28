@@ -211,7 +211,7 @@ socket.addEventListener('message', function (event) {
                         <div class="group-right" data-id="${dtstr.srcTarUUID}">
                             <div class="msg-title">
                                 <h5 class="username">${dtstr.nikeName}</h5>
-                                <span class="lasttime">${dtstr.registerTime}</span>
+                                <span class="lasttime">${timeFormart(dtstr.registerTime).substring(5)}</span>
                             </div>
                             <div class="msg-con" title="msg">
                                 ${dtstr.describes?replaceImgsrc(dtstr.describes):''}...
