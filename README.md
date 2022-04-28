@@ -30,7 +30,10 @@ const queryCurrentFriends ={
     }
 }
 ```
-
+#### 线上测试地址
+http://www.kungreat.cn/
+#### 详细介绍地址
+https://space.bilibili.com/384704339
 #### 界面图
 
 注意目前只做了pc端css布局、只支持宽900px像素以上的设备浏览访问.
