@@ -11,7 +11,7 @@ function heightCenter() {
         document.getElementById("container-login").style.top=currentHeight / 2 - 230+'px';
     }
 };
-const socket = new WebSocket('ws://192.168.9.52:9999');
+const socket = new WebSocket('ws://www.cpdog.cn:9999');
 const sendObj={
     uuid:"",
     src:"login",
