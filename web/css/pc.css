@@ -335,6 +335,7 @@
 }
 .main .main-3 .friends .frePeople .people li:nth-child(1) {
   flex: 1;
+  max-width: 20%;
 }
 .main .main-3 .friends .frePeople .people li:nth-child(1) img {
   max-width: 48px;
@@ -348,8 +349,16 @@
   align-self: flex-start;
   text-align: start;
   flex: 3;
+  max-width: 70%;
 }
 .main .main-3 .friends .frePeople .people li:nth-child(2) h3 {
+  width: 50%;
+  /* 1 文字显示不开,是否开启换行  只占一行的位置   nowrap：不换行*/
+  white-space: nowrap;
+  /* 2 超出的隐藏 */
+  overflow: hidden;
+  /* 3 文字溢出的时候,用省略号显示 */
+  text-overflow: ellipsis;
   font-size: 14px;
   float: left;
   line-height: 30px;
@@ -362,9 +371,11 @@
 .main .main-3 .friends .frePeople .people li:nth-child(2) p {
   clear: left;
   font-size: 12px;
+  overflow-wrap: break-word;
 }
 .main .main-3 .friends .frePeople .people li:nth-child(3) {
   flex: 0.5;
+  max-width: 10%;
   position: relative;
   cursor: pointer;
 }
