@@ -107,6 +107,10 @@
 .main .main-3 .subchats .subContent .group .group-right .msg-title .username {
   float: left;
   text-indent: 1em;
+  width: 60%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .main .main-3 .subchats .subContent .group .group-right .msg-title .lasttime {
   float: right;
