@@ -366,6 +366,7 @@ function getCurrentData() {
     document.querySelector("#isShowDetails .cons img").src= docCookies.getItem('web_user_img');
     document.querySelector("textarea[name='description']").value=docCookies.getItem('web_user_des');
     if(initQueryFlags==2){
+        initSaveConnection();
         objCreateChart();
         objCurrentFriends();
         objAnswerFriends();
@@ -691,4 +692,18 @@ function addAnswerAnimation(msg){
         dicHtml.innerText=msg;
         animationMsgRun.appendChild(dicHtml);
     }
+}
+//页面初始完成后发送信息给后端、让后端保存相关数据 [用户、channel]
+function initSaveConnection() {
+    let initSaveConnection = {
+        uuid:"",
+        url:"initSaveConnection",
+        src:"init",
+        tar:"init",
+        charts:{
+            tokenSession:websktoken
+        }
+    }
+    initSaveConnection.uuid=uuid();
+    socket.send(JSON.stringify(initSaveConnection));
 }
