@@ -533,7 +533,7 @@ function sendFriendsApply(tx) {
         for (let elementCheckeOfElement of elementCheckeOf) {
             sendObjApplyChart.charts.nikeNamels.push(elementCheckeOfElement.getAttribute("data-id"));
         }
-        sendObjApplyChart.uuid=uuid();
+        sendObjApplyChart.uuid=docCookies.getItem('web_user_img');
         socket.send(JSON.stringify(sendObjApplyChart));
     }
 
