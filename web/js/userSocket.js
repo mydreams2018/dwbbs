@@ -401,6 +401,21 @@ socket.addEventListener('message', function (event) {
                         </div>`;
                 queryAnswerFrsByid.insertBefore(divhtmlele,queryAnswerFrsByid.querySelector(".subcon"));
             }
+        }else if(recObj.url && recObj.url=="enentDeleteCurFriend"){
+            addAnswerAnimation(recObj.src+":把你从好友中删除了");
+            let allFriendslist = queryFriendsByid.querySelectorAll(".frePeople .people li h3");
+            if(allFriendslist && allFriendslist.length > 0){
+                for (let allFriendslistElement of allFriendslist) {
+                    if(allFriendslistElement.innerText==recObj.src){
+                        let tempfrePeople = allFriendslistElement.parentElement.parentElement.parentElement;
+                        if(tempfrePeople.childElementCount>2){
+                            allFriendslistElement.parentElement.parentElement.remove();
+                        }else{
+                            tempfrePeople.remove();
+                        }
+                    }
+                }
+            }
         }
     }
     console.log('Message from server ', event.data);
