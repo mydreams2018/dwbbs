@@ -628,7 +628,8 @@ function handlerChartsSendFun(msg,primaryId,Nikenm) {
                 tokenSession:websktoken,
                 srcTarUUID:primaryId,
                 nikeName:Nikenm,
-                message:msg
+                message:msg,
+                imgPath:docCookies.getItem('web_user_img')
             }
         }
         handlerChartsSend.uuid=uuid();
