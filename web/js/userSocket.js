@@ -346,6 +346,77 @@ socket.addEventListener('message', function (event) {
                 deleteEle.parentElement.remove();
             }
         }
+        else if(recObj.url && recObj.url=="enentAddFriends"){
+            addAnswerAnimation(recObj.src+":申请添加你为好友");
+            //添加好友的事件通知 机构
+            let datespan = queryAnswerFrsByid.querySelector(".subcon .subcon-title span");
+            let strDate = formatDateCur();
+            if(datespan && datespan.innerText==strDate){
+                    let tempuuid = uuidLow();
+                    let divhtmlele=document.createElement("div");
+                    divhtmlele.className="subcon-text";
+                    divhtmlele.innerHTML=` 
+                            <div class="tleft">
+                                <img src="${recObj.imgPath}">
+                            </div>
+                            <div class="tcenter">
+                                <h3>${recObj.src}</h3>
+                                <p>${recObj.describes}</p>
+                            </div>
+                            <div class="tright">
+                                <i data-id="tright-fixed-${tempuuid}" class="bi-three-dots"></i>
+                                <ul id="tright-fixed-${tempuuid}" data-nk="${recObj.src}" class="noClickdis-none" style="display: none">
+                                    <li>reject</li>
+                                    <li>accept</li>
+                                    <li>delete</li>
+                                </ul>
+                            </div>`;
+                    let subcontemp = datespan.parentElement.parentElement;
+                    subcontemp.insertBefore(divhtmlele,subcontemp.querySelector(".subcon-text"));
+            }else{
+                let tempuuid = uuidLow();
+                let divhtmlele=document.createElement("div");
+                divhtmlele.className="subcon";
+                divhtmlele.innerHTML=`
+                        <div class="subcon-title">
+                            <span>${strDate}</span>
+                            <span><a href="#">Clear all</a></span>
+                        </div>
+                        <div class="subcon-text">
+                            <div class="tleft">
+                                <img src="${recObj.imgPath}">
+                            </div>
+                            <div class="tcenter">
+                                <h3>${recObj.src}</h3>
+                                <p>${recObj.describes}</p>
+                            </div>
+                            <div class="tright">
+                                <i data-id="tright-fixed-${tempuuid}" class="bi-three-dots"></i>
+                                <ul id="tright-fixed-${tempuuid}" data-nk="${recObj.src}" class="noClickdis-none" style="display: none">
+                                    <li>reject</li>
+                                    <li>accept</li>
+                                    <li>delete</li>
+                                </ul>
+                            </div>
+                        </div>`;
+                queryAnswerFrsByid.insertBefore(divhtmlele,queryAnswerFrsByid.querySelector(".subcon"));
+            }
+        }else if(recObj.url && recObj.url=="enentDeleteCurFriend"){
+            addAnswerAnimation(recObj.src+":把你从好友中删除了");
+            let allFriendslist = queryFriendsByid.querySelectorAll(".frePeople .people li h3");
+            if(allFriendslist && allFriendslist.length > 0){
+                for (let allFriendslistElement of allFriendslist) {
+                    if(allFriendslistElement.innerText==recObj.src){
+                        let tempfrePeople = allFriendslistElement.parentElement.parentElement.parentElement;
+                        if(tempfrePeople.childElementCount>2){
+                            allFriendslistElement.parentElement.parentElement.remove();
+                        }else{
+                            tempfrePeople.remove();
+                        }
+                    }
+                }
+            }
+        }
     }
     console.log('Message from server ', event.data);
 });
@@ -509,10 +580,29 @@ function uuidLow(){
 function timeFormart(seconds){
     let str = "";
     if(seconds){
-        let dts = new Date(seconds*1000);
-        str=`${dts.getFullYear()}-${dts.getMonth()+1}-${dts.getDate()} ${dts.getHours()}:${dts.getMinutes()}`;
+        let date = new Date(seconds*1000);
+        let year = date.getFullYear(),
+            month = date.getMonth()+1,
+            day = date.getDate(),
+            hour = date.getHours(),
+            min = date.getMinutes();
+        str = year + '-' +
+            (month < 10? '0' + month : month) + '-' +
+            (day < 10? '0' + day : day) + ' ' +
+            (hour < 10? '0' + hour : hour) + ':' +
+            (min < 10? '0' + min : min);
     }
     return str;
+}
+function formatDateCur(){
+    let date = new Date();
+    let year = date.getFullYear(),
+        month = date.getMonth()+1,//月份是从0开始的
+        day = date.getDate();
+    let newTime = year + '-' +
+        (month < 10? '0' + month : month) + '-' +
+        (day < 10? '0' + day : day);
+    return newTime;
 }
 //发送好友申请的方法
 function sendFriendsApply(tx) {
@@ -527,7 +617,8 @@ function sendFriendsApply(tx) {
                 currentActiveId:"m1-apply-chart",
                 tokenSession:websktoken,
                 nikeNamels:[],
-                message:tx||""
+                message:tx||"",
+                imgPath:docCookies.getItem('web_user_img')||""
             }
         }
         for (let elementCheckeOfElement of elementCheckeOf) {
