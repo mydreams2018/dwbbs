@@ -680,7 +680,8 @@ function handlerApplyFriends(type,nikName){
                 currentActiveId:"m1-handler-apply",
                 tokenSession:websktoken,
                 nikeName:nikName,
-                message:type
+                message:type,
+                imgPath:docCookies.getItem('web_user_img')
             }
         }
         handlerApplyFriends.uuid=uuid();
