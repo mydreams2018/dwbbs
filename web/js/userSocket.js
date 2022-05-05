@@ -681,7 +681,8 @@ function handlerApplyFriends(type,nikName){
                 tokenSession:websktoken,
                 nikeName:nikName,
                 message:type,
-                imgPath:docCookies.getItem('web_user_img')
+                imgPath:docCookies.getItem('web_user_img'),
+                describes:docCookies.getItem('web_user_des')
             }
         }
         handlerApplyFriends.uuid=uuid();
