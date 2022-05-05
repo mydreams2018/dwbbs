@@ -455,6 +455,66 @@ socket.addEventListener('message', function (event) {
                         <i class="bi-bookmark-x-fill"></i>
                     </div>`;
             queryChartsViewsByid.insertBefore(htmlDivElement,queryChartsViewsByid.querySelector(".subContent"));
+        }else if(recObj.url && recObj.url=="enentApplyFriend"){
+            if(recObj.type=="accept"){
+                addAnswerAnimation(recObj.src+":接受了你的好友申请");
+                let frePeopleh5Ele = queryFriendsByid.querySelector(".frePeople h5");
+                if(frePeopleh5Ele && frePeopleh5Ele.innerText=="event"){
+                    let temp_ul = document.createElement("ul");
+                    temp_ul.className="people";
+                    let tempuuid = uuidLow();
+                    temp_ul.innerHTML=`
+                        <li>
+                            <img src="${recObj.imgPath}">
+                        </li>
+                        <li>
+                            <h3>${recObj.src}</h3>
+                            <span>${formatDateCur()}</span>
+                             <p>${recObj.describes}</p>
+                        </li>
+                        <li>
+                            <i data-id="editFixed1${tempuuid}" data-nk="${recObj.src}" class="bi-three-dots-vertical"></i>
+                            <div id="editFixed1${tempuuid}" data-nk="${recObj.src}" class="editFixed noClickdis-none" style="display: none;">
+                                <p>add group</p>
+                                <p>new message</p>
+                                <span></span>
+                                <p class="delete-red">delete user</p>
+                            </div>
+                        </li>`;
+                    frePeopleh5Ele.parentElement.appendChild(temp_ul);
+                }else{
+                    let htmlDivElement = document.createElement("div");
+                    htmlDivElement.className="frePeople";
+                    let html5Element = document.createElement("h5");
+                    html5Element.innerText="event";
+                    htmlDivElement.appendChild(html5Element);
+                    let temp_ul = document.createElement("ul");
+                    temp_ul.className="people";
+                    let tempuuid = uuidLow();
+                    temp_ul.innerHTML=`
+                        <li>
+                            <img src="${recObj.imgPath}">
+                        </li>
+                        <li>
+                            <h3>${recObj.src}</h3>
+                            <span>${formatDateCur()}</span>
+                             <p>${recObj.describes}</p>
+                        </li>
+                        <li>
+                            <i data-id="editFixed1${tempuuid}" data-nk="${recObj.src}" class="bi-three-dots-vertical"></i>
+                            <div id="editFixed1${tempuuid}" data-nk="${recObj.src}" class="editFixed noClickdis-none" style="display: none;">
+                                <p>add group</p>
+                                <p>new message</p>
+                                <span></span>
+                                <p class="delete-red">delete user</p>
+                            </div>
+                        </li>`;
+                    htmlDivElement.appendChild(temp_ul);
+                    queryFriendsByid.appendChild(htmlDivElement);
+                }
+            }else if(recObj.type=="reject"){
+                addAnswerAnimation(recObj.src+":拒绝了你的好友申请");
+            }
         }
     }
     console.log('Message from server ', event.data);
