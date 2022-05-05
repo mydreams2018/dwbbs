@@ -416,6 +416,45 @@ socket.addEventListener('message', function (event) {
                     }
                 }
             }
+        }else if(recObj.url && recObj.url=="enentChartSendMsg"){
+            addAnswerAnimation("接收到源信息来自:"+recObj.src);
+            let srcTarUUID = m6DefaultHideTop.getAttribute("data-id");
+            //接收到信息通知、并且跟当前的聊天窗口一样的话就追加数据
+            if(recObj.srcTarUUID==srcTarUUID){
+                let htmlLiElement = document.createElement("li");
+                htmlLiElement.innerHTML=`
+                        <h5 style="text-align: left;" >${formatDateCur()} <i class="bi-three-dots-vertical"></i></h5>
+                        <pre style="float: left;" >${replaceImgsrc(recObj.describes)}</pre>`;
+                m6DefaultHideCon.appendChild(htmlLiElement);
+                m6DefaultHideCon.scrollTo(0,m6DefaultHideCon.scrollHeight);
+            }
+            let linkMsgView = queryChartsViewsByid.querySelector(`.subContent .group .group-right[data-id='${recObj.srcTarUUID}']`);
+            if(linkMsgView){
+                //左边有相关的视图 删除 再在最前面插入
+                linkMsgView.parentElement.parentElement.remove();
+            }
+            let htmlDivElement = document.createElement("div");
+            htmlDivElement.className="subContent";
+            let subStrTemp = recObj.describes.length>82?recObj.describes.substring(0,82)+"...":recObj.describes;
+            htmlDivElement.innerHTML=`
+                    <div class="group">
+                        <div class="group-left">
+                            <img src="${recObj.imgPath}" data-id="${recObj.srcTarUUID}" alt="${recObj.src}">
+                        </div>
+                        <div class="group-right" data-id="${recObj.srcTarUUID}">
+                            <div class="msg-title">
+                                <h5 class="username">${recObj.src}</h5>
+                                <span class="lasttime">${timeFormart(Math.floor(Date.now() / 1000)).substring(5)}</span>
+                            </div>
+                            <div class="msg-con" title="msg">
+                                ${replaceImgsrc(subStrTemp)}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fixed-right" data-id="${recObj.id}">
+                        <i class="bi-bookmark-x-fill"></i>
+                    </div>`;
+            queryChartsViewsByid.insertBefore(htmlDivElement,queryChartsViewsByid.querySelector(".subContent"));
         }
     }
     console.log('Message from server ', event.data);
