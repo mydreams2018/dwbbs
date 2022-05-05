@@ -510,7 +510,7 @@ socket.addEventListener('message', function (event) {
                             </div>
                         </li>`;
                     htmlDivElement.appendChild(temp_ul);
-                    queryFriendsByid.appendChild(htmlDivElement);
+                    queryFriendsByid.insertBefore(htmlDivElement,queryFriendsByid.querySelector(".frePeople"));
                 }
             }else if(recObj.type=="reject"){
                 addAnswerAnimation(recObj.src+":拒绝了你的好友申请");
