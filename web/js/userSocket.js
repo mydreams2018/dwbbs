@@ -423,7 +423,7 @@ socket.addEventListener('message', function (event) {
             if(recObj.srcTarUUID==srcTarUUID){
                 let htmlLiElement = document.createElement("li");
                 htmlLiElement.innerHTML=`
-                        <h5 style="text-align: left;" >${formatDateCur()} <i class="bi-three-dots-vertical"></i></h5>
+                        <h5 style="text-align: left;" >${timeFormart(Math.floor(Date.now()/1000)).substring(5)} <i class="bi-three-dots-vertical"></i></h5>
                         <pre style="float: left;" >${replaceImgsrc(recObj.describes)}</pre>`;
                 m6DefaultHideCon.appendChild(htmlLiElement);
                 m6DefaultHideCon.scrollTo(0,m6DefaultHideCon.scrollHeight);
