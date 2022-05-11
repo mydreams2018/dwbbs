@@ -68,7 +68,7 @@
                 您可以以二进制帧的形式发送任何 JavaScript 类数组对象 ；其二进制数据内容将被队列于缓冲区中。值 bufferedAmount 将加上必要字节数的值。
         */
 
-        const socket = new WebSocket('ws://www.cpdog.cn:9999');
+        const socket = new WebSocket('wss://www.kungreat.cn:9999');
         // 当一个 WebSocket 连接成功时触发。也可以通过 onopen 属性来设置。
         socket.addEventListener('open', function (event) {
             console.log('open');
