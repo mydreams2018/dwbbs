@@ -8,7 +8,7 @@ document.onreadystatechange = function () {
         console.log("dom-complete");
     }
 }
-const socket = new WebSocket('ws://www.cpdog.cn:9999');
+const socket = new WebSocket('wss://www.kungreat.cn:9999');
 
 const sendObj={
     uuid:"",

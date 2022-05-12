@@ -4,7 +4,7 @@ if(!websktoken){
     window.location.href="/index.html";
 }
 var initQueryFlags = 0;
-const socket = new WebSocket('ws://www.cpdog.cn:9999');
+const socket = new WebSocket('wss://www.kungreat.cn:9999');
 const sendObjCreateChart ={
     uuid:"",
     url:"queryUsers",
