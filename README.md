@@ -29,8 +29,10 @@ const queryCurrentFriends ={
 #### 版本说明
 05-01日: 更新了前端的部分布局、加入了后端通知机制的协调
 
+05-12日: 加入TLS加密协议、使用原生SSLEngine实现.
+
 #### 线上测试地址
-http://www.kungreat.cn/
+https://www.kungreat.cn/
 #### 详细介绍地址
 https://space.bilibili.com/384704339
 #### 界面图
