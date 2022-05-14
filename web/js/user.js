@@ -3,6 +3,7 @@ window.onresize= function(event) {
     heightCenterLength();
     fixedBottom();
     m6DefaultAutoTop();
+    phoneCssHandler();
 };
 function heightCenterLength() {
     let currentHeight = document.documentElement.clientHeight;
@@ -56,6 +57,7 @@ document.onreadystatechange = function () {
         m6DefaultAutoTop();
         initQueryFlags++;
         getCurrentData();
+        phoneCssHandler();
     }
     console.log(document.readyState);
 }

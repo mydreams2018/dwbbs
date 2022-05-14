@@ -17,3 +17,991 @@
   height: 360px;
   left: 5%;
 }
+/*用户首页开始 <=900px */
+.main .main-1 {
+  border-top: solid 1px darkgray;
+  z-index: 6;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #ffffff;
+  width: 100%;
+  box-sizing: border-box;
+}
+.main .main-1 ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 58px;
+  overflow: hidden;
+}
+.main .main-1 ul li a {
+  font-size: 23px;
+}
+.main .main-1 ul li a:hover i {
+  color: #2787f5 !important;
+}
+.main .main-1 ul li img {
+  max-width: 48px;
+  max-height: 48px;
+  border-radius: 50%;
+}
+.main .main-3 {
+  height: inherit;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #f6f9fb;
+}
+.main .main-3 .cneter {
+  width: 86%;
+  margin: 0 auto;
+}
+.main .main-3 .subchats .subTitle {
+  position: relative;
+}
+.main .main-3 .subchats .subTitle h2 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.main .main-3 .subchats .subTitle i {
+  position: absolute;
+  left: 5px;
+  bottom: 19px;
+  font-size: 18px;
+}
+.main .main-3 .subchats .subTitle input {
+  width: 100%;
+  height: 56px;
+  border-radius: 20px;
+  background-color: #ebf1f7;
+  text-indent: 2.5em;
+}
+.main .main-3 .subchats .subContent {
+  margin-top: 20px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  position: relative;
+}
+.main .main-3 .subchats .subContent .group {
+  width: 93%;
+  margin: 0px auto;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+}
+.main .main-3 .subchats .subContent .group .group-left {
+  flex: 1;
+  max-width: 20%;
+  text-align: center;
+}
+.main .main-3 .subchats .subContent .group .group-left img {
+  border-radius: 50%;
+  max-width: 48px;
+  transition: transform 0.5s;
+}
+.main .main-3 .subchats .subContent .group .group-left:hover > img {
+  transform: scale(1.1);
+}
+.main .main-3 .subchats .subContent .group .group-right {
+  flex: 4;
+  max-width: 80%;
+}
+.main .main-3 .subchats .subContent .group .group-right .msg-title {
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.main .main-3 .subchats .subContent .group .group-right .msg-title .username {
+  float: left;
+  text-indent: 1em;
+  width: 60%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.main .main-3 .subchats .subContent .group .group-right .msg-title .lasttime {
+  float: right;
+  font-size: 13px;
+  color: darkgray;
+}
+.main .main-3 .subchats .subContent .group .group-right .msg-con {
+  /*  表示如果行内没有多余的地方容纳该单词到结尾，则那些正常的不能被分割的单词会被强制分割换行。  */
+  overflow-wrap: break-word;
+  font-size: 13px;
+  padding-left: 10px;
+  cursor: pointer;
+}
+.main .main-3 .subchats .subContent .bottom {
+  width: 90%;
+  margin: 0px auto;
+  border-top: solid 3px #f5f8fb;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.main .main-3 .subchats .subContent .bottom ul {
+  overflow: hidden;
+  line-height: 50px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+}
+.main .main-3 .subchats .subContent .bottom li:nth-child(1) {
+  flex: 2;
+  max-width: 20%;
+}
+.main .main-3 .subchats .subContent .bottom li:nth-child(1) img {
+  max-height: 46px;
+  transition: transform 0.5s;
+}
+.main .main-3 .subchats .subContent .bottom li:nth-child(1):hover img {
+  transform: scale(1.1);
+}
+.main .main-3 .subchats .subContent .bottom li:nth-child(2) {
+  font-size: 12px;
+  flex: 3;
+  max-width: 30%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+.main .main-3 .subchats .subContent .bottom li:nth-child(3) {
+  flex: 5;
+  max-width: 50%;
+  position: relative;
+}
+.main .main-3 .subchats .subContent .bottom li:nth-child(3) img {
+  max-height: 36px;
+  position: absolute;
+  border-radius: 50%;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+}
+.main .main-3 .subchats .subContent .bottom li:nth-child(3) img:nth-child(1) {
+  left: 30px;
+  z-index: 1;
+}
+.main .main-3 .subchats .subContent .bottom li:nth-child(3) img:nth-child(2) {
+  left: 50px;
+  z-index: 2;
+}
+.main .main-3 .subchats .subContent .bottom li:nth-child(3) img:nth-child(3) {
+  left: 70px;
+  z-index: 3;
+}
+.main .main-3 .subchats .subContent .bottom li:nth-child(3) img:nth-child(4) {
+  left: 90px;
+  z-index: 4;
+}
+.main .main-3 .subchats .subContent .bottom li:nth-child(3) img:nth-child(5) {
+  left: 110px;
+  z-index: 5;
+}
+.main .main-3 .subchats .subContent .fixed-right {
+  position: absolute;
+  top: 0;
+  right: -15px;
+  cursor: pointer;
+  color: #ebf1f7;
+}
+.main .main-3 .subchats .subContent .fixed-right:hover {
+  color: turquoise;
+}
+.main .main-3 .addchats {
+  padding-bottom: 58px;
+}
+.main .main-3 .addchats .subTitle {
+  position: relative;
+}
+.main .main-3 .addchats .subTitle h2 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.main .main-3 .addchats .subTitle i {
+  position: absolute;
+  left: 5px;
+  bottom: 19px;
+  font-size: 18px;
+}
+.main .main-3 .addchats .subTitle input {
+  width: 100%;
+  height: 56px;
+  border-radius: 20px;
+  background-color: #ebf1f7;
+  text-indent: 2.5em;
+}
+.main .main-3 .addchats .subPeople h5 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.main .main-3 .addchats .subPeople .people {
+  margin-bottom: 15px;
+  text-align: center;
+  border-radius: 20px;
+  background-color: #ffffff;
+  min-height: 76px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.main .main-3 .addchats .subPeople .people li:nth-child(1) {
+  flex: 1;
+  max-width: 20%;
+}
+.main .main-3 .addchats .subPeople .people li:nth-child(1) img {
+  max-width: 48px;
+  border-radius: 50%;
+  transition: transform 0.5s;
+}
+.main .main-3 .addchats .subPeople .people li:nth-child(1) img:hover {
+  transform: scale(1.1);
+}
+.main .main-3 .addchats .subPeople .people li:nth-child(2) {
+  align-self: flex-start;
+  text-align: start;
+  flex: 3;
+  max-width: 70%;
+}
+.main .main-3 .addchats .subPeople .people li:nth-child(2) h3 {
+  max-width: 50%;
+  font-size: 14px;
+  float: left;
+  line-height: 30px;
+  /* 1 文字显示不开,是否开启换行  只占一行的位置   nowrap：不换行*/
+  white-space: nowrap;
+  /* 2 超出的隐藏 */
+  overflow: hidden;
+  /* 3 文字溢出的时候,用省略号显示 */
+  text-overflow: ellipsis;
+}
+.main .main-3 .addchats .subPeople .people li:nth-child(2) span {
+  font-size: 12px;
+  float: right;
+  line-height: 30px;
+}
+.main .main-3 .addchats .subPeople .people li:nth-child(2) p {
+  clear: left;
+  font-size: 12px;
+  overflow-wrap: break-word;
+}
+.main .main-3 .addchats .subPeople .people li:nth-child(3) {
+  max-width: 10%;
+}
+.main .main-3 .addchats .fixedBottom {
+  position: fixed;
+  bottom: 10px;
+  height: 60px;
+  background-color: #2787f5;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.main .main-3 .addchats .fixedBottom span {
+  float: left;
+  line-height: 60px;
+  margin-left: 10px;
+}
+.main .main-3 .addchats .fixedBottom i {
+  float: right;
+  line-height: 60px;
+  font-size: 20px;
+  margin-right: 10px;
+}
+.main .main-3 .addchats .fixedBottom:hover {
+  filter: hue-rotate(30deg);
+}
+.main .main-3 .friends .subTitle {
+  position: relative;
+}
+.main .main-3 .friends .subTitle h2 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.main .main-3 .friends .subTitle i {
+  position: absolute;
+  left: 5px;
+  bottom: 19px;
+  font-size: 18px;
+}
+.main .main-3 .friends .subTitle input {
+  width: 100%;
+  height: 56px;
+  border-radius: 20px;
+  background-color: #ebf1f7;
+  text-indent: 2.5em;
+}
+.main .main-3 .friends .frePeople h5 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.main .main-3 .friends .frePeople .people {
+  margin-bottom: 15px;
+  text-align: center;
+  border-radius: 20px;
+  background-color: #ffffff;
+  min-height: 76px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.main .main-3 .friends .frePeople .people li:nth-child(1) {
+  flex: 1;
+  max-width: 20%;
+}
+.main .main-3 .friends .frePeople .people li:nth-child(1) img {
+  max-width: 48px;
+  border-radius: 50%;
+  transition: transform 0.5s;
+}
+.main .main-3 .friends .frePeople .people li:nth-child(1) img:hover {
+  transform: scale(1.1);
+}
+.main .main-3 .friends .frePeople .people li:nth-child(2) {
+  align-self: flex-start;
+  text-align: start;
+  flex: 3;
+  max-width: 70%;
+}
+.main .main-3 .friends .frePeople .people li:nth-child(2) h3 {
+  width: 50%;
+  /* 1 文字显示不开,是否开启换行  只占一行的位置   nowrap：不换行*/
+  white-space: nowrap;
+  /* 2 超出的隐藏 */
+  overflow: hidden;
+  /* 3 文字溢出的时候,用省略号显示 */
+  text-overflow: ellipsis;
+  font-size: 14px;
+  float: left;
+  line-height: 30px;
+}
+.main .main-3 .friends .frePeople .people li:nth-child(2) span {
+  font-size: 12px;
+  float: right;
+  line-height: 30px;
+}
+.main .main-3 .friends .frePeople .people li:nth-child(2) p {
+  clear: left;
+  font-size: 12px;
+  overflow-wrap: break-word;
+}
+.main .main-3 .friends .frePeople .people li:nth-child(3) {
+  flex: 0.5;
+  max-width: 10%;
+  position: relative;
+  cursor: pointer;
+}
+.main .main-3 .friends .frePeople .people li:nth-child(3) .editFixed {
+  font-size: 13px;
+  position: absolute;
+  z-index: 6;
+  right: 20px;
+  background-color: beige;
+  bottom: -75px;
+  border: solid 1px green;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.main .main-3 .friends .frePeople .people li:nth-child(3) .editFixed span {
+  display: block;
+  line-height: 20px;
+  border-top: solid 1px green;
+}
+.main .main-3 .friends .frePeople .people li:nth-child(3) .editFixed p {
+  width: 95px;
+  line-height: 30px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.main .main-3 .friends .frePeople .people li:nth-child(3) .editFixed p:hover {
+  background-color: yellowgreen;
+}
+.main .main-3 .friends .frePeople .people li:nth-child(3) .editFixed .delete-red:hover {
+  background-color: red;
+}
+.main .main-3 .notifications .subTitle {
+  position: relative;
+}
+.main .main-3 .notifications .subTitle h2 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.main .main-3 .notifications .subTitle i {
+  position: absolute;
+  left: 5px;
+  bottom: 19px;
+  font-size: 18px;
+}
+.main .main-3 .notifications .subTitle input {
+  width: 100%;
+  height: 56px;
+  border-radius: 20px;
+  background-color: #ebf1f7;
+  text-indent: 2.5em;
+}
+.main .main-3 .notifications .subcon .subcon-title {
+  line-height: 58px;
+  overflow: hidden;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.main .main-3 .notifications .subcon .subcon-title span:nth-child(1) {
+  float: left;
+}
+.main .main-3 .notifications .subcon .subcon-title span:nth-child(2) {
+  float: right;
+}
+.main .main-3 .notifications .subcon .subcon-text {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+}
+.main .main-3 .notifications .subcon .subcon-text .tleft {
+  flex: 2;
+  max-width: 20%;
+  text-align: center;
+}
+.main .main-3 .notifications .subcon .subcon-text .tleft img {
+  border-radius: 50%;
+  max-width: 48px;
+  transition: transform 0.5s;
+  cursor: pointer;
+}
+.main .main-3 .notifications .subcon .subcon-text .tleft img:hover {
+  transform: scale(1.1);
+}
+.main .main-3 .notifications .subcon .subcon-text .tcenter {
+  margin-left: 0.5em;
+  flex: 7;
+  max-width: 70%;
+  border-bottom: solid 1px darkgray;
+  padding-bottom: 6px;
+  min-height: 69px;
+}
+.main .main-3 .notifications .subcon .subcon-text .tcenter h3 {
+  font-size: 16px;
+  line-height: 25px;
+  color: darkgreen;
+}
+.main .main-3 .notifications .subcon .subcon-text .tcenter p {
+  font-size: 13px;
+  padding-top: 3px;
+  cursor: pointer;
+}
+.main .main-3 .notifications .subcon .subcon-text .tright {
+  position: relative;
+  text-align: right;
+  flex: 1;
+  max-width: 10%;
+}
+.main .main-3 .notifications .subcon .subcon-text .tright i {
+  font-size: 21px;
+  cursor: pointer;
+}
+.main .main-3 .notifications .subcon .subcon-text .tright ul {
+  font-size: 13px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  text-align: center;
+}
+.main .main-3 .notifications .subcon .subcon-text .tright ul li {
+  line-height: 30px;
+  width: 80px;
+}
+.main .main-3 .notifications .subcon .subcon-text .tright ul li:hover {
+  background-color: grey;
+  border-radius: 10px;
+}
+.main .main-3 .notifications .subcon .subcon-text .tright ul li:nth-child(3):hover {
+  background-color: red;
+}
+.main .main-3 .settings h2 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.main .main-3 .settings .img-change {
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 20px;
+}
+.main .main-3 .settings .img-change ul {
+  display: flex;
+  flex-direction: row;
+}
+.main .main-3 .settings .img-change ul li:nth-child(1) {
+  flex: 4;
+  max-width: 40%;
+}
+.main .main-3 .settings .img-change ul li:nth-child(1) img {
+  border-radius: 50%;
+  max-height: 66px;
+}
+.main .main-3 .settings .img-change ul li:nth-child(2) {
+  cursor: pointer;
+  flex: 6;
+  max-width: 60%;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-content: center;
+}
+.main .main-3 .settings .img-change ul li:nth-child(2) i {
+  font-size: 28px;
+}
+.main .main-3 .settings .img-change ul li:nth-child(2):hover {
+  color: turquoise;
+}
+.main .main-3 .settings .account-change {
+  margin-top: 15px;
+}
+.main .main-3 .settings .account-change h3 {
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+.main .main-3 .settings .account-change .account-setting {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+.main .main-3 .settings .account-change .account-setting .account-setting-left {
+  width: 68%;
+  float: left;
+}
+.main .main-3 .settings .account-change .account-setting .account-setting-left p:nth-child(1) {
+  font-size: 16px;
+  padding-bottom: 10px;
+}
+.main .main-3 .settings .account-change .account-setting .account-setting-left p:nth-child(2) {
+  font-size: 13px;
+  color: #95aac9;
+}
+.main .main-3 .settings .account-change .account-setting .account-setting-right {
+  width: 28%;
+  float: right;
+  text-align: center;
+  font-size: 18px;
+}
+.main .main-3 .settings .account-change .account-setting .account-setting-right i:hover {
+  cursor: pointer;
+  color: yellowgreen;
+}
+.main .main-3 .settings .account-change .account-setting .account-setting-bottom {
+  clear: left;
+  overflow: hidden;
+}
+.main .main-3 .settings .account-change .account-setting .account-setting-bottom ul {
+  margin-top: 15px;
+  border-top: solid 1px #95aac9;
+}
+.main .main-3 .settings .account-change .account-setting .account-setting-bottom ul li {
+  margin-top: 15px;
+}
+.main .main-3 .settings .account-change .account-setting .account-setting-bottom ul li input {
+  line-height: 60px;
+  background-color: #ebf1f7;
+  width: 96%;
+  border-radius: 20px;
+}
+.main .main-3 .settings .account-change .account-setting .account-setting-bottom ul li input:focus {
+  box-shadow: 0 0 5px turquoise;
+}
+.main .main-3 .settings .account-change .account-setting .account-setting-bottom ul li textarea {
+  width: 95%;
+  resize: none;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: #ebf1f7;
+}
+.main .main-3 .settings .account-change .account-setting .account-setting-bottom ul li button {
+  width: 95%;
+  line-height: 55px;
+  border-radius: 20px;
+  background-color: #2787f5;
+}
+.main .main-6 {
+  height: inherit;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: #ffffff;
+  position: relative;
+}
+.main .main-6 .default-show {
+  max-height: 70px;
+  text-align: center;
+  color: #bfccdf;
+}
+.main .main-6 .default-show i {
+  font-size: 20px;
+}
+.main .main-6 .chats-content-top {
+  background-color: inherit;
+  z-index: 6;
+  position: absolute;
+  overflow: hidden;
+  left: 0;
+  top: 0;
+  height: 80px;
+  width: 96%;
+  margin-left: 2%;
+  box-sizing: border-box;
+  border-bottom: solid 2px #f5f8fb;
+}
+.main .main-6 .chats-content-top .fixedCenter {
+  position: absolute;
+  left: 13%;
+  top: 0;
+  line-height: 76px;
+}
+.main .main-6 .chats-content-top img {
+  float: left;
+  border-radius: 50%;
+  height: 60px;
+  max-width: 10%;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.main .main-6 .chats-content-top i {
+  float: right;
+  line-height: 80px;
+  max-height: 80px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.main .main-6 .chats-content-center {
+  width: 96%;
+  margin-left: 2%;
+  box-sizing: border-box;
+  padding-top: 90px;
+  padding-bottom: 66px;
+  height: inherit;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.main .main-6 .chats-content-center li {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 10px;
+}
+.main .main-6 .chats-content-center li div:nth-child(1) {
+  flex: 1;
+  max-width: 10%;
+  text-align: center;
+}
+.main .main-6 .chats-content-center li div:nth-child(1) img {
+  border-radius: 50%;
+  max-width: 56px;
+}
+.main .main-6 .chats-content-center li div:nth-child(2) {
+  flex: 9;
+  max-width: 90%;
+}
+.main .main-6 .chats-content-center li div:nth-child(2) h5 {
+  line-height: 38px;
+  padding-left: 15px;
+}
+.main .main-6 .chats-content-center li div:nth-child(2) h5 i {
+  padding-left: 15px;
+  cursor: pointer;
+}
+.main .main-6 .chats-content-center li div:nth-child(2) h5 i:hover {
+  color: turquoise;
+}
+.main .main-6 .chats-content-center li div:nth-child(2) pre {
+  /* white-space : pre-wrap  属性是用来设置如何处理元素中的 空白 (en-US)。
+                           连续的空白符会被保留。在遇到换行符或者<br>元素，
+                           或者需要为了填充「行框盒子(line boxes)」时才会换行。
+
+                           overflow-wrap 是用来说明当一个不能被分开的字符串太长而不能填充其包裹盒时，
+                           为防止其溢出，浏览器是否允许这样的单词中断换行。
+                           */
+  box-sizing: border-box;
+  border-radius: 20px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  background-color: #f6f9fb;
+  margin: 0;
+  padding: 15px;
+}
+.main .main-6 .chats-single-center {
+  width: 96%;
+  margin-left: 2%;
+  box-sizing: border-box;
+  padding-top: 90px;
+  padding-bottom: 66px;
+  height: inherit;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.main .main-6 .chats-single-center li {
+  overflow: hidden;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.main .main-6 .chats-single-center li h5 {
+  line-height: 38px;
+}
+.main .main-6 .chats-single-center li h5 i {
+  padding-left: 12px;
+  cursor: pointer;
+}
+.main .main-6 .chats-single-center li h5 i:hover {
+  color: turquoise;
+}
+.main .main-6 .chats-single-center li pre {
+  box-sizing: border-box;
+  border-radius: 20px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background-color: #f6f9fb;
+  margin: 0;
+  padding: 10px;
+  max-width: 70%;
+}
+.main .main-6 .chats-content-bottom {
+  position: absolute;
+  box-sizing: border-box;
+  border-radius: 20px;
+  width: 96%;
+  background-color: #a0b3ce;
+  bottom: 10px;
+  left: 0;
+  z-index: 6;
+  margin-left: 2%;
+}
+.main .main-6 .chats-content-bottom ul {
+  height: inherit;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.main .main-6 .chats-content-bottom ul li:nth-child(1) {
+  flex: 1;
+  max-width: 10%;
+  cursor: pointer;
+}
+.main .main-6 .chats-content-bottom ul li:nth-child(1) i {
+  font-size: 20px;
+  margin-left: calc(50% - 10px);
+}
+.main .main-6 .chats-content-bottom ul li:nth-child(1):hover i {
+  color: azure;
+}
+.main .main-6 .chats-content-bottom ul li:nth-child(2) {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  flex: 7;
+  max-width: 70%;
+}
+.main .main-6 .chats-content-bottom ul li:nth-child(2) textarea {
+  vertical-align: middle;
+  width: 100%;
+  height: auto;
+  resize: none;
+  outline: none;
+  letter-spacing: 1px;
+  border: none;
+  background-color: #a0b3ce;
+}
+.main .main-6 .chats-content-bottom ul li:nth-child(3) {
+  flex: 1;
+  max-width: 10%;
+  cursor: pointer;
+}
+.main .main-6 .chats-content-bottom ul li:nth-child(3) i {
+  font-size: 20px;
+  margin-left: calc(50% - 10px);
+}
+.main .main-6 .chats-content-bottom ul li:nth-child(3):hover i {
+  color: ivory;
+}
+.main .main-6 .chats-content-bottom ul li:nth-child(4) {
+  flex: 1;
+  max-width: 10%;
+  cursor: pointer;
+}
+.main .main-6 .chats-content-bottom ul li:nth-child(4) i {
+  color: turquoise;
+  font-size: 26px;
+  margin-left: calc(50% - 20px);
+  transition: 0.5s;
+  overflow: hidden;
+}
+.main .main-6 .chats-content-bottom ul li:nth-child(4):active {
+  animation-duration: 0.1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: none;
+  animation-name: sendAnimation;
+}
+.main .main-6 .chats-content-bottom ul li:nth-child(4):hover i {
+  color: chartreuse;
+}
+.main .main-6 .chats-content-bottom .gif-img {
+  padding-left: 15px;
+  width: 50%;
+  height: 200px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: absolute;
+  right: 0;
+  bottom: 56px;
+  background-color: #f5fffb;
+}
+.main .main-6 .chats-content-bottom .gif-img .gif-img-cons > div {
+  overflow: hidden;
+}
+.main .main-6 .chats-content-bottom .gif-img .gif-img-cons > div img {
+  padding: 6px;
+  float: left;
+}
+.main .main-6 .chats-content-bottom .gif-img .gif-img-cons > div img:hover {
+  box-shadow: 0 0 5px violet;
+}
+/* 上边下边 | 左边右边 margin: 0 auto;  用户弹窗 固定定位视口  */
+.fullWindow {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  max-width: 1660px;
+  margin: 0 auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+}
+.fullWindow .user-content {
+  border-radius: 20px;
+  overflow: hidden;
+  width: 36%;
+  margin-left: 32%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  position: relative;
+  background-color: aliceblue;
+  box-shadow: 0 0 3px grey;
+}
+.fullWindow .user-content .title {
+  font-size: 26px;
+  position: absolute;
+  left: 6px;
+  top: 2px;
+}
+.fullWindow .user-content .title:hover i {
+  color: yellowgreen;
+  cursor: pointer;
+}
+.fullWindow .user-content .cons li:nth-child(1) {
+  text-align: center;
+}
+.fullWindow .user-content .cons li:nth-child(1) img {
+  max-height: 88px;
+  border-radius: 50%;
+}
+.fullWindow .user-content .cons li:nth-child(2) {
+  text-align: center;
+  padding-bottom: 15px;
+}
+.fullWindow .user-content .cons li:nth-child(2) h3 {
+  line-height: 30px;
+}
+.fullWindow .user-content .cons li:nth-child(3) {
+  height: 25px;
+  background-color: #95aacc;
+}
+.fullWindow .user-content .cons li:nth-child(4) {
+  margin-left: 2em;
+  margin-right: 2em;
+  position: relative;
+  border-bottom: solid 2px grey;
+}
+.fullWindow .user-content .cons li:nth-child(4) h4 {
+  line-height: 30px;
+}
+.fullWindow .user-content .cons li:nth-child(4) p {
+  padding-bottom: 10px;
+  font-size: 13px;
+  overflow-wrap: break-word;
+}
+.fullWindow .user-content .cons li:nth-child(4) i {
+  z-index: 12;
+  position: absolute;
+  left: 85px;
+  top: 0px;
+  font-size: 20px;
+}
+.fullWindow .user-content .cons li:nth-child(5) {
+  margin-left: 2em;
+  margin-right: 2em;
+  position: relative;
+  border-bottom: solid 2px grey;
+}
+.fullWindow .user-content .cons li:nth-child(5) h4 {
+  line-height: 30px;
+}
+.fullWindow .user-content .cons li:nth-child(5) p {
+  padding-bottom: 10px;
+  font-size: 13px;
+}
+.fullWindow .user-content .cons li:nth-child(5) i {
+  z-index: 12;
+  position: absolute;
+  left: 85px;
+  top: 0px;
+  font-size: 20px;
+}
+.fullWindow .user-content .botm {
+  margin-top: 10px;
+}
+.fullWindow .user-content .botm .bk-line {
+  height: 25px;
+  background-color: #95aacc;
+}
+.fullWindow .user-content .botm a {
+  line-height: 45px;
+  color: darkturquoise;
+  margin-left: 2em;
+  margin-right: 2em;
+}
+.addchats-fixed {
+  overflow: hidden;
+  background-color: inherit;
+  box-shadow: inset 0 0 0.5px 0.5px black;
+  z-index: 12;
+  position: fixed;
+  width: 300px;
+  text-align: center;
+  padding: 10px;
+  left: calc(50% - 150px);
+}
+.addchats-fixed h4 {
+  margin-bottom: 10px;
+  color: skyblue;
+}
+.addchats-fixed textarea {
+  resize: none;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+.addchats-fixed button[title="suc"] {
+  float: right;
+  padding: 5px;
+  margin-right: 10px;
+}
+.addchats-fixed button[title="esq"] {
+  float: right;
+  padding: 5px;
+}
