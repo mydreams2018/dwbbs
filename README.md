@@ -39,8 +39,6 @@ https://www.kungreat.cn/
 https://space.bilibili.com/384704339
 #### 界面图
 
-注意目前只做了pc端css布局、只支持宽900px像素以上的设备浏览访问.
-
 1. 注册界面<img src="./images_md/register.PNG" style="zoom:50%;" />
 2. 登录 <img src="./images_md/login.PNG" alt="login" style="zoom:50%;" />
 3. 用户查询![users](./images_md/users.PNG)
