@@ -29,6 +29,10 @@ function phoneCssHandler() {
            userisShowDetails.style.marginLeft="15%";
        }
        document.getElementById("phone-show").style.display="";
+       if(bodyWidth < 500){
+           m6DefaultHideTop.querySelector("img").style.maxWidth="20%";
+           m6DefaultHideTop.querySelector("h3").style.left="23%";
+       }
    }else{
        let mainElement = document.querySelector("#userMain");
        let elementm3 = mainElement.querySelector(".main-3");
@@ -49,6 +53,8 @@ function phoneCssHandler() {
        elementm3.style.display="block";
        mainElement.querySelector(".main-1").style.display="block";
        document.getElementById("phone-show").style.display="none";
+       m6DefaultHideTop.querySelector("img").style.maxWidth="10%";
+       m6DefaultHideTop.querySelector("h3").style.left="13%";
    }
 }
 
