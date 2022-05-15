@@ -343,7 +343,9 @@ socket.addEventListener('message', function (event) {
             if(recObj.code=="200" && recObj.msg=="hide"){
                 let uuidTemp = recObj.uuid;
                 let deleteEle = document.querySelector(`.subContent .fixed-right[data-id='${uuidTemp}']`);
-                deleteEle.parentElement.remove();
+                if(deleteEle){
+                    deleteEle.parentElement.remove();
+                }
             }
         }
         else if(recObj.url && recObj.url=="enentAddFriends"){
