@@ -31,6 +31,8 @@ const queryCurrentFriends ={
 
 05-12日: 加入TLS加密协议、使用原生SSLEngine实现.
 
+05-15日: 加入手机端css样式
+
 #### 线上测试地址
 https://www.kungreat.cn/
 #### 详细介绍地址
@@ -52,6 +54,18 @@ https://space.bilibili.com/384704339
 6.聊天区域
 
 <img src="./images_md/viewsend.PNG" alt="viewsend" style="zoom:50%;" />
+
+7.手机端样式
+
+<img src="./images_md/pacs.PNG" alt="pacs" style="zoom:50%;" />
+
+<img src="./images_md/pchs.PNG" alt="pchs" style="zoom:50%;" />
+
+<img src="./images_md/pfs.PNG" alt="pfs" style="zoom:50%;" />
+
+<img src="./images_md/pnts.PNG" alt="pnts" style="zoom:50%;" />
+
+<img src="./images_md/pscts.PNG" alt="pscts" style="zoom:50%;" />
 
 #### 软件架构
 
