@@ -28,6 +28,7 @@ function phoneCssHandler() {
            userisShowDetails.style.width="70%";
            userisShowDetails.style.marginLeft="15%";
        }
+       document.getElementById("phone-show").style.display="";
    }else{
        let mainElement = document.querySelector("#userMain");
        let elementm3 = mainElement.querySelector(".main-3");
@@ -45,6 +46,9 @@ function phoneCssHandler() {
        let userisShowDetails = document.getElementById("isShowDetails");
        userisShowDetails.style.width="36%";
        userisShowDetails.style.marginLeft="32%";
+       elementm3.style.display="block";
+       mainElement.querySelector(".main-1").style.display="block";
+       document.getElementById("phone-show").style.display="none";
    }
 }
 
@@ -54,4 +58,37 @@ document.addEventListener("click", function(event) {
     if(m1IDS.includes(mid)){
         phoneCssHandler();
     }
+    //查询聊天视图 关联的聊天内容
+    if(event.path[0].className=="msg-con" && event.path[4].id=="m1Charts"){
+        toggleM3M6();
+    }
+    if(event.path[0].id=="phone-show"){
+        backm1m3();
+    }
 }, false);
+
+// phone 端的话 需要隐藏m3-m1 显示m6 区域
+function toggleM3M6() {
+    let bodyWidth = document.body.offsetWidth;
+    if (bodyWidth <= 900) {
+        let mainElement = document.querySelector("#userMain");
+        let elementm1 = mainElement.querySelector(".main-1");
+        let elementm3 = mainElement.querySelector(".main-3");
+        let elementm6 = mainElement.querySelector(".main-6");
+        elementm1.style.display="none";
+        elementm3.style.display="none";
+        elementm6.style.display="block";
+    }
+}
+function backm1m3() {
+    let bodyWidth = document.body.offsetWidth;
+    if (bodyWidth <= 900) {
+        let mainElement = document.querySelector("#userMain");
+        let elementm1 = mainElement.querySelector(".main-1");
+        let elementm3 = mainElement.querySelector(".main-3");
+        let elementm6 = mainElement.querySelector(".main-6");
+        elementm1.style.display="block";
+        elementm3.style.display="block";
+        elementm6.style.display="none";
+    }
+}
