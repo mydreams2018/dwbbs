@@ -78,5 +78,5 @@ HTML5  javaScript  css
 
 #### 使用说明
 
-1.   需要配合后端使用.
-2.  https://gitee.com/mydreams2018/cpdog
+1.  需要配合后端使用.
+2.  https://github.com/mydreams2018/cpdog
