@@ -39,31 +39,31 @@ https://www.kungreat.cn/
 https://space.bilibili.com/384704339
 #### 界面图
 
-1. 注册界面<img src="./images_md/register.PNG" style="zoom:50%;" />
-2. 登录 <img src="./images_md/login.PNG" alt="login" style="zoom:50%;" />
-3. 用户查询![users](./images_md/users.PNG)
+1. 注册界面<img src="https://www.kungreat.cn/images/images_md/register.PNG" style="zoom:50%;" />
+2. 登录 <img src="https://www.kungreat.cn/images/images_md/login.PNG" alt="login" style="zoom:50%;" />
+3. 用户查询 <img src="https://www.kungreat.cn/images/images_md/users.PNG" alt="friends" style="zoom:50%;" />
 
-4.好友列表<img src="./images_md/friends.PNG" alt="friends" style="zoom:50%;" />
+4.好友列表<img src="https://www.kungreat.cn/images/images_md/friends.PNG" alt="friends" style="zoom:50%;" />
 
 5.用户设置 支持选择图片上传 和拖拉 上传图片
 
-<img src="./images_md/settings.PNG" alt="settings" style="zoom:50%;" />
+<img src="https://www.kungreat.cn/images/images_md/settings.PNG" alt="settings" style="zoom:50%;" />
 
 6.聊天区域
 
-<img src="./images_md/viewsend.PNG" alt="viewsend" style="zoom:50%;" />
+<img src="https://www.kungreat.cn/images/images_md/viewsend.PNG" alt="viewsend" style="zoom:50%;" />
 
 7.手机端样式
 
-<img src="./images_md/pacs.PNG" alt="pacs" style="zoom:50%;" />
+<img src="https://www.kungreat.cn/images/images_md/pacs.PNG" alt="pacs" style="zoom:50%;" />
 
-<img src="./images_md/pchs.PNG" alt="pchs" style="zoom:50%;" />
+<img src="https://www.kungreat.cn/images/images_md/pchs.PNG" alt="pchs" style="zoom:50%;" />
 
-<img src="./images_md/pfs.PNG" alt="pfs" style="zoom:50%;" />
+<img src="https://www.kungreat.cn/images/images_md/pfs.PNG" alt="pfs" style="zoom:50%;" />
 
-<img src="./images_md/pnts.PNG" alt="pnts" style="zoom:50%;" />
+<img src="https://www.kungreat.cn/images/images_md/pnts.PNG" alt="pnts" style="zoom:50%;" />
 
-<img src="./images_md/pscts.PNG" alt="pscts" style="zoom:50%;" />
+<img src="https://www.kungreat.cn/images/images_md/pscts.PNG" alt="pscts" style="zoom:50%;" />
 
 #### 软件架构
 
