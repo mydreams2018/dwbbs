@@ -74,7 +74,7 @@
             console.log('open');
             console.log("未发送至服务器的字节数."+socket.bufferedAmount);
             console.log("连接所传输二进制数据的类型"+socket.binaryType);
-            delayTime(2000);
+            delayTime(1000);
         });
 
         function getRandomIntInclusive(min, max) {
@@ -111,12 +111,11 @@
         }
         function delayTime(tms){
             setTimeout(function () {
-                console.log(nums);
-                sendObj.charts.nikeName=randomChineseCharts(getRandomIntInclusive(5,80))+nums++;
+                sendObj.charts.nikeName=randomChineseCharts(getRandomIntInclusive(50,800))+nums++;
                 console.log(sendObj.charts.nikeName);
                 socket.send(JSON.stringify(sendObj));
-                if(nums==53){
-                    return;
+                if(nums == 53){
+                    location.reload();
                 }
                 delayTime(tms+nums);
             },tms);
