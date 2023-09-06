@@ -39,7 +39,7 @@ socket.addEventListener('message', function (event) {
             document.querySelector(".container-login-top>h4").innerText=dts.msg;
             if(dts.code=="200"){
                 console.log("登录success");
-                docCookies.setItem('web_sktoken',dts.sktoken,null,"/");
+                docCookies.setItem('web_sktoken',dts.skToken,null,"/");
                 docCookies.setItem('web_user',dts.user,null,"/");
                 docCookies.setItem('web_user_img',dts.imgPath,null,"/");
                 docCookies.setItem('web_user_des',dts.describes,null,"/");

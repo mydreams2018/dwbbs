@@ -717,13 +717,13 @@ function sendFriendsApply(tx) {
             charts:{
                 currentActiveId:"m1-apply-chart",
                 tokenSession:websktoken,
-                nikeNamels:[],
+                nikeNames:[],
                 message:tx||"",
                 imgPath:docCookies.getItem('web_user_img')||""
             }
         }
         for (let elementCheckeOfElement of elementCheckeOf) {
-            sendObjApplyChart.charts.nikeNamels.push(elementCheckeOfElement.getAttribute("data-id"));
+            sendObjApplyChart.charts.nikeNames.push(elementCheckeOfElement.getAttribute("data-id"));
         }
         sendObjApplyChart.uuid=uuid();
         socket.send(JSON.stringify(sendObjApplyChart));
