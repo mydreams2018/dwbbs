@@ -874,6 +874,7 @@ function userDesUpdate() {
 //跑马灯 信息回复提示
 let animationMsgRun = document.getElementById("animation_Msg_run");
 animationMsgRun.addEventListener('animationend',(ev)=> {
+    ev.path = ev.path || ev.composedPath();
     ev.path[0].remove();
     if(animationMsgRun.querySelectorAll(".animation_cylon_eye").length==0){
         animationMsgRun.style.display="none";

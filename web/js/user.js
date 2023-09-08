@@ -98,6 +98,7 @@ var currentActiveId="m1-charts";
 var textAreaSelectionStart = 0;
 //全局的click事件 再根据当前元素ID处理
 document.addEventListener('click', event => {
+    event.path = event.path || event.composedPath();
     let elementsByClassName = document.getElementsByClassName("noClickdis-none");
     for (let paragraph of elementsByClassName) {
         paragraph.style.display="none";
@@ -260,6 +261,7 @@ document.addEventListener("dragover", function(event) {
 }, false);
 document.addEventListener("drop", function(event) {
     event.preventDefault();
+    event.path = event.path || event.composedPath();
     if(event.path[0].id=="fileUserImg" || event.path[1].id=="fileUserImg"){
         let files = event.dataTransfer.files;
         if(files[0] && files[0].type.includes("image/")){
@@ -279,6 +281,7 @@ document.addEventListener("drop", function(event) {
 }, false);
 //textarea 自增加高度
 document.getElementById("message-send").addEventListener("scroll", function(event) {
+    event.path = event.path || event.composedPath();
     event.path[0].style.height = event.path[0].scrollHeight+"px";
     console.log("scroll");
     document.getElementById("faceImgToggle").style.bottom = (event.path[0].scrollHeight+38)+"px";

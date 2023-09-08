@@ -59,6 +59,7 @@ function phoneCssHandler() {
 }
 
 document.addEventListener("click", function(event) {
+    event.path = event.path || event.composedPath();
     //main-1 的图标切换功能
     let mid = event.path[0].id;
     if(m1IDS.includes(mid)){
