@@ -348,7 +348,7 @@ socket.addEventListener('message', function (event) {
                 }
             }
         }
-        else if(recObj.url && recObj.url=="enentAddFriends"){
+        else if(recObj.url && recObj.url=="eventAddFriends"){
             addAnswerAnimation(recObj.src+":申请添加你为好友");
             //添加好友的事件通知 机构
             let datespan = queryAnswerFrsByid.querySelector(".subcon .subcon-title span");
@@ -403,7 +403,7 @@ socket.addEventListener('message', function (event) {
                         </div>`;
                 queryAnswerFrsByid.insertBefore(divhtmlele,queryAnswerFrsByid.querySelector(".subcon"));
             }
-        }else if(recObj.url && recObj.url=="enentDeleteCurFriend"){
+        }else if(recObj.url && recObj.url=="eventDeleteCurFriend"){
             addAnswerAnimation(recObj.src+":把你从好友中删除了");
             let allFriendslist = queryFriendsByid.querySelectorAll(".frePeople .people li h3");
             if(allFriendslist && allFriendslist.length > 0){
@@ -418,7 +418,7 @@ socket.addEventListener('message', function (event) {
                     }
                 }
             }
-        }else if(recObj.url && recObj.url=="enentChartSendMsg"){
+        }else if(recObj.url && recObj.url=="eventChartSendMsg"){
             addAnswerAnimation("接收到源信息来自:"+recObj.src);
             let srcTarUUID = m6DefaultHideTop.getAttribute("data-id");
             //接收到信息通知、并且跟当前的聊天窗口一样的话就追加数据
@@ -457,7 +457,7 @@ socket.addEventListener('message', function (event) {
                         <i class="bi-bookmark-x-fill"></i>
                     </div>`;
             queryChartsViewsByid.insertBefore(htmlDivElement,queryChartsViewsByid.querySelector(".subContent"));
-        }else if(recObj.url && recObj.url=="enentApplyFriend"){
+        }else if(recObj.url && recObj.url=="eventApplyFriend"){
             if(recObj.type=="accept"){
                 addAnswerAnimation(recObj.src+":接受了你的好友申请");
                 let frePeopleh5Ele = queryFriendsByid.querySelector(".frePeople h5");
