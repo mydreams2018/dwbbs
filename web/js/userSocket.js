@@ -82,8 +82,8 @@ socket.addEventListener('message', function (event) {
             scrollFlagCreateChart = true;
             sendObjCreateChart.charts.totalPage = recObj.page.totalPage;
             sendObjCreateChart.charts.currentPage = recObj.page.currentPage;
-            recObj.datas=recObj.datas.filter(word => word.nikeName!=webuser);
-            let groupByToMap = recObj.datas.reduce((group, product) => {
+            recObj.dataList=recObj.dataList.filter(word => word.nikeName!=webuser);
+            let groupByToMap = recObj.dataList.reduce((group, product) => {
                 let { sortFirst } = product;
                 group[sortFirst] = group[sortFirst] ?? [];
                 group[sortFirst].push(product);
@@ -117,7 +117,7 @@ socket.addEventListener('message', function (event) {
             scrollFlagQueryFriends = true;
             queryCurrentFriends.charts.totalPage = recObj.page.totalPage;
             queryCurrentFriends.charts.currentPage = recObj.page.currentPage;
-            let groupByToMap = recObj.datas.reduce((group, product) => {
+            let groupByToMap = recObj.dataList.reduce((group, product) => {
                 let { sortFirst } = product;
                 group[sortFirst] = group[sortFirst] ?? [];
                 group[sortFirst].push(product);
@@ -159,7 +159,7 @@ socket.addEventListener('message', function (event) {
             scrollFlagAnswerFriends = true;
             queryAnswerFriends.charts.totalPage = recObj.page.totalPage;
             queryAnswerFriends.charts.currentPage = recObj.page.currentPage;
-            let groupByToMap = recObj.datas.reduce((group, product) => {
+            let groupByToMap = recObj.dataList.reduce((group, product) => {
                 let { registerTime } = product;
                 group[registerTime] = group[registerTime] ?? [];
                 group[registerTime].push(product);
@@ -201,7 +201,7 @@ socket.addEventListener('message', function (event) {
             scrollFlagChartsViews = true;
             queryChartsViews.charts.totalPage = recObj.page.totalPage;
             queryChartsViews.charts.currentPage = recObj.page.currentPage;
-            for(let dtstr of recObj.datas){
+            for(let dtstr of recObj.dataList){
                 let htmlDivElement = document.createElement("div");
                 htmlDivElement.className="subContent";
                 htmlDivElement.innerHTML=`<div class="group">
@@ -228,7 +228,7 @@ socket.addEventListener('message', function (event) {
             handlerChartsViews.charts.currentPage = recObj.page.currentPage;
             let data_id = m6DefaultHideTop.getAttribute("data-id");
             if(data_id==recObj.dataId && !scrollFlaghandlerChartsViews){
-                for(let dtstr of recObj.datas){
+                for(let dtstr of recObj.dataList){
                     let htmlLiElement = document.createElement("li");
                     htmlLiElement.innerHTML=`
                         <h5 style=${dtstr.srcUser==webuser?'text-align:right;':'text-align:left;' }>${timeFormart(dtstr.sendTime)} <i class="bi-three-dots-vertical"></i></h5>
@@ -239,8 +239,8 @@ socket.addEventListener('message', function (event) {
                 }
                 scrollFlaghandlerChartsViews=true;
             }else{
-                if(recObj.datas && recObj.datas.length>1){
-                    recObj.datas.reverse();//反转数组
+                if(recObj.dataList && recObj.dataList.length>1){
+                    recObj.dataList.reverse();//反转数组
                 }
                 //清空数据 再添加
                 m6DefaultHideTop.style.display="block";
@@ -250,7 +250,7 @@ socket.addEventListener('message', function (event) {
                 m6DefaultHideTop.querySelector("h3").innerText=document.querySelector(`.group-right[data-id='${recObj.dataId}'] .username`).innerText;
                 m6DefaultHideTop.querySelector("img").src=document.querySelector(`.group-left img[data-id='${recObj.dataId}']`).src;
                 m6DefaultHideCon.innerHTML="";
-                for(let dtstr of recObj.datas){
+                for(let dtstr of recObj.dataList){
                     let htmlLiElement = document.createElement("li");
                     htmlLiElement.innerHTML=`
                         <h5 style=${dtstr.srcUser==webuser?'text-align:right;':'text-align:left;'} > ${timeFormart(dtstr.sendTime)} <i class="bi-three-dots-vertical"></i></h5>
