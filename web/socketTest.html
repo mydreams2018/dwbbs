@@ -132,11 +132,11 @@ reader.onload = function(evt) {
     console.dir(evt.target);
     console.log(reader.readyState);
     let view = new Int8Array(evt.target.result);
-    let one = encoder.encode('uuid=xxxxx;src=kungreat;url=test;tar=test;fileName='+fileName);
+    let one = encoder.encode('uuid=xxxxx;src=kungreat;url=testFileUpload;tar=testFileUpload;fileName='+fileName);
     socket.send(one);
     socket.send(view);
     //文件字节内容
-    console.dir(view);
+    // console.dir(view);
 };
 reader.onloadend = function(evt) {
     // console.log(evt.target.result);
